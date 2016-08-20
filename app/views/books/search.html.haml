@@ -1,0 +1,185 @@
+.clear
+/ start Main Wrapper
+.main-wrapper
+  / start end Page title
+  .page-title{:style => "background-image:url('images/books_on_desk2.jpg');"}
+    .container
+      .row
+        .col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
+          %h1.hero-title 書籍一覧
+  / end Page title
+  .breadcrumb-wrapper.bg-light-2
+    .container
+      %ol.breadcrumb-list.booking-step
+        %li
+          %a{:href => ""} トップ
+        %li
+          %span カテゴリ：
+          %a{:href => "#"} デザイン
+          %span キーワード：デザイン
+  .content-wrapper
+    .container
+      .row
+        .col-sm-4.col-md-3
+          %aside.sidebar.with-filter
+            .sidebar-search-wrapper.bg-light-2
+              .sidebar-search-header
+                %h4 再検索
+              .sidebar-search-content
+                .form-group
+                  %select.select2-multi.form-control{"data-placeholder" => "カテゴリを選択", :name => "destination"}
+                    %option{:value => ""} カテゴリを選択
+                    %option{:value => "0"} HTML CSS
+                    %option{:value => "ruby"} Ruby
+                    %option{:value => "javascript"} JavaScript
+                    %option{:value => "rails"} Ruby on Rails
+                    %option{:value => "php"} PHP
+                    %option{:value => "java"} Java
+                    %option{:value => "php"} PHP
+                .form-group
+                  %input.form-control{:name => "month", :placeholder => "キーワード"}/
+                %a.btn.btn-primary.btn-block{:href => "#"} 検索
+        .col-sm-8.col-md-9
+          .sorting-wrappper
+            .sorting-header
+              %p.sorting-lead 50件の検索結果が見つかりました。
+          .package-list-item-wrapper.on-page-result-page.clearfix
+            .col-md-6.col-lg-4.pl-0.ml-0
+              .package-list-item.clearfix.pl-15
+                %a.package-list-item-link{:href => "#"}
+                  .image
+                    %img{:alt => "Tour Package", :src => "images/books/book1.png"}/
+                    .absolute-in-image
+                      .duration
+                        %span デザイン
+                  .content
+                    .row.gap-10
+                      .col-sm-12.col-md-12
+                        %h5 ランディングページ・デザインメソッド
+                        %p.line18 ランディングページの開発をするフロントエンドのエンジニアには必須の本になります。
+                      .col-sm-12.col-md-12.text-left-sm
+                        .price 1000円
+            .col-md-6.col-lg-4.pl-0.ml-0
+              .package-list-item.clearfix.pl-15
+                %a.package-list-item-link{:href => "#"}
+                  .image
+                    %img{:alt => "Tour Package", :src => "images/books/book1.png"}/
+                    .absolute-in-image
+                      .duration
+                        %span デザイン
+                  .content
+                    .row.gap-10
+                      .col-sm-12.col-md-12
+                        %h5 ランディングページ・デザインメソッド
+                        %p.line18 ランディングページの開発をするフロントエンドのエンジニアには必須の本になります。
+                      .col-sm-12.col-md-12.text-left-sm
+                        .price 1000円
+            .col-md-6.col-lg-4.pl-0.ml-0
+              .package-list-item.clearfix.pl-15
+                %a.package-list-item-link{:href => "#"}
+                  .image
+                    %img{:alt => "Tour Package", :src => "images/books/book1.png"}/
+                    .absolute-in-image
+                      .duration
+                        %span デザイン
+                  .content
+                    .row.gap-10
+                      .col-sm-12.col-md-12
+                        %h5 ランディングページ・デザインメソッド
+                        %p.line18 ランディングページの開発をするフロントエンドのエンジニアには必須の本になります。
+                      .col-sm-12.col-md-12.text-left-sm
+                        .price 1000円
+          .pager-wrappper.clearfix
+            .pager-innner
+              .flex-row.flex-align-middle
+                .flex-column.flex-sm-12
+                  50件中1から8件目を表示しています。
+                .flex-column.flex-sm-12
+                  %nav.pager-right
+                    %ul.pagination
+                      %li
+                        %a{"aria-label" => "Previous", :href => "#"}
+                          %span{"aria-hidden" => "true"} «
+                      %li.active
+                        %a{:href => "#"} 1
+                      %li
+                        %a{:href => "#"} 2
+                      %li
+                        %a{:href => "#"} 3
+                      %li
+                        %span ...
+                      %li
+                        %a{:href => "#"} 11
+                      %li
+                        %a{:href => "#"} 12
+                      %li
+                        %a{:href => "#"} 13
+                      %li
+                        %a{"aria-label" => "Next", :href => "#"}
+                          %span{"aria-hidden" => "true"} »
+/ end Main Wrapper
+%footer.footer
+  .container
+    .main-footer
+      .row
+        .col-xs-12.col-sm-5.col-md-3
+          .footer-logo
+            %img{:alt => "Logo", :src => "images/techbook_logo.png"}/
+          %p.footer-address
+            150-0000 東京都渋谷区道玄坂２丁目
+            %br>/
+            新大宗ビル３号館８階
+            %br/
+            %i.fa.fa-phone
+            +66 28 878 5452
+            %br/
+            %i.fa.fa-phone
+            +66 2 547 2223
+            %br/
+            %i.fa.fa-envelope-o
+            %a{:href => "#"} support@techbook.com
+          .footer-social
+            %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Facebook"}
+              %i.fa.fa-facebook
+            %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Twitter"}
+              %i.fa.fa-twitter
+            %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Github"}
+              %i.fa.fa-github
+          %p.copy-right © Copyright 2016 techbook. All Rights Reserved
+        .col-xs-12.col-sm-7.col-md-9
+          .row.gap-10
+            / <div class="col-xs-12 col-sm-4 col-md-3 col-md-offset-3 mt-30-xs">
+            .col-xs-12.col-sm-4.col-md-3.mt-30-xs.col-md-offset-3
+              %h5.footer-title techbookについて
+              %ul.footer-menu
+                %li
+                  %a{:href => "#"} 運営会社について
+                %li
+                  %a{:href => "#"} 利用規約
+                %li
+                  %a{:href => "#"} プライバシーポリシー
+/ start Back To Top
+#back-to-top
+  %a{:href => "#"}
+    %i.fa.fa-angle-up
+/ end Back To Top
+/ JS
+%script{:src => "js/jquery-1.11.3.min.js", :type => "text/javascript"}
+%script{:src => "js/jquery-migrate-1.2.1.min.js", :type => "text/javascript"}
+%script{:src => "bootstrap/js/bootstrap.min.js", :type => "text/javascript"}
+%script{:src => "js/jquery.waypoints.min.js", :type => "text/javascript"}
+%script{:src => "js/jquery.easing.1.3.js", :type => "text/javascript"}
+%script{:src => "js/SmoothScroll.min.js", :type => "text/javascript"}
+%script{:src => "js/jquery.slicknav.min.js", :type => "text/javascript"}
+%script{:src => "js/jquery.placeholder.min.js", :type => "text/javascript"}
+%script{:src => "js/instagram.min.js", :type => "text/javascript"}
+%script{:src => "js/spin.min.js", :type => "text/javascript"}
+%script{:src => "js/jquery.introLoader.min.js", :type => "text/javascript"}
+%script{:src => "js/select2.full.js", :type => "text/javascript"}
+%script{:src => "js/jquery.responsivegrid.js", :type => "text/javascript"}
+%script{:src => "js/ion.rangeSlider.min.js", :type => "text/javascript"}
+%script{:src => "js/readmore.min.js", :type => "text/javascript"}
+%script{:src => "js/slick.min.js", :type => "text/javascript"}
+%script{:src => "js/validator.min.js", :type => "text/javascript"}
+%script{:src => "js/jquery.raty.js", :type => "text/javascript"}
+%script{:src => "js/customs.js", :type => "text/javascript"}

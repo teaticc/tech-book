@@ -1,0 +1,438 @@
+%body
+  #introLoader.introLoading
+  / BEGIN # MODAL LOGIN
+  #loginModal.modal.fade.modal-login.modal-border-transparent{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog
+      .modal-content
+        %button.btn.btn-close.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span.glyphicon.glyphicon-remove{"aria-hidden" => "true"}
+        .clear
+        / Begin # DIV Form
+        #modal-login-form-wrapper
+          / Begin # Login Form
+          %form#login-form
+            .modal-body.pb-5
+              %h4.text-center.heading.mt-10.mb-20 ログイン
+              %button.btn.btn-facebook.btn-block Facebookでログイン
+              .modal-seperator
+                %span or
+              .form-group
+                %input#login_username.form-control{:placeholder => "ユーザーネーム", :type => "text"}/
+              .form-group
+                %input#login_password.form-control{:placeholder => "パスワード", :type => "password"}/
+              .form-group
+                .row.gap-5
+                  .col-xs-6.col-sm-6.col-md-6
+                    .checkbox-block.fa-checkbox
+                      %input#remember_me_checkbox.checkbox{:name => "remember_me_checkbox", :type => "checkbox", :value => "First Choice"}/
+                      %label{:for => "remember_me_checkbox"} ログイン情報を記憶する
+                  .col-xs-6.col-sm-6.col-md-6.text-right
+                    %button#login_lost_btn.btn.btn-link{:type => "button"} パスワードをお忘れですか?
+            .modal-footer
+              .row.gap-10
+                .col-xs-6.col-sm-6.mb-10
+                  %button.btn.btn-primary.btn-block{:type => "submit"} ログイン
+                .col-xs-6.col-sm-6.mb-10
+                  %button.btn.btn-primary.btn-block.btn-inverse{"aria-label" => "Close", "data-dismiss" => "modal", :type => "submit"} 戻る
+              .text-left
+                まだアカウントをお持ちでない場合は
+                %button#login_register_btn.btn.btn-link{:type => "button"} こちら
+          / End # Login Form
+          / Begin | Lost Password Form
+          %form#lost-form{:style => "display:none;"}
+            .modal-body.pb-5
+              %h3.text-center.heading.mt-10.mb-20 パスワードの再設定
+              .form-group.mb-10
+                %input#lost_email.form-control{:placeholder => "登録したアドレスを入力", :type => "text"}/
+              .text-center
+                %button#lost_login_btn.btn.btn-link{:type => "button"} ログイン
+                \/
+                %button#lost_register_btn.btn.btn-link{:type => "button"} 新規登録
+            .modal-footer.mt-10
+              .row.gap-10
+                .col-xs-6.col-sm-6
+                  %button.btn.btn-primary.btn-block{:type => "submit"} メールを送信
+                .col-xs-6.col-sm-6
+                  %button.btn.btn-primary.btn-inverse.btn-block{"aria-label" => "Close", "data-dismiss" => "modal", :type => "submit"} 戻る
+          / End | Lost Password Form
+          / Begin | Register Form
+          %form#register-form{:style => "display:none;"}
+            .modal-body.pb-5
+              %h3.text-center.heading.mt-10.mb-20 新規登録
+              %button.btn.btn-facebook.btn-block Facebookで登録
+              .modal-seperator
+                %span or
+              .form-group
+                %input#register_username.form-control{:placeholder => "ユーザーネーム", :type => "text"}/
+              .form-group
+                %input#register_email.form-control{:placeholder => "Emailアドレス", :type => "email"}/
+              .form-group
+                %input#register_password.form-control{:placeholder => "パスワード", :type => "password"}/
+              .form-group
+                %input#register_password_confirm.form-control{:placeholder => "パスワードを再入力", :type => "password"}/
+            .modal-footer.mt-10
+              .row.gap-10
+                .col-xs-6.col-sm-6.mb-10
+                  %button.btn.btn-primary.btn-block{:type => "submit"} 登録
+                .col-xs-6.col-sm-6.mb-10
+                  %button.btn.btn-primary.btn-inverse.btn-block{"aria-label" => "Close", "data-dismiss" => "modal", :type => "submit"} 戻る
+              .text-left
+                すでにアカウントをお持ちの場合は
+                %button#register_login_btn.btn.btn-link{:type => "button"} こちら
+          / End | Register Form
+        / End # DIV Form
+  / END # MODAL LOGIN
+  / start Container Wrapper
+  .container-wrapper
+    / start Header
+    %header#header
+      / start Navbar (Header)
+      %nav.navbar.navbar-primary.navbar-fixed-top.navbar-sticky-function
+        .navbar-top
+          .container
+            .flex-row.flex-align-middle
+              .flex-shrink.flex-columns
+                %a.navbar-logo{:href => "index.html"}
+                  = image_tag "techbook_logo.png", alt: "Logo"
+              .flex-columns
+                .pull-right
+                  .navbar-mini
+                    %ul.clearfix
+                      %li.dropdown.bt-dropdown-click.hidden-xs
+                        %a#currncy-dropdown.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :role => "button"}
+                          %i.ion-android-settings.hidden-xss
+                          メニュー
+                          %span.caret
+                        %ul.dropdown-menu{"aria-labelledby" => "language-dropdown"}
+                          %li
+                            %a{:href => "#"} マイページ
+                          %li
+                            %a{:href => "#"} ログアウト
+                      %li.user-action
+                        %a.btn{"data-toggle" => "modal", :href => "#loginModal"} ログイン／新規登録
+        #slicknav-mobile
+      / end Navbar (Header)
+    .clear
+    / start Main Wrapper
+    .main-wrapper
+      / start hero-header with windows height
+      .hero
+        .container
+          .row
+            .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+              %h1.hero-title
+                読んだ技術書は、
+                %br>/
+                次の世代のエンジニアへ。
+              %p.lead エンジニアのための書籍シェアリングサービス
+          .main-search-wrapper.full-width
+            .inner
+              .column-item
+                .form-group
+                  %select.select2-multi.form-control{"data-placeholder" => "カテゴリを選択", :name => "destination"}
+                    %option{:value => ""} カテゴリを選択
+                    %option{:value => "0"} HTML CSS
+                    %option{:value => "ruby"} Ruby
+                    %option{:value => "javascript"} JavaScript
+                    %option{:value => "rails"} Ruby on Rails
+                    %option{:value => "php"} PHP
+                    %option{:value => "java"} Java
+                    %option{:value => "php"} PHP
+              #long-column-item.column-item
+                .form-group
+                  %input.form-control{:name => "month", :placeholder => "キーワード"}/
+              .column-item.for-btn
+                .form-group
+                  %a.btn.btn-primary.btn-block{:href => "#"} 書籍を検索
+      %section.bg-light.new-books
+        .container
+          .row
+            .col-sm-8.col-md-6.col-sm-offset-2.col-md-offset-3
+              .section-title
+                %h3 新着の技術書一覧
+                %p 新着で出品された技術書の一覧です。
+          .GridLex-gap-30-wrappper.package-grid-item-wrapper
+            .GridLex-grid-noGutter-equalHeight
+              .GridLex-col-3_sm-4_xs-12.mb-30
+                .package-grid-item
+                  %a{:href => "detail-page.html"}
+                    .image
+                      = image_tag "books/book1.png", alt: "Tour Package"
+                      .absolute-in-image
+                        .duration
+                          %span デザイン
+                    .content.clearfix
+                      %h5 ランディングページメソッド・デザインメソッド
+                      .rating-wrapper
+                        .raty-wrapper
+                          .star-rating-read-only{"data-rating-score" => "4.0"}
+                          %span / 7 review
+                      .absolute-in-content
+                        %span.btn
+                          %i.fa.fa-heart-o
+                        .price $1422
+              .GridLex-col-3_sm-4_xs-12.mb-30
+                .package-grid-item
+                  %a{:href => "detail-page.html"}
+                    .image
+                      = image_tag "books/book2.png", alt: "Tour Package"
+                      .absolute-in-image
+                        .duration
+                          %span JAVA
+                    .content.clearfix
+                      %h5 すっきりわかるJAVA入門
+                      .rating-wrapper
+                        .raty-wrapper
+                          .star-rating-read-only{"data-rating-score" => "3.5"}
+                          %span / 7 review
+                      .absolute-in-content
+                        %span.btn
+                          %i.fa.fa-heart-o
+                        .price $1422
+              .GridLex-col-3_sm-4_xs-12.mb-30
+                .package-grid-item
+                  %a{:href => "detail-page.html"}
+                    .image
+                      = image_tag "books/book3.jpeg", alt: "Tour Package"
+                      .absolute-in-image
+                        .duration
+                          %span PHP
+                    .content.clearfix
+                      %h5 LeaningPHP5
+                      .rating-wrapper
+                        .raty-wrapper
+                          .star-rating-read-only{"data-rating-score" => "4.5"}
+                          %span / 7 review
+                      .absolute-in-content
+                        %span.btn
+                          %i.fa.fa-heart-o
+                        .price $1422
+              .GridLex-col-3_sm-4_xs-12.mb-30
+                .package-grid-item
+                  %a{:href => "detail-page.html"}
+                    .image
+                      = image_tag "books/book4.png", alt: "Tour Package"
+                      .absolute-in-image
+                        .duration
+                          %span Ruby on Rails
+                    .content.clearfix
+                      %h5 パーフェクトRuby on Rails
+                      .rating-wrapper
+                        .raty-wrapper
+                          .star-rating-read-only{"data-rating-score" => "5.0"}
+                          %span / 7 review
+                      .absolute-in-content
+                        %span.btn
+                          %i.fa.fa-heart-o
+                        .price $1422
+              .GridLex-col-3_sm-4_xs-12.mb-30
+                .package-grid-item
+                  %a{:href => "detail-page.html"}
+                    .image
+                      = image_tag "books/book5.jpg", alt: "Tour Package"
+                      .absolute-in-image
+                        .duration
+                          %span その他
+                    .content.clearfix
+                      %h5 テキストエディタAtom入門
+                      .rating-wrapper
+                        .raty-wrapper
+                          .star-rating-read-only{"data-rating-score" => "4.5"}
+                          %span / 7 review
+                      .absolute-in-content
+                        %span.btn
+                          %i.fa.fa-heart-o
+                        .price $1422
+              .GridLex-col-3_sm-4_xs-12.mb-30
+                .package-grid-item
+                  %a{:href => "detail-page.html"}
+                    .image
+                      = image_tag "books/book6.jpeg", alt: "Tour Package"
+                      .absolute-in-image
+                        .duration
+                          %span Ruby on Rails
+                    .content.clearfix
+                      %h5 エンタープライズRails
+                      .rating-wrapper
+                        .raty-wrapper
+                          .star-rating-read-only{"data-rating-score" => "4.5"}
+                          %span / 7 review
+                      .absolute-in-content
+                        %span.btn
+                          %i.fa.fa-heart-o
+                        .price $1422
+              .GridLex-col-3_sm-4_xs-12.mb-30
+                .package-grid-item
+                  %a{:href => "detail-page.html"}
+                    .image
+                      = image_tag "books/book7.jpg", alt: "Tour Package"
+                      .absolute-in-image
+                        .duration
+                          %span JavaScript
+                    .content.clearfix
+                      %h5 ノンプログラマのためのJavaScript
+                      .rating-wrapper
+                        .raty-wrapper
+                          .star-rating-read-only{"data-rating-score" => "5.0"}
+                          %span / 7 review
+                      .absolute-in-content
+                        %span.btn
+                          %i.fa.fa-heart-o
+                        .price $1422
+              .GridLex-col-3_sm-4_xs-12.mb-30
+                .package-grid-item
+                  %a{:href => "detail-page.html"}
+                    .image
+                      = image_tag "books/book8.jpg", alt: "Tour Package"
+                      .absolute-in-image
+                        .duration
+                          %span デザイン
+                    .content.clearfix
+                      %h5 デザインの教室
+                      .rating-wrapper
+                        .raty-wrapper
+                          .star-rating-read-only{"data-rating-score" => "4.0"}
+                          %span / 7 review
+                      .absolute-in-content
+                        %span.btn
+                          %i.fa.fa-heart-o
+                        .price $1422
+      %section.overflow-hidden.why-us-half-image-wrapper
+        .GridLex-grid-noGutter-equalHeight
+          .GridLex-col-6_sm-12
+            .why-us-half-image-content
+              .section-title.text-left
+                %h3 techbookだからできること
+                %p techbookならではのサービスを紹介します。
+              .featured-item
+                %h4 中古書籍なのでリーズナブル
+                .content.clearfix
+                  .icon
+                    %i.pe-7s-users
+                  %p 新品で買うと高額な技術書も、techbookで買うことでリーズナブルな価格で入手することができます。
+              .featured-item
+                %h4 簡単クレジットカード決済
+                .content.clearfix
+                  .icon
+                    %i.pe-7s-home
+                  %p 書店に行かなくてもオンラインで簡単に購入していただけます。
+              .featured-item
+                %h4 出品者のレビューが見られるので安心
+                .content.clearfix
+                  .icon
+                    %i.pe-7s-car
+                  %p 出品者のレビューをたくさんある技術書の中で比較するための指標としてお使いいただけます。
+          .GridLex-col-6_sm-12.image-bg
+            .image-bg
+      %section.bg-light
+        .container
+          .row
+            .col-sm-8.col-md-6.col-sm-offset-2.col-md-offset-3
+              .section-title
+                %h3 利用者の声
+                %p
+          .testimonial-wrapper
+            .row
+              .col-xs-12.col-sm-12.col-md-6
+                .testimonial-item.clearfix
+                  .image
+                    = image_tag "testimonial-01.png", alt: "yamane"
+                  .content
+                    %h4 山根祐亮
+                    %h6 Railsエンジニア
+                    %p RubyやJavaScriptの本を買わせていただきました。自分がまだエンジニアとしての歴が浅くてお金に余裕がなかったころ、いつも人から借りて本を技術書でいたので、今こういったサービスで本を買うことができるエンジニアは幸せだと思います。
+              .col-xs-12.col-sm-12.col-md-6
+                .testimonial-item.clearfix
+                  .image
+                    = image_tag "testimonial-02.png", alt: "maehira"
+                  .content
+                    %h4 前平亮祐
+                    %h6 デザイナー
+                    %p デザインの本って新品だととても高いので、助かっています。辞書代わりにつねに手元においておきたい技術書こそ、ハードで買いましょう！
+      .newsletter-wrapper
+        .container
+          .flex-row.flex-align-middle.flex-gap-30
+            .flex-column.flex-sm-12
+              .newsletter-text.clearfix
+                .icon
+                  %i.pe-7s-mail
+                .content
+                  %h3 ニュースレターを受け取る
+                  %p メールアドレスを登録して、最新の技術書情報などをチェックしましょう。
+            .flex-columns.flex-sm-12
+              .newsletter-form
+                %form
+                  .input-group
+                    %input.form-control{:placeholder => "Emailアドレス", :type => "text"}/
+                    %span.input-group-btn
+                      %button.btn.btn-primary{:type => "button"}
+                        登録
+                        %i.fa.fa-long-arrow-right
+      .overflow-hidden
+        .instagram-wrapper
+          #instagram.instagram
+    / end Main Wrapper
+    %footer.footer
+      .container
+        .main-footer
+          .row
+            .col-xs-12.col-sm-5.col-md-3
+              .footer-logo
+                = image_tag "techbook_logo.png", alt: "Logo"
+              %p.footer-address
+                150-0000 東京都渋谷区道玄坂２丁目
+                %br>/
+                新大宗ビル３号館８階
+                %br/
+                %i.fa.fa-phone
+                +66 28 878 5452
+                %br/
+                %i.fa.fa-phone
+                +66 2 547 2223
+                %br/
+                %i.fa.fa-envelope-o
+                %a{:href => "#"} support@techbook.com
+              .footer-social
+                %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Facebook"}
+                  %i.fa.fa-facebook
+                %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Twitter"}
+                  %i.fa.fa-twitter
+                %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Github"}
+                  %i.fa.fa-github
+              %p.copy-right © Copyright 2016 techbook. All Rights Reserved
+            .col-xs-12.col-sm-7.col-md-9
+              .row.gap-10
+                .col-xs-12.col-sm-4.col-md-3.mt-30-xs.col-md-offset-3
+                  %h5.footer-title techbookについて
+                  %ul.footer-menu
+                    %li
+                      %a{:href => "#"} 運営会社について
+                    %li
+                      %a{:href => "#"} 利用規約
+                    %li
+                      %a{:href => "#"} プライバシーポリシー
+  / end Container Wrapper
+  / start Back To Top
+  #back-to-top
+    %a{:href => "#"}
+      %i.fa.fa-angle-up
+  /
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/SmoothScroll.min.js"></script>
+    <script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
+    <script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
+    <script type="text/javascript" src="js/instagram.min.js"></script>
+    <script type="text/javascript" src="js/spin.min.js"></script>
+    <script type="text/javascript" src="js/jquery.introLoader.min.js"></script>
+    <script type="text/javascript" src="js/select2.full.js"></script>
+    <script type="text/javascript" src="js/jquery.responsivegrid.js"></script>
+    <script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
+    <script type="text/javascript" src="js/readmore.min.js"></script>
+    <script type="text/javascript" src="js/slick.min.js"></script>
+    <script type="text/javascript" src="js/validator.min.js"></script>
+    <script type="text/javascript" src="js/jquery.raty.js"></script>
+    <script type="text/javascript" src="js/customs.js"></script>
