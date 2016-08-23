@@ -12,9 +12,14 @@
     %meta{:content => "Ruby, Ruby on Rails, JavaScript, PHP, JAVA, デザイン, 技術書, プログラミング, 書籍", :name => "keywords"}/
     %meta{:content => "crenoveative", :name => "author"}/
     %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
-    / <link href="css/compiled.css" rel="stylesheet">
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
     %link{:href => "https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,300italic,300", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,600,600italic,700,700italic", :rel => "stylesheet", :type => "text/css"}/
   %body
     = yield
+    = render "layouts/footer"
+    / start Back To Top
+    #back-to-top
+      %a{:href => "#"}
+        %i.fa.fa-angle-up
+    / end Back To Top
