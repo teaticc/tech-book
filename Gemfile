@@ -54,3 +54,4 @@ gem "html2haml"
 gem "devise"
 gem "carrierwave"
 gem 'font-awesome-sass', '~> 4.6.2'
+gem "rmagick"
