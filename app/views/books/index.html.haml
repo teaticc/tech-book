@@ -8,109 +8,13 @@
       .clear
       / Begin # DIV Form
       #modal-login-form-wrapper
-        / Begin # Login Form
-        %form#login-form
-          .modal-body.pb-5
-            %h4.text-center.heading.mt-10.mb-20 ログイン
-            %button.btn.btn-facebook.btn-block Facebookでログイン
-            .modal-seperator
-              %span or
-            .form-group
-              %input#login_username.form-control{:placeholder => "ユーザーネーム", :type => "text"}/
-            .form-group
-              %input#login_password.form-control{:placeholder => "パスワード", :type => "password"}/
-            .form-group
-              .row.gap-5
-                .col-xs-6.col-sm-6.col-md-6
-                  .checkbox-block.fa-checkbox
-                    %input#remember_me_checkbox.checkbox{:name => "remember_me_checkbox", :type => "checkbox", :value => "First Choice"}/
-                    %label{:for => "remember_me_checkbox"} ログイン情報を記憶する
-                .col-xs-6.col-sm-6.col-md-6.text-right
-                  %button#login_lost_btn.btn.btn-link{:type => "button"} パスワードをお忘れですか?
-          .modal-footer
-            .row.gap-10
-              .col-xs-6.col-sm-6.mb-10
-                %button.btn.btn-primary.btn-block{:type => "submit"} ログイン
-              .col-xs-6.col-sm-6.mb-10
-                %button.btn.btn-primary.btn-block.btn-inverse{"aria-label" => "Close", "data-dismiss" => "modal", :type => "submit"} 戻る
-            .text-left
-              まだアカウントをお持ちでない場合は
-              %button#login_register_btn.btn.btn-link{:type => "button"} こちら
-        / End # Login Form
-        / Begin | Lost Password Form
-        %form#lost-form{:style => "display:none;"}
-          .modal-body.pb-5
-            %h3.text-center.heading.mt-10.mb-20 パスワードの再設定
-            .form-group.mb-10
-              %input#lost_email.form-control{:placeholder => "登録したアドレスを入力", :type => "text"}/
-            .text-center
-              %button#lost_login_btn.btn.btn-link{:type => "button"} ログイン
-              \/
-              %button#lost_register_btn.btn.btn-link{:type => "button"} 新規登録
-          .modal-footer.mt-10
-            .row.gap-10
-              .col-xs-6.col-sm-6
-                %button.btn.btn-primary.btn-block{:type => "submit"} メールを送信
-              .col-xs-6.col-sm-6
-                %button.btn.btn-primary.btn-inverse.btn-block{"aria-label" => "Close", "data-dismiss" => "modal", :type => "submit"} 戻る
-        / End | Lost Password Form
-        / Begin | Register Form
-        %form#register-form{:style => "display:none;"}
-          .modal-body.pb-5
-            %h3.text-center.heading.mt-10.mb-20 新規登録
-            %button.btn.btn-facebook.btn-block Facebookで登録
-            .modal-seperator
-              %span or
-            .form-group
-              %input#register_username.form-control{:placeholder => "ユーザーネーム", :type => "text"}/
-            .form-group
-              %input#register_email.form-control{:placeholder => "Emailアドレス", :type => "email"}/
-            .form-group
-              %input#register_password.form-control{:placeholder => "パスワード", :type => "password"}/
-            .form-group
-              %input#register_password_confirm.form-control{:placeholder => "パスワードを再入力", :type => "password"}/
-          .modal-footer.mt-10
-            .row.gap-10
-              .col-xs-6.col-sm-6.mb-10
-                %button.btn.btn-primary.btn-block{:type => "submit"} 登録
-              .col-xs-6.col-sm-6.mb-10
-                %button.btn.btn-primary.btn-inverse.btn-block{"aria-label" => "Close", "data-dismiss" => "modal", :type => "submit"} 戻る
-            .text-left
-              すでにアカウントをお持ちの場合は
-              %button#register_login_btn.btn.btn-link{:type => "button"} こちら
-        / End | Register Form
-      / End # DIV Form
+        = render "users/login"
+        = render "users/lostPassword"
+        = render "users/registration"
 / END # MODAL LOGIN
 / start Container Wrapper
 .container-wrapper
-  / start Header
-  %header#header
-    / start Navbar (Header)
-    %nav.navbar.navbar-primary.navbar-fixed-top.navbar-sticky-function
-      .navbar-top
-        .container
-          .flex-row.flex-align-middle
-            .flex-shrink.flex-columns
-              %a.navbar-logo{:href => "index.html"}
-                = image_tag "techbook_logo.png", alt: "Logo"
-            .flex-columns
-              .pull-right
-                .navbar-mini
-                  %ul.clearfix
-                    %li.dropdown.bt-dropdown-click.hidden-xs
-                      %a#currncy-dropdown.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :role => "button"}
-                        %i.ion-android-settings.hidden-xss
-                        メニュー
-                        %span.caret
-                      %ul.dropdown-menu{"aria-labelledby" => "language-dropdown"}
-                        %li
-                          %a{:href => "#"} マイページ
-                        %li
-                          %a{:href => "#"} ログアウト
-                    %li.user-action
-                      %a.btn{"data-toggle" => "modal", :href => "#loginModal"} ログイン／新規登録
-      #slicknav-mobile
-    / end Navbar (Header)
+  = render "header"
   .clear
   / start Main Wrapper
   .main-wrapper
