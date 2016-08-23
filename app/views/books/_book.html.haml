@@ -1,0 +1,20 @@
+.GridLex-col-3_sm-4_xs-12.mb-30
+  .package-grid-item
+    = link_to book_path(book) do
+      .image
+        = image_tag book.image, alt: book.title
+        .absolute-in-image
+          .duration
+            %span= book.category
+      .content.clearfix
+        %h5= book.title
+        .rating-wrapper
+          .raty-wrapper
+            .star-rating-read-only{"data-rating-score" => "4.0"}
+            %span / 7 review
+        .absolute-in-content
+          %span.btn
+            %i.fa.fa-heart-o
+          .price
+            = book.price
+            円
