@@ -17,9 +17,9 @@
                         %span.caret
                       %ul.dropdown-menu{"aria-labelledby" => "language-dropdown"}
                         %li
-                          %a{:href => "#"} マイページ
+                          = link_to "マイページ", user_path(current_user)
                         %li
-                          %a{:href => "#"} ログアウト
+                          = link_to "ログアウト", destroy_user_session_path, method: :delete
                   - else
                     %li.user-action
                       %a.btn{"data-toggle" => "modal", :href => "#loginModal"} ログイン／新規登録

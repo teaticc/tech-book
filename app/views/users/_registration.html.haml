@@ -1,23 +1,27 @@
-%form#register-form{:style => "display:none;"}
+= form_for(resource, as: resource_name, url: user_registration_path, html: { id: "register-form", style: "display:none" }) do |f|
   .modal-body.pb-5
     %h3.text-center.heading.mt-10.mb-20 新規登録
     %button.btn.btn-facebook.btn-block Facebookで登録
     .modal-seperator
       %span or
+    = devise_error_messages!
     .form-group
-      %input#register_username.form-control{:placeholder => "ユーザーネーム", :type => "text"}/
+      = f.text_field :fullname, class: "form-control", placeholder: "ユーザーネーム"
     .form-group
-      %input#register_email.form-control{:placeholder => "Emailアドレス", :type => "email"}/
+      = f.email_field :email, class: "form-control", placeholder: "Emailアドレス"
     .form-group
-      %input#register_password.form-control{:placeholder => "パスワード", :type => "password"}/
+      - if @minimum_password_length
+        %em
+          (#{@minimum_password_length} 文字以上のパスワードを入力してください)
+      = f.password_field :password, class: "form-control", placeholder: "パスワード", autocomplete: "off"
     .form-group
-      %input#register_password_confirm.form-control{:placeholder => "パスワードを再入力", :type => "password"}/
-  .modal-footer.mt-10
-    .row.gap-10
-      .col-xs-6.col-sm-6.mb-10
-        %button.btn.btn-primary.btn-block{:type => "submit"} 登録
-      .col-xs-6.col-sm-6.mb-10
-        %button.btn.btn-primary.btn-inverse.btn-block{"aria-label" => "Close", "data-dismiss" => "modal", :type => "submit"} 戻る
-    .text-left
-      すでにアカウントをお持ちの場合は
-      %button#register_login_btn.btn.btn-link{:type => "button"} こちら
+      = f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードを再入力", autocomplete: "off"
+    .modal-footer.mt-10
+      .row.gap-10
+        .col-xs-6.col-sm-6.mb-10
+          = f.submit "登録", class: "btn btn-primary btn-block"
+        .col-xs-6.col-sm-6.mb-10
+          %button.btn.btn-primary.btn-inverse.btn-block{"aria-label" => "Close", "data-dismiss" => "modal", :type => "submit"} 戻る
+      .text-left
+        すでにアカウントをお持ちの場合は
+        %button#register_login_btn.btn.btn-link{:type => "button"} こちら
