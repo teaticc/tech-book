@@ -1,0 +1,111 @@
+.clear
+/ start Main Wrapper
+.main-wrapper.scrollspy-container
+  / start end Page title
+  .page-title{:style => "background-image:url('images/my_room.jpeg');"}
+    .container
+      .row
+        .col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
+          %h2.text-white せきやじょうじ
+          .user-thumbnail.mb-10{:style => "background-image:url('images/sekiya.jpeg');"}
+            / <img src="images/books/book9.jpg" alt="" class="user-thumbnail">
+  / end Page title
+  .content-wrapper
+    .container
+      .row
+        .col-sm-8.col-md-8
+          .payment-box
+            .payment-header.clearfix
+              %h5.heading.mt-0 購入者情報
+            .payment-content
+              .payment-traveller.mb-0
+                .form-horizontal
+                  .form-group.gap-20
+                    %label.col-sm-4.col-md-4.control-label 姓
+                    .col-sm-8.col-md-6
+                      %input.form-control{:type => "text", :value => "せきや"}/
+                .form-horizontal
+                  .form-group.gap-20
+                    %label.col-sm-4.col-md-4.control-label 名
+                    .col-sm-8.col-md-6
+                      %input.form-control{:type => "text", :value => "じょうじ"}/
+                .form-horizontal
+                  .form-group.gap-20
+                    %label.col-sm-4.col-md-4.control-label 郵便番号:
+                    .col-sm-8.col-md-6
+                      %input.form-control{:type => "text", :value => "150-0042"}/
+                .form-horizontal
+                  .form-group.gap-20
+                    %label.col-sm-4.col-md-4.control-label 住所:
+                    .col-sm-8.col-md-6
+                      %input.form-control{:type => "text", :value => "東京都渋谷区道玄坂2丁目"}/
+              .text-center
+                %button.btn.btn-primary.btn-sm.btn-inverse 購入者情報の編集
+          .payment-box
+            .payment-header.clearfix
+              %h5.heading.mt-0 登録情報
+            .payment-content
+              .payment-traveller.mb-0
+                .form-horizontal
+                  .form-group.gap-20
+                    %label.col-sm-4.col-md-4.control-label メールアドレス:
+                    .col-sm-8.col-md-6
+                      %input.form-control{:type => "email", :value => "jeorge_sekiya@hoge.com"}/
+                .form-horizontal
+                  .form-group.gap-20
+                    %label.col-sm-4.col-md-4.control-label 現在のパスワード:
+                    .col-sm-8.col-md-6
+                      %input.form-control{:type => "password", :value => ""}/
+                .form-horizontal
+                  .form-group.gap-20
+                    %label.col-sm-4.col-md-4.control-label 新しいパスワード:
+                    .col-sm-8.col-md-6
+                      %input.form-control{:type => "password", :value => ""}/
+              .text-center
+                %button.btn.btn-primary.btn-sm.btn-inverse 登録情報の編集
+        .col-sm-4.col-md-4.mt-50-xs
+          %aside.sidebar
+            .sidebar-inner.no-border.for-blog
+              .clear
+              .sidebar-module
+                %h4.sidebar-title 購入履歴
+                .sidebar-module-inner
+                  %ul.sidebar-post
+                    %li.clearfix
+                      %a{:href => "blog-single.html"}
+                        .image
+                          %img{:alt => "Popular Post", :src => "images/books/book1.png"}/
+                        .content
+                          %h6 ランディングページ・デザインメソッド
+                          %p.recent-post-sm-meta
+                            %i.fa.fa-clock-o.mr-5>
+                            June 01, 2016
+                    %li.clearfix
+                      %a{:href => "blog-single.html"}
+                        .image
+                          %img{:alt => "Popular Post", :src => "images/books/book2.png"}/
+                        .content
+                          %h6 すっきり分かるJAVA入門
+                          %p.recent-post-sm-meta
+                            %i.fa.fa-clock-o.mr-5>
+                            April 25, 2016
+                    %li.clearfix
+                      %a{:href => "blog-single.html"}
+                        .image
+                          %img{:alt => "Popular Post", :src => "images/books/book3.jpeg"}/
+                        .content
+                          %h6 Learing PHP
+                          %p.recent-post-sm-meta
+                            %i.fa.fa-clock-o.mr-5>
+                            March 20, 2016
+                    %li.clearfix
+                      %a{:href => "blog-single.html"}
+                        .image
+                          %img{:alt => "Popular Post", :src => "images/books/book4.png"}/
+                        .content
+                          %h6 パーフェクト Ruby on Rails
+                          %p.recent-post-sm-meta
+                            %i.fa.fa-clock-o.mr-5>
+                            March 05, 2016
+              .clear
+/ end Main Wrapper

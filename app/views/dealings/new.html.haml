@@ -1,0 +1,171 @@
+.clear
+/ start Main Wrapper
+.main-wrapper
+  .breadcrumb-wrapper.bg-light-2
+    .container
+      %ol.breadcrumb-list.booking-step
+        %li
+          %a{:href => ""} トップページ
+        %li
+          %a{:href => "#"} 検索結果
+        %li
+          %a{:href => "#"} 詳細画面
+        %li
+          %span お支払い
+        %li
+          %span 完了
+  .content-wrapper
+    .container
+      .row
+        .col-sm-12.visible-xs.mb-50
+          .price-summary-wrapper
+            %h4.heading.mt-0.text-primary.uppercase 注文内容
+            %ul.price-summary-list
+              %li
+                %h6.heading.mt-0.mb-0 ランディングページ・デザインメソッド
+                %p.font12.text-light デザイン
+              %li.divider
+              %li
+                %h6.heading.mt-20.mb-5.text-primary.uppercase 価格内訳
+                .row.gap-10.mt-10
+                  .col-xs-7.col-sm-7
+                    本体価格
+                  .col-xs-5.col-sm-5.text-right
+                    1200円
+                .row.gap-10.mt-10
+                  .col-xs-7.col-sm-7
+                    送料
+                  .col-xs-5.col-sm-5.text-right
+                    200円
+                .row.gap-10.mt-10
+                  .col-xs-7.col-sm-7
+                    消費税
+                  .col-xs-5.col-sm-5.text-right
+                    96円
+              %li.divider
+              %li.text-right.font600.font14
+                1296円
+              %li.divider
+              %li
+                .row.gap-10.font600.font14
+                  .col-xs-9.col-sm-9
+                    購入点数
+                  .col-xs-3.col-sm-3.text-right
+                    1
+              %li.total-price
+                .row.gap-10
+                  .col-xs-6.col-sm-6
+                    %h5.heading.mt-0.mb-0.text-white Amount due
+                    %p.font12 合計金額
+                  .col-xs-6.col-sm-6.text-right
+                    %span.block.font20.font600.mb-5 1200円
+        .col-sm-8.col-md-9{:role => "main"}
+          .section-title.text-left
+            %h3
+              ランディングページ・デザインメソッド
+              %small を購入します。
+          .payment-container
+            %form
+              .payment-box
+                .payment-header.clearfix
+                  .number
+                    \!
+                  %h5.heading.mt-0 お届け先詳細
+                  %p
+                    %spna.necessary-info *必須情報
+                .payment-content
+                  .payment-traveller
+                    .row.gap-0
+                    .form-horizontal
+                      .form-group.gap-20
+                        %label.col-sm-4.col-md-4.control-label
+                          %spna.necessary-info> *
+                          姓:
+                        .col-sm-6.col-md-6
+                          %input.form-control{:type => "text", :value => "せきや"}/
+                    .form-horizontal
+                      .form-group.gap-20
+                        %label.col-sm-4.col-md-4.control-label
+                          %spna.necessary-info> *
+                          名:
+                        .col-sm-6.col-md-6
+                          %input.form-control{:type => "text", :value => "じょうじ"}/
+                    .form-horizontal
+                      .form-group.gap-20
+                        %label.col-sm-4.col-md-4.control-label
+                          %spna.necessary-info> *
+                          メールアドレス:
+                        .col-sm-6.col-md-6
+                          %input.form-control{:type => "email", :value => "george-sekiya@hoge.com"}/
+                    .form-horizontal
+                      .form-group.gap-20
+                        %label.col-sm-4.col-md-4.control-label 電話番号:
+                        .col-sm-6.col-md-6
+                          %input.form-control{:type => "email", :value => ""}/
+                    .form-horizontal
+                      .form-group.gap-20
+                        %label.col-sm-4.col-md-4.control-label
+                          %spna.necessary-info> *
+                          郵便番号:
+                        .col-sm-6.col-md-6
+                          %input.form-control{:type => "email", :value => "150-0000"}/
+                    .form-horizontal
+                      .form-group.gap-20
+                        %label.col-sm-4.col-md-4.control-label
+                          %spna.necessary-info> *
+                          住所:
+                        .col-sm-6.col-md-6
+                          %input.form-control{:type => "email", :value => "東京都渋谷区道玄坂２丁目新大宗ビル３号館８階"}/
+          .checkbox-block
+            %input#accept_booking.checkbox{:name => "accept_booking", :type => "checkbox", :value => "paymentsCreditCard"}/
+            %label{:for => "accept_booking"}
+              %a{:href => "#"}> 利用規約
+              及び
+              %a{:href => "#"}> プライバシーポリシー
+              に同意します。
+          .row.mt-20.clearfix
+            .col-sm-12.col-md-12
+              %button.btn.btn-primary 注文を確定する
+        .col-sm-4.col-md-3.hidden-xs
+          .price-summary-wrapper
+            %h4.heading.mt-0.text-primary.uppercase 注文内容
+            %ul.price-summary-list
+              %li
+                %h6.heading.mt-0.mb-0 ランディングページ・デザインメソッド
+                %p.font12.text-light デザイン
+              %li.divider
+              %li
+                %h6.heading.mt-20.mb-5.text-primary.uppercase 価格内訳
+                .row.gap-10.mt-10
+                  .col-xs-7.col-sm-7
+                    本体価格
+                  .col-xs-5.col-sm-5.text-right
+                    1200円
+                .row.gap-10.mt-10
+                  .col-xs-7.col-sm-7
+                    送料
+                  .col-xs-5.col-sm-5.text-right
+                    200円
+                .row.gap-10.mt-10
+                  .col-xs-7.col-sm-7
+                    消費税
+                  .col-xs-5.col-sm-5.text-right
+                    96円
+              %li.divider
+              %li.text-right.font600.font14
+                1296円
+              %li.divider
+              %li
+                .row.gap-10.font600.font14
+                  .col-xs-9.col-sm-9
+                    購入点数
+                  .col-xs-3.col-sm-3.text-right
+                    1
+              %li.total-price
+                .row.gap-10
+                  .col-xs-6.col-sm-6
+                    %h5.heading.mt-0.mb-0.text-white Amount due
+                    %p.font12 合計金額
+                  .col-xs-6.col-sm-6.text-right
+                    %span.block.font20.font600.mb-5 1200円
+/ end Main Wrapper

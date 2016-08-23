@@ -1,0 +1,23 @@
+%form#register-form{:style => "display:none;"}
+  .modal-body.pb-5
+    %h3.text-center.heading.mt-10.mb-20 新規登録
+    %button.btn.btn-facebook.btn-block Facebookで登録
+    .modal-seperator
+      %span or
+    .form-group
+      %input#register_username.form-control{:placeholder => "ユーザーネーム", :type => "text"}/
+    .form-group
+      %input#register_email.form-control{:placeholder => "Emailアドレス", :type => "email"}/
+    .form-group
+      %input#register_password.form-control{:placeholder => "パスワード", :type => "password"}/
+    .form-group
+      %input#register_password_confirm.form-control{:placeholder => "パスワードを再入力", :type => "password"}/
+  .modal-footer.mt-10
+    .row.gap-10
+      .col-xs-6.col-sm-6.mb-10
+        %button.btn.btn-primary.btn-block{:type => "submit"} 登録
+      .col-xs-6.col-sm-6.mb-10
+        %button.btn.btn-primary.btn-inverse.btn-block{"aria-label" => "Close", "data-dismiss" => "modal", :type => "submit"} 戻る
+    .text-left
+      すでにアカウントをお持ちの場合は
+      %button#register_login_btn.btn.btn-link{:type => "button"} こちら

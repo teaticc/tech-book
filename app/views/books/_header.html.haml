@@ -1,0 +1,26 @@
+%header#header
+  %nav.navbar.navbar-primary.navbar-fixed-top.navbar-sticky-function
+    .navbar-top
+      .container
+        .flex-row.flex-align-middle
+          .flex-shrink.flex-columns
+            = link_to image_tag("techbook_logo.png", alt: "logo"), root_path, class: "navbar-logo"
+          .flex-columns
+            .pull-right
+              .navbar-mini
+                %ul.clearfix
+                  - if user_signed_in?
+                    %li.dropdown.bt-dropdown-click.hidden-xs
+                      %a#currncy-dropdown.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :role => "button"}
+                        %i.ion-android-settings.hidden-xss
+                        メニュー
+                        %span.caret
+                      %ul.dropdown-menu{"aria-labelledby" => "language-dropdown"}
+                        %li
+                          %a{:href => "#"} マイページ
+                        %li
+                          %a{:href => "#"} ログアウト
+                  - else
+                    %li.user-action
+                      %a.btn{"data-toggle" => "modal", :href => "#loginModal"} ログイン／新規登録
+    #slicknav-mobile
