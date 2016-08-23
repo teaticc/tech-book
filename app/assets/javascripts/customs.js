@@ -94,7 +94,7 @@ jQuery(function($) {
     /**
      * Smooth scroll to anchor
      */
-    $('a.anchor[href*=#]:not([href=#])').on("click",function() {
+    $('a.anchor[href*="#"]:not([href="#"])').on("click",function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -236,7 +236,7 @@ jQuery(function($) {
     /**
      * Raty - Rating Star
      */
-    $.fn.raty.defaults.path = 'images/raty';
+    $.fn.raty.defaults.path = 'assets/raty';
     
     // Default size star 
     $('.star-rating').raty({
@@ -440,4 +440,4 @@ jQuery(function($) {
 
     });
 
-})(jQuery);
+});

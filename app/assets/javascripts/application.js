@@ -14,4 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require select2.full
+//= require jquery.placeholder.min
+//= require jquery.responsivegrid
+//= require jquery.raty
+//= require readmore.min
+//= require ion.rangeSlider.min
+//= require slick.min
+//= require instagram.min
+//= require sidebarSticky
+//= require jquery.easing.1.3
+//= require jquery.introLoader.min
+//= require jquery.waypoints.min
+//= require jquery.slicknav.min
 //= require_tree .
