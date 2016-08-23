@@ -18,7 +18,7 @@
               %h5.heading.mt-0 購入者情報
             .payment-content
               .payment-traveller.mb-0
-                = form_for(@user, url: "/users", html: { method: :put, class: "form-horizontal" }) do |f|
+                = form_for(@address, url: address_path(@address), html: { method: :put, class: "form-horizontal" }) do |f|
                   = devise_error_messages!
                   .form-horizontal
                     .form-group.gap-20
@@ -37,9 +37,9 @@
                         = f.text_field :post_number, class: "form-control"
                   .form-horizontal
                     .form-group.gap-20
-                      = f.label :address, "住所:", class: "col-sm-4 col-md-4 control-label"
+                      = f.label :street_address, "住所:", class: "col-sm-4 col-md-4 control-label"
                       .col-sm-8.col-md-6
-                        = f.text_field :address, class: "form-control"
+                        = f.text_field :street_address, class: "form-control"
                   .text-center
                     = f.button "購入者情報の編集", class: "btn btn-primary btn-sm btn-inverse"
           .payment-box
@@ -76,49 +76,49 @@
                         = f.password_field :first_name, class: "form-control", autocomplete: "off"
                   .text-center
                     = f.button "登録情報の編集", class: "btn btn-primary btn-sm btn-inverse"
-        .col-sm-4.col-md-4.mt-50-xs
-          %aside.sidebar
-            .sidebar-inner.no-border.for-blog
-              .clear
-              .sidebar-module
-                %h4.sidebar-title 購入履歴
-                .sidebar-module-inner
-                  %ul.sidebar-post
-                    %li.clearfix
-                      %a{:href => "blog-single.html"}
-                        .image
-                          %img{:alt => "Popular Post", :src => "images/books/book1.png"}/
-                        .content
-                          %h6 ランディングページ・デザインメソッド
-                          %p.recent-post-sm-meta
-                            %i.fa.fa-clock-o.mr-5>
-                            June 01, 2016
-                    %li.clearfix
-                      %a{:href => "blog-single.html"}
-                        .image
-                          %img{:alt => "Popular Post", :src => "images/books/book2.png"}/
-                        .content
-                          %h6 すっきり分かるJAVA入門
-                          %p.recent-post-sm-meta
-                            %i.fa.fa-clock-o.mr-5>
-                            April 25, 2016
-                    %li.clearfix
-                      %a{:href => "blog-single.html"}
-                        .image
-                          %img{:alt => "Popular Post", :src => "images/books/book3.jpeg"}/
-                        .content
-                          %h6 Learing PHP
-                          %p.recent-post-sm-meta
-                            %i.fa.fa-clock-o.mr-5>
-                            March 20, 2016
-                    %li.clearfix
-                      %a{:href => "blog-single.html"}
-                        .image
-                          %img{:alt => "Popular Post", :src => "images/books/book4.png"}/
-                        .content
-                          %h6 パーフェクト Ruby on Rails
-                          %p.recent-post-sm-meta
-                            %i.fa.fa-clock-o.mr-5>
-                            March 05, 2016
-              .clear
+        / .col-sm-4.col-md-4.mt-50-xs
+        /   %aside.sidebar
+        /     .sidebar-inner.no-border.for-blog
+        /       .clear
+        /       .sidebar-module
+        /         %h4.sidebar-title 購入履歴
+        /         .sidebar-module-inner
+        /           %ul.sidebar-post
+        /             %li.clearfix
+        /               %a{:href => "blog-single.html"}
+        /                 .image
+        /                   %img{:alt => "Popular Post", :src => "images/books/book1.png"}/
+        /                 .content
+        /                   %h6 ランディングページ・デザインメソッド
+        /                   %p.recent-post-sm-meta
+        /                     %i.fa.fa-clock-o.mr-5>
+        /                     June 01, 2016
+        /             %li.clearfix
+        /               %a{:href => "blog-single.html"}
+        /                 .image
+        /                   %img{:alt => "Popular Post", :src => "images/books/book2.png"}/
+        /                 .content
+        /                   %h6 すっきり分かるJAVA入門
+        /                   %p.recent-post-sm-meta
+        /                     %i.fa.fa-clock-o.mr-5>
+        /                     April 25, 2016
+        /             %li.clearfix
+        /               %a{:href => "blog-single.html"}
+        /                 .image
+        /                   %img{:alt => "Popular Post", :src => "images/books/book3.jpeg"}/
+        /                 .content
+        /                   %h6 Learing PHP
+        /                   %p.recent-post-sm-meta
+        /                     %i.fa.fa-clock-o.mr-5>
+        /                     March 20, 2016
+        /             %li.clearfix
+        /               %a{:href => "blog-single.html"}
+        /                 .image
+        /                   %img{:alt => "Popular Post", :src => "images/books/book4.png"}/
+        /                 .content
+        /                   %h6 パーフェクト Ruby on Rails
+        /                   %p.recent-post-sm-meta
+        /                     %i.fa.fa-clock-o.mr-5>
+        /                     March 05, 2016
+        /       .clear
 / end Main Wrapper

@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:fullname]
   validates_uniqueness_of :fullname
   validates_presence_of :fullname
+  has_many :seller_books, class_name: "Book", foreign_key: "seller_id"
+  has_many :buyer_books, class_name: "Book", foreign_key: "buyer_id"
+  has_one :address, as: :addressable
 
   def update_with_password(params, *options)
     if params[:password].blank?
@@ -23,5 +26,4 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
-
 end
