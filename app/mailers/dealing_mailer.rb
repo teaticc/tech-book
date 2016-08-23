@@ -1,0 +1,2 @@
+class DealingMailer < ApplicationMailer
+end
