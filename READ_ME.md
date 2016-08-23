@@ -23,20 +23,16 @@
 ## MODEL
 ### User
 - Association
-    - has_many books
-    - has_many dealings as buyer
-    - has_many dealings as seller
+    - has_one address
+    - has_many books as buyer
+    - has_many books as seller
 - Property
-    - first_name
-    - family_name
+    - username
     - email
-    - address
-    - post_number
-    - phone_number
 
 ### Book
 - Association
-    - belongs_to user
+    - belongs_to buyer, seller, class: User
     - has_one dealing
 - Property
     - title
@@ -45,15 +41,26 @@
     - postage
     - detail
     - state(=>tag)
-    - user_id
+    - seller_id
+    - buyer_id
 
 ### Dealing
 - Association
-    - belongs_to buyer, seller, book
+    - has_one address
+    - belongs_to book
 - Property
-    - seller_id
-    - buyer_id
     - book_id
+    - registered
+
+### Address
+- Association
+    -belongs_to user, dealing
+- Property
+    - first_name
+    - family_name
+    - street_address
+    - post_number
+    - phone_number
 
 ## Controller
 ### UsersController
