@@ -1,27 +1,29 @@
-%form#login-form
+#login-form
   .modal-body.pb-5
     %h4.text-center.heading.mt-10.mb-20 ログイン
     %button.btn.btn-facebook.btn-block Facebookでログイン
     .modal-seperator
       %span or
-    .form-group
-      %input#login_username.form-control{:placeholder => "ユーザーネーム", :type => "text"}/
-    .form-group
-      %input#login_password.form-control{:placeholder => "パスワード", :type => "password"}/
-    .form-group
-      .row.gap-5
-        .col-xs-6.col-sm-6.col-md-6
-          .checkbox-block.fa-checkbox
-            %input#remember_me_checkbox.checkbox{:name => "remember_me_checkbox", :type => "checkbox", :value => "First Choice"}/
-            %label{:for => "remember_me_checkbox"} ログイン情報を記憶する
-        .col-xs-6.col-sm-6.col-md-6.text-right
-          %button#login_lost_btn.btn.btn-link{:type => "button"} パスワードをお忘れですか?
-  .modal-footer
-    .row.gap-10
-      .col-xs-6.col-sm-6.mb-10
-        %button.btn.btn-primary.btn-block{:type => "submit"} ログイン
-      .col-xs-6.col-sm-6.mb-10
-        %button.btn.btn-primary.btn-block.btn-inverse{"aria-label" => "Close", "data-dismiss" => "modal", :type => "submit"} 戻る
-    .text-left
-      まだアカウントをお持ちでない場合は
-      %button#login_register_btn.btn.btn-link{:type => "button"} こちら
+    = form_for(resource, as: resource_name, url: user_session_path) do |f|
+      .form-group
+        = f.text_field :fullname, autofocus: true, placeholder: "ユーザーネーム", class: "form-control"
+      .form-group
+        = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "form-control"
+      - if devise_mapping.rememberable?
+        .form-group
+          .row.gap-5
+            .col-xs-6.col-sm-6.col-md-6
+              .checkbox-block.fa-checkbox
+                = f.check_box :remember_me, class: "checkbox"
+                = f.label :remember_me, "ログイン情報を記憶する"
+            .col-xs-6.col-sm-6.col-md-6.text-right
+              %button#login_lost_btn.btn.btn-link{:type => "button"} パスワードをお忘れですか?
+      .modal-footer
+        .row.gap-10
+          .col-xs-6.col-sm-6.mb-10
+            = f.button "ログイン", class: "btn btn-primary btn-block"
+          .col-xs-6.col-sm-6.mb-10
+            %button.btn.btn-primary.btn-block.btn-inverse{"aria-label" => "Close", "data-dismiss" => "modal", :type => "submit"} 戻る
+        .text-left
+          まだアカウントをお持ちでない場合は
+          %button#login_register_btn.btn.btn-link{:type => "button"} こちら
