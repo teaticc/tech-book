@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'Rivolicons-Free';
-  src:font-url('Rivolicons-Free.eot?-uew922');
-  src:font-url('Rivolicons-Free.eot?#iefix-uew922') format('embedded-opentype'),
-    font-url('Rivolicons-Free.ttf?-uew922') format('truetype'),
-    font-url('Rivolicons-Free.woff?-uew922') format('woff'),
-    font-url('Rivolicons-Free.svg?-uew922#Rivolicons-Free') format('svg');
+  src: url('/assets/Rivolicons-Free.eot?-uew922');
+  src: url('/assets/Rivolicons-Free.eot?#iefix-uew922') format('embedded-opentype'),
+    url('/assets/Rivolicons-Free.ttf?-uew922') format('truetype'),
+    url('/assets/Rivolicons-Free.woff?-uew922') format('woff'),
+    url('/assets/Rivolicons-Free.svg?-uew922#Rivolicons-Free') format('svg');
   font-weight: normal;
   font-style: normal;
 }
