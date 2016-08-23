@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     resources :dealings, only: [:new, :create]
   end
   resources :users, only: :show
+  resources :addresses, only: :update
 end

@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823053841) do
+ActiveRecord::Schema.define(version: 20160823123742) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "first_name",       limit: 255
+    t.string   "family_name",      limit: 255
+    t.string   "order_email",      limit: 255
+    t.string   "street_address",   limit: 255
+    t.string   "post_number",      limit: 255
+    t.string   "phone_number",     limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "addressable_type", limit: 255
+    t.integer  "addressable_id",   limit: 4
+  end
 
   create_table "books", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -20,25 +33,21 @@ ActiveRecord::Schema.define(version: 20160823053841) do
     t.integer  "postage",    limit: 4
     t.string   "detail",     limit: 255
     t.string   "state",      limit: 255
-    t.integer  "user_id",    limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "image",      limit: 255
+    t.integer  "buyer_id",   limit: 4
+    t.integer  "seller_id",  limit: 4
   end
 
   create_table "dealings", force: :cascade do |t|
-    t.integer  "seller_id",  limit: 4
-    t.integer  "buyer_id",   limit: 4
     t.integer  "book_id",    limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.boolean  "registered"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",             limit: 255
-    t.string   "family_name",            limit: 255
-    t.string   "address",                limit: 255
-    t.integer  "phone_number",           limit: 4
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255
@@ -52,7 +61,6 @@ ActiveRecord::Schema.define(version: 20160823053841) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "fullname",               limit: 255
-    t.string   "post_number",            limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

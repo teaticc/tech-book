@@ -2,40 +2,42 @@
 / start Main Wrapper
 .main-wrapper.scrollspy-container
   / start end Page title
-  .page-title.detail-page-title{:style => "background-image:url('images/books_on_desk2.jpg');"}
+  .page-title.detail-page-title
     .container
       .flex-row
         .flex-column.flex-md-8.flex-sm-12
-          %h1.hero-title ランディングページ・デザインメソッド
+          %h1.hero-title= @book.title
           %p.line18 WEB制作のプロが教えるLPの考え方、設計、コーディング、コンテンツ制作ガイド
         .flex-column.flex-md-4.flex-align-bottom.flex-sm-12.mt-20-sm
           .text-right.text-left-sm
-            %a.anchor.btn.btn-primary{:href => "#"} 購入ページヘ
+            = link_to "購入ページへ", new_book_dealing_path(@book), class: "anchor btn btn-primary"
   / end Page title
   .breadcrumb-wrapper.bg-light-2
     .container
       %ol.breadcrumb-list
         %li
-          %a{:href => "#"} Home
+          = link_to "Home", root_path
+        / %li
+        /   %a{:href => "#"} デザイン
         %li
-          %a{:href => "#"} デザイン
-        %li
-          %span ランディングページ・デザインメソッド
+          %span= @book.title
   .content-wrapper
     .container
       .row
         .col-sm-3.col-xs-12.mb-50-xs
           .scrollspy-sidebar.sidebar-detail{:role => "complementary"}
-            %img{:alt => "", :src => "images/books/book1.png"}/
+            = image_tag @book.image, alt: @book.title
         .col-md-9.mt-30-xs{:role => "main"}
           .detail-content-wrapper
             #section-0.detail-content
               .section-title.text-left
                 %h4 概要
-              %h5.heading ランディングページ・デザインメソッド
+              %h5.heading= @book.title
               %h5.price.mt-0
                 合計金額:
-                %span 1200円
+                %span
+                  = @book.price
+                  円
             #section-2.detail-content
               .section-title.text-left
                 %h4 詳細
@@ -48,68 +50,67 @@
                         %a{:href => "#"} せきやじょうじ
                       %li
                         %span.font600 本体価格:
-                        1000円
+                        = @book.price - @book.postage
+                        円
                       %li
                         %span.font600 送料:
-                        200円
+                        = @book.postage
+                        円
                       %li
                         %span.font600 カテゴリ:
-                        デザイン
+                        = @book.category
                       %li
                         %span.font600 状態:
-                        やや傷あり
+                        = @book.state
                   .col-sm-8.col-md-9
                     .itinerary-wrapper
                       .itinerary-item
                         %h5.mb-20 この本について
                         .intro-item-body
-                          %p
-                            ランディングページのデザインのための、マーケティングやコンバージョンなどに関する幅広い知識を身につけることができます。
-                            %br>/
-                            2016年の秋に購入し、角にやや傷がありますが、中身はまだまだ綺麗なので問題なう読んでいただけるかと思います。
+                          %p= @book.detail
                 .text-center.pt-10
-                  %a.btn.btn-primary.btn-full-width{:href => "#"} 購入ページヘ
-            .detail-content
-              .section-title.text-left
-                %h4 関連する書籍
-              .GridLex-gap-20-wrappper.package-grid-item-wrapper.on-page-result-page.alt-smaller
-                .GridLex-grid-noGutter-equalHeight
-                  .GridLex-col-4_sm-4_xs-12.mb-20
-                    .package-grid-item
-                      %a{:href => "#"}
-                        .image
-                          %img{:alt => "Tour Package", :src => "images/books/book9.jpg"}/
-                          .absolute-in-image
-                            .duration
-                              %span デザイン
-                        .content.clearfix
-                          %h6 だから、そのデザインはダメなんだ。
-                          .absolute-in-content
-                            .price $1500
-                  .GridLex-col-4_sm-4_xs-12.mb-20
-                    .package-grid-item
-                      %a{:href => "#"}
-                        .image
-                          %img{:alt => "Tour Package", :src => "images/books/book9.jpg"}/
-                          .absolute-in-image
-                            .duration
-                              %span デザイン
-                        .content.clearfix
-                          %h6 だから、そのデザインはダメなんだ。
-                          .absolute-in-content
-                            .price $1500
-                  .GridLex-col-4_sm-4_xs-12.mb-20
-                    .package-grid-item
-                      %a{:href => "#"}
-                        .image
-                          %img{:alt => "Tour Package", :src => "images/books/book9.jpg"}/
-                          .absolute-in-image
-                            .duration
-                              %span デザイン
-                        .content.clearfix
-                          %h6 だから、そのデザインはダメなんだ。
-                          .absolute-in-content
-                            .price $1500
+                  = link_to "購入ページへ", new_book_dealing_path(@book), class: "btn btn-primary btn-full-width"
+            / .detail-content
+            /   .section-title.text-left
+            /     %h4 関連する書籍
+            /   .GridLex-gap-20-wrappper.package-grid-item-wrapper.on-page-result-page.alt-smaller
+            /     .GridLex-grid-noGutter-equalHeight
+            /       .GridLex-col-4_sm-4_xs-12.mb-20
+            /         .package-grid-item
+            /           %a{:href => "#"}
+            /             .image
+            /               %img{:alt => "Tour Package", :src => "images/books/book9.jpg"}/
+            /               .absolute-in-image
+            /                 .duration
+            /                   %span デザイン
+            /             .content.clearfix
+            /               %h6 だから、そのデザインはダメなんだ。
+            /               .absolute-in-content
+            /                 .price $1500
+            /       .GridLex-col-4_sm-4_xs-12.mb-20
+            /         .package-grid-item
+            /           %a{:href => "#"}
+            /             .image
+            /               %img{:alt => "Tour Package", :src => "images/books/book9.jpg"}/
+            /               .absolute-in-image
+            /                 .duration
+            /                   %span デザイン
+            /             .content.clearfix
+            /               %h6 だから、そのデザインはダメなんだ。
+            /               .absolute-in-content
+            /                 .price $1500
+            /       .GridLex-col-4_sm-4_xs-12.mb-20
+            /         .package-grid-item
+            /           %a{:href => "#"}
+            /             .image
+            /               %img{:alt => "Tour Package", :src => "images/books/book9.jpg"}/
+            /               .absolute-in-image
+            /                 .duration
+            /                   %span デザイン
+            /             .content.clearfix
+            /               %h6 だから、そのデザインはダメなんだ。
+            /               .absolute-in-content
+            /                 .price $1500
             .call-to-action
               %a.btn.btn-primary.btn-sm.btn-inverse{:href => "#"} お問い合わせ
 / end Main Wrapper
