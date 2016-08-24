@@ -2,19 +2,11 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:fullname]
-  validates :fullname, :email, presence: true, uniqueness: true
+         :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:nickname]
+  validates :nickname, :email, presence: true, uniqueness: true
   has_many :seller_books, class_name: "Book", foreign_key: "seller_id"
   has_many :buyer_books, class_name: "Book", foreign_key: "buyer_id"
   has_one :address, as: :addressable
-
-  def update_with_password(params, *options)
-    if params[:password].blank?
-      params.delete(:password)
-      params.delete(:password_confirmation) if params[:password_confirmation].blank?
-    end
-    update_attributes(params, *options)
-  end
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

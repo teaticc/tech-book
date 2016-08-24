@@ -1,12 +1,13 @@
 #login-form
   .modal-body.pb-5
+    = devise_error_messages!
     %h4.text-center.heading.mt-10.mb-20 ログイン
     %button.btn.btn-facebook.btn-block Facebookでログイン
     .modal-seperator
       %span or
     = form_for(resource, as: resource_name, url: user_session_path) do |f|
       .form-group
-        = f.text_field :fullname, autofocus: true, placeholder: "ユーザーネーム", class: "form-control"
+        = f.text_field :nickname, autofocus: true, placeholder: "ユーザーネーム", class: "form-control"
       .form-group
         = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "form-control"
       - if devise_mapping.rememberable?
