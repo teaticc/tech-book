@@ -39,7 +39,7 @@ before_action :configure_account_update_params, only: [:update]
   protected
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname, :post_number, :first_name, :family_name, :address])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname, :email])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

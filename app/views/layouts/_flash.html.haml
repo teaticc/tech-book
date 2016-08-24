@@ -1,0 +1,8 @@
+- if flash.any?
+  #error_explanation
+    %ul.alert.alert-error
+      = link_to "×", "#", "data-dismiss": "alert", class: "close"
+      - flash.each do |key, messages|
+        - messages.each do |message|
+          %li{ class: "alert-#{key}"}
+            = message

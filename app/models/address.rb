@@ -4,7 +4,7 @@ class Address < ActiveRecord::Base
 
   def dealing_address
     if addressable_type == "Dealing"
-      validates :first_name, :family_name, :street_address, :post_number, :order_email, presence: true
+      validates_presence_of :first_name, :family_name, :street_address, :post_number, :order_email
     end
   end
 end

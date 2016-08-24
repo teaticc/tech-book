@@ -14,6 +14,7 @@
           %span お支払い
         %li
           %span 完了
+  = render "layouts/flash"
   .content-wrapper
     .container
       .row
@@ -124,7 +125,7 @@
                           .col-sm-6.col-md-6
                             = address_form.text_field :street_address, class: "form-control"
             .checkbox-block
-              = f.check_box "registered", class: "checkbox", id: "accept_booking", value: "paymentsCreditCard"
+              = f.check_box :registered, class: "checkbox", id: "accept_booking"
               / %input#accept_booking.checkbox{:name => "accept_booking", :type => "checkbox", :value => "paymentsCreditCard"}/
               %label{:for => "accept_booking"}
                 %a{:href => "#"}> 利用規約

@@ -11,13 +11,14 @@ class DealingsController < ApplicationController
 
   def create
     @dealing = Dealing.new(dealing_params)
-    unless @dealing.save
-      redirect_to new_book_dealing_path(params[:book_id])
+    if @dealing.save
+      @address = @dealing.address
+      @book = @dealing.book
+      @book.update_attributes(buyer_id: current_user.id)
+      DealingMailer.dealing_email(@book, @address).deliver_now
+    else
+      redirect_to :back, flash: { error: @dealing.errors.full_messages }
     end
-    @address = @dealing.address
-    @book = @dealing.book
-    @book.update_attributes(buyer_id: current_user.id)
-    DealingMailer.dealing_email(@book, @address).deliver_now
   end
 
   private
