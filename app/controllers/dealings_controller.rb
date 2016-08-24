@@ -2,7 +2,11 @@ class DealingsController < ApplicationController
   def new
     @book = Book.find(params[:book_id])
     @dealing = Dealing.new
-    @dealing.build_address(current_user.address.attributes)
+    if current_user.address.present?
+      @dealing.build_address(current_user.address.attributes)
+    else
+      @dealing.build_address
+    end
   end
 
   def create
@@ -12,7 +16,8 @@ class DealingsController < ApplicationController
     end
     @address = @dealing.address
     @book = @dealing.book
-    @book.save(buyer_id: current_user.id)
+    @book.update_attributes(buyer_id: current_user.id)
+    DealingMailer.dealing_email(@book, @address).deliver_now
   end
 
   private

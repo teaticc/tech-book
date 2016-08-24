@@ -1,0 +1,15 @@
+<%= @book.title %>のご注文を承りました
+お届け先詳細
+宛名:
+<%= @address.family_name + " " + @address.first_name + " 様" %>
+書籍名:
+<%= @book.title %>
+お届け先郵便番号:
+<%= @address.post_number %>
+お届け先住所:
+<%= @address.street_address %>
+お支払金額合計:
+<%= ((@book.price + @book.postage) * 1.08).ceil %>円
+
+3日以内に<<口座番号>>まで代金をお振込みください
+お支払いをご確認次第、出品者に取引成立のご連絡を差し上げます
