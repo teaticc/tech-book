@@ -1,25 +1,21 @@
-
-jQuery(function($) {
-
-  "use strict";
-
+$(document).on("turbolinks:load", function(){
     
     
     /**
      * introLoader - Preloader
      */
-    $("#introLoader").introLoader({
-      animation: {
-          name: 'gifLoader',
-          options: {
-              ease: "easeInOutCirc",
-              style: 'dark bubble',
-              delayBefore: 500,
-              delayAfter: 0,
-              exitTime: 300
-          }
-      }
-    });  
+    // $("#introLoader").introLoader({
+    //   animation: {
+    //       name: 'gifLoader',
+    //       options: {
+    //           ease: "easeInOutCirc",
+    //           style: 'dark bubble',
+    //           delayBefore: 500,
+    //           delayAfter: 0,
+    //           exitTime: 300
+    //       }
+    //   }
+    // });
 
     
     
@@ -429,7 +425,7 @@ jQuery(function($) {
       });
     }
 
-    $(document).ready(function() {
+    $(document).on("page:change", function() {
       
       $('#instagram').on('didLoadInstagram', didLoadInstagram);
       $('#instagram').instagram({
