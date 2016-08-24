@@ -1,20 +1,5 @@
-#introLoader.introLoading
-/ BEGIN # MODAL LOGIN
-#loginModal.modal.fade.modal-login.modal-border-transparent{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog
-    .modal-content
-      %button.btn.btn-close.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-        %span.glyphicon.glyphicon-remove{"aria-hidden" => "true"}
-      .clear
-      / Begin # DIV Form
-      #modal-login-form-wrapper
-        = render "users/login"
-        = render "users/lostPassword"
-        = render "users/registration"
-/ END # MODAL LOGIN
 / start Container Wrapper
 .container-wrapper
-  = render "header"
   .clear
   / start Main Wrapper
   .main-wrapper

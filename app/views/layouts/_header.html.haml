@@ -1,3 +1,17 @@
+#introLoader.introLoading
+/ BEGIN # MODAL LOGIN
+#loginModal.modal.fade.modal-login.modal-border-transparent{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      %button.btn.btn-close.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+        %span.glyphicon.glyphicon-remove{"aria-hidden" => "true"}
+      .clear
+      / Begin # DIV Form
+      #modal-login-form-wrapper
+        = render "users/login"
+        = render "users/lostPassword"
+        = render "users/registration"
+/ END # MODAL LOGIN
 %header#header
   %nav.navbar.navbar-primary.navbar-fixed-top.navbar-sticky-function
     .navbar-top
@@ -24,3 +38,5 @@
                     %li.user-action
                       %a.btn{"data-toggle" => "modal", :href => "#loginModal"} ログイン／新規登録
     #slicknav-mobile
+    #js-flash
+      = render "layouts/flash"

@@ -6,7 +6,7 @@
     .container
       .row
         .col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
-          %h2.text-white= @user.fullname
+          %h2.text-white= @user.nickname
           .user-thumbnail.mb-10{:style => "background-image:url('/assets/sekiya.jpeg');"}
   / end Page title
   .content-wrapper
@@ -19,7 +19,6 @@
             .payment-content
               .payment-traveller.mb-0
                 = form_for(@address, url: address_path(@address), html: { method: :put, class: "form-horizontal" }) do |f|
-                  = devise_error_messages!
                   .form-horizontal
                     .form-group.gap-20
                       = f.label :family_name, "姓:", class: "col-sm-4 col-md-4 control-label"
@@ -47,8 +46,13 @@
               %h5.heading.mt-0 登録情報
             .payment-content
               .payment-traveller.mb-0
-                = form_for(@user, url: "/users", html: { method: :put, class: "form-horizontal" }) do |f|
+                = form_for(@user, url: "/users", html: { method: :put, class: "form-horizontal" }, remote: true) do |f|
                   = devise_error_messages!
+                  .form-horizontal
+                    .form-group.gap-20
+                      = f.label :nickname, "ニックネーム:", class: "col-sm-4 col-md-4 control-label"
+                      .col-sm-8.col-md-6
+                        = f.text_field :nickname, class: "form-control"
                   .form-horizontal
                     .form-group.gap-20
                       = f.label :email, "メールアドレス:", class: "col-sm-4 col-md-4 control-label"
@@ -58,12 +62,12 @@
                     .form-group.gap-20
                       = f.label :current_password, "現在のパスワード:", class: "col-sm-4 col-md-4 control-label"
                       .col-sm-8.col-md-6
-                        = f.password_field :password, class: "form-control", autocomplete: "off"
+                        = f.password_field :current_password, class: "form-control", autocomplete: "off"
                   .form-horizontal
                     .form-group.gap-20
                       = f.label :password, "新しいパスワード:", class: "col-sm-4 col-md-4 control-label"
                       .col-sm-8.col-md-6
-                        = f.password_field :first_name, class: "form-control", autocomplete: "off", placeholder: "変更しない場合は空にして下さい"
+                        = f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "変更しない場合は空にして下さい"
                         - if @minimum_password_length
                           %br/
                           %em
@@ -73,9 +77,9 @@
                     .form-group.gap-20
                       = f.label :password_confirmation, "新しいパスワード(確認):", class: "col-sm-4 col-md-4 control-label"
                       .col-sm-8.col-md-6
-                        = f.password_field :first_name, class: "form-control", autocomplete: "off"
+                        = f.password_field :password_confirmation, class: "form-control", autocomplete: "off"
                   .text-center
-                    = f.button "登録情報の編集", class: "btn btn-primary btn-sm btn-inverse"
+                    = f.submit "登録情報の編集", class: "btn btn-primary btn-sm btn-inverse"
         / .col-sm-4.col-md-4.mt-50-xs
         /   %aside.sidebar
         /     .sidebar-inner.no-border.for-blog
