@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:fullname]
-  validates_uniqueness_of :fullname
-  validates_presence_of :fullname
+  validates :fullname, :email, presence: true, uniqueness: true
   has_many :seller_books, class_name: "Book", foreign_key: "seller_id"
   has_many :buyer_books, class_name: "Book", foreign_key: "buyer_id"
   has_one :address, as: :addressable
