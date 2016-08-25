@@ -1,11 +1,12 @@
 #login-form
   .modal-body.pb-5
-    = devise_error_messages!
+    / = devise_error_messages!
+    #js-login-error
     %h4.text-center.heading.mt-10.mb-20 ログイン
     %button.btn.btn-facebook.btn-block Facebookでログイン
     .modal-seperator
       %span or
-    = form_for(resource, as: resource_name, url: user_session_path) do |f|
+    = form_for(resource, as: resource_name, url: user_session_path, remote: true) do |f|
       .form-group
         = f.text_field :nickname, autofocus: true, placeholder: "ユーザーネーム", class: "form-control"
       .form-group
