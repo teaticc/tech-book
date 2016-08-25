@@ -4,6 +4,8 @@ ja:
       models:
         user:
           blank: は必須項目です。
+          taken: はすでに存在します。
+          confirmation: の値が一致しません。
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
         restrict_dependent_destroy:
@@ -23,6 +25,8 @@ ja:
         registered: 規約確認
       user:
         nickname: ニックネーム
+        password: パスワード
+        password_confirmation: パスワードの再入力
         current_password: 現在のパスワード
   date:
     abbr_day_names:
