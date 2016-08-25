@@ -35,9 +35,8 @@
               %h5.heading= @book.title
               %h5.price.mt-0
                 合計金額:
-                %span
-                  = @book.price
-                  円
+                %span= " #{@book.price}円"
+            %hr.section-line
             #section-2.detail-content
               .section-title.text-left
                 %h4 詳細
@@ -50,12 +49,10 @@
                         %a{:href => "#"} せきやじょうじ
                       %li
                         %span.font600 本体価格:
-                        = @book.price - @book.postage
-                        円
+                        = "#{@book.price - @book.postage}円"
                       %li
                         %span.font600 送料:
-                        = @book.postage
-                        円
+                        = "#{@book.postage}円"
                       %li
                         %span.font600 カテゴリ:
                         = @book.category
