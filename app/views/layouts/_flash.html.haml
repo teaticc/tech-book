@@ -1,0 +1,10 @@
+- if flash.any?
+  #error_explanation
+    - flash.each do |key, messages|
+      %ul{ class: "alert alert-#{key}" }
+        = link_to "×", "#", "data-dismiss": "alert", class: "close"
+        - if messages.class == Array
+          - messages.each do |message|
+            %li= message
+        - else
+          %li= messages

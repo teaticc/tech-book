@@ -23,8 +23,8 @@
 //= require slick.min
 //= require instagram.min
 //= require sidebarSticky
-//= require jquery.easing.1.3
-//= require jquery.introLoader.min
+//# = require jquery.easing.1.3
+//# = require jquery.introLoader.min
 //= require jquery.waypoints.min
 //= require jquery.slicknav.min
 //= require_tree .

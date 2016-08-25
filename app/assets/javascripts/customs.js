@@ -1,25 +1,21 @@
-
-jQuery(function($) {
-
-  "use strict";
-
+$(document).on("turbolinks:load", function(){
     
     
     /**
      * introLoader - Preloader
      */
-    $("#introLoader").introLoader({
-      animation: {
-          name: 'gifLoader',
-          options: {
-              ease: "easeInOutCirc",
-              style: 'dark bubble',
-              delayBefore: 500,
-              delayAfter: 0,
-              exitTime: 300
-          }
-      }
-    });  
+    // $("#introLoader").introLoader({
+    //   animation: {
+    //       name: 'gifLoader',
+    //       options: {
+    //           ease: "easeInOutCirc",
+    //           style: 'dark bubble',
+    //           delayBefore: 500,
+    //           delayAfter: 0,
+    //           exitTime: 300
+    //       }
+    //   }
+    // });
 
     
     
@@ -118,8 +114,12 @@ jQuery(function($) {
     var $divForms = $('#modal-login-form-wrapper');
     var $modalAnimateTime = 300;
     
-    $('#login_register_btn').on("click", function () { modalAnimate($formLogin, $formRegister) });
-    $('#register_login_btn').on("click", function () { modalAnimate($formRegister, $formLogin); });
+    $('#login_register_btn').on("click", function () { 
+      modalAnimate($formLogin, $formRegister)
+       });
+    $('#register_login_btn').on("click", function () { 
+      modalAnimate($formRegister, $formLogin);
+       });
     $('#login_lost_btn').on("click", function () { modalAnimate($formLogin, $formLost); });
     $('#lost_login_btn').on("click", function () { modalAnimate($formLost, $formLogin); });
     $('#lost_register_btn').on("click", function () { modalAnimate($formLost, $formRegister); });
@@ -429,7 +429,7 @@ jQuery(function($) {
       });
     }
 
-    $(document).ready(function() {
+    $(document).on("page:change", function() {
       
       $('#instagram').on('didLoadInstagram', didLoadInstagram);
       $('#instagram').instagram({
