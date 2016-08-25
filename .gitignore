@@ -11,3 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+
+# frontend unnecessary files
+/tech-book_or
+/js_escape
