@@ -6,6 +6,10 @@ ja:
           blank: は必須項目です。
           taken: はすでに存在します。
           confirmation: の値が一致しません。
+        dealing:
+          taken: は他の方が既に購入されています
+        address:
+          blank: は必須項目です
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
         restrict_dependent_destroy:
@@ -14,6 +18,7 @@ ja:
     models:
       address: 住所
       dealing: 取引
+      book: この商品
     attributes:
       address:
         first_name: 姓
