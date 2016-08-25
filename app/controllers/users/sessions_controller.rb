@@ -7,7 +7,7 @@ before_action :configure_sign_in_params, only: [:create]
     clean_up_passwords(resource)
     yield resource if block_given?
     # respond_with(resource, serialize_options(resource))
-    render template: "users/sessions/new"
+    render :new
   end
 
   # POST /resource/sign_in

@@ -1,11 +1,10 @@
-= devise_error_messages!
-= form_for(resource, as: resource_name, url: user_registration_path, html: { id: "register-form", style: "display:none" }) do |f|
+= form_for(resource, as: resource_name, url: user_registration_path, html: { id: "register-form", style: "display:none" }, remote: true) do |f|
   .modal-body.pb-5
+    #js-signup-error
     %h3.text-center.heading.mt-10.mb-20 新規登録
     %button.btn.btn-facebook.btn-block Facebookで登録
     .modal-seperator
       %span or
-    = devise_error_messages!
     .form-group
       = f.text_field :nickname, class: "form-control", placeholder: "ユーザーネーム"
     .form-group

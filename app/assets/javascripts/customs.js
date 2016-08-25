@@ -114,8 +114,12 @@ $(document).on("turbolinks:load", function(){
     var $divForms = $('#modal-login-form-wrapper');
     var $modalAnimateTime = 300;
     
-    $('#login_register_btn').on("click", function () { modalAnimate($formLogin, $formRegister) });
-    $('#register_login_btn').on("click", function () { modalAnimate($formRegister, $formLogin); });
+    $('#login_register_btn').on("click", function () { 
+      modalAnimate($formLogin, $formRegister)
+       });
+    $('#register_login_btn').on("click", function () { 
+      modalAnimate($formRegister, $formLogin);
+       });
     $('#login_lost_btn').on("click", function () { modalAnimate($formLogin, $formLost); });
     $('#lost_login_btn').on("click", function () { modalAnimate($formLost, $formLogin); });
     $('#lost_register_btn').on("click", function () { modalAnimate($formLost, $formRegister); });
