@@ -81,10 +81,10 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:               'smtp.gmail.com',
     port:                  587,
-    domain:                'example.com',
+    domain:                'gmail.com',
     user_name:             ENV["GOOGLE_ACCOUNT"],
     password:              ENV["GOOGLE_ACCOUNT_PASS"],
-    authentication:        'plain',
+    authentication:        'login',
     enable_starttls_auto:  true
   }
 end

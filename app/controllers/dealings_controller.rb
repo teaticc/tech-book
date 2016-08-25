@@ -29,7 +29,6 @@ class DealingsController < ApplicationController
 
   def user_address_check
     if current_user.address.blank?
-      binding.pry
       current_user.create_address(@address.attributes.except("id", "created_at", "updated_at"))
     end
   end
