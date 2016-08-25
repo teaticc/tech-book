@@ -17,7 +17,9 @@
     %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,600,600italic,700,700italic", :rel => "stylesheet", :type => "text/css"}/
   %body
     = render "layouts/header"
-    = yield
+    .container-wrapper
+      .clear
+      = yield
     = render "layouts/footer"
     / start Back To Top
     #back-to-top
