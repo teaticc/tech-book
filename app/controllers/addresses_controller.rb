@@ -4,7 +4,7 @@ class AddressesController < ApplicationController
     if @address.update(address_params)
       redirect_to :back, flash: { notice: ["購入者情報を更新しました"] }
     else
-      redirect_to :back, flash: { error: "" }
+      redirect_to :back, flash: { error: @address.errors.full_messages }
     end
   end
 

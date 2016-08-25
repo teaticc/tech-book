@@ -1,6 +1,9 @@
-a:
+ja:
   activerecord:
     errors:
+      models:
+        user:
+          blank: は必須項目です。
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
         restrict_dependent_destroy:
@@ -20,6 +23,7 @@ a:
         registered: 規約確認
       user:
         nickname: ニックネーム
+        current_password: 現在のパスワード
   date:
     abbr_day_names:
     - 日

@@ -40,14 +40,13 @@
                       .col-sm-8.col-md-6
                         = f.text_field :street_address, class: "form-control"
                   .text-center
-                    = f.button "購入者情報の編集", class: "btn btn-primary btn-sm btn-inverse"
+                    = f.submit "購入者情報の編集", class: "btn btn-primary btn-sm btn-inverse"
           .payment-box
             .payment-header.clearfix
               %h5.heading.mt-0 登録情報
             .payment-content
               .payment-traveller.mb-0
-                = form_for(@user, url: "/users", html: { method: :put, class: "form-horizontal" }, remote: true) do |f|
-                  = devise_error_messages!
+                = form_for(@user, url: "/users", html: { method: :put, class: "form-horizontal" }) do |f|
                   .form-horizontal
                     .form-group.gap-20
                       = f.label :nickname, "ニックネーム:", class: "col-sm-4 col-md-4 control-label"
