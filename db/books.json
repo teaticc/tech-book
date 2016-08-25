@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "ランディングページ・デザインメソッド",
+    "category": "デザイン",
+    "price": 1000,
+    "postage": 200,
+    "detail": "ランディングページのデザインのための、マーケティングやコンバージョンなどに関する幅広い知識を身につけることができます。2016年の秋に購入し、角にやや傷がありますが、中身はまだまだ綺麗なので問題なく読んでいただけるかと思います。",
+    "state": "やや傷あり",
+    "created_at": "2016-06-28 10:55:45",
+    "updated_at": "2016-08-25 08:02:00",
+    "image": "books/book1.png",
+    "buyer_id": null,
+    "seller_id": null
+  },
+  {
+    "id": 2,
+    "title": "すっきりわかるJAVA入門",
+    "category": "JAVA",
+    "price": 1422,
+    "postage": 300,
+    "detail": null,
+    "state": null,
+    "created_at": "2016-06-28 10:55:45",
+    "updated_at": "2016-08-25 07:42:21",
+    "image": "books/book2.png",
+    "buyer_id": null,
+    "seller_id": null
+  },
+  {
+    "id": 3,
+    "title": "LeaningPHP5",
+    "category": "PHP",
+    "price": 1422,
+    "postage": 200,
+    "detail": null,
+    "state": null,
+    "created_at": "2016-06-28 10:55:45",
+    "updated_at": "2016-08-24 09:42:34",
+    "image": "books/book3.jpeg",
+    "buyer_id": null,
+    "seller_id": null
+  },
+  {
+    "id": 4,
+    "title": "パーフェクトRuby on Rails",
+    "category": "Ruby on Rails",
+    "price": 1422,
+    "postage": 100,
+    "detail": null,
+    "state": null,
+    "created_at": "2016-06-28 10:55:45",
+    "updated_at": "2016-08-25 08:08:40",
+    "image": "books/book4.png",
+    "buyer_id": null,
+    "seller_id": null
+  },
+  {
+    "id": 5,
+    "title": "エンタープライズRails",
+    "category": "Ruby on Rails",
+    "price": 1422,
+    "postage": 2000,
+    "detail": null,
+    "state": null,
+    "created_at": "2016-06-28 10:55:45",
+    "updated_at": "2016-08-25 08:04:30",
+    "image": "books/book5.jpg",
+    "buyer_id": null,
+    "seller_id": null
+  }
+]
