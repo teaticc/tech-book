@@ -1,5 +1,5 @@
 class DealingMailer < ApplicationMailer
-  default from: "support@techbook.com"
+  default from: "mailertestforrails@gmail.com"
 
   def dealing_email(book, address)
     @book = book
