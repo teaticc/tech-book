@@ -236,13 +236,16 @@ $(document).on("turbolinks:load", function(){
     /**
      * Raty - Rating Star
      */
-    $.fn.raty.defaults.path = 'assets/raty';
+    // $.fn.raty.defaults.path = "raty";
     
     // Default size star 
     $('.star-rating').raty({
       round : { down: .2, full: .6, up: .8 },
       half: true,
       space: false,
+      starHalf: "<%= image_path('raty/star-half.png') %>",
+      starOn: "<%= image_path('raty/star-on.png') %>",
+      starOff: "<%= image_path('raty/star-off.png') %>",
       score: function() {
         return $(this).attr('data-rating-score');
       }
@@ -254,6 +257,9 @@ $(document).on("turbolinks:load", function(){
       round : { down: .2, full: .6, up: .8 },
       half: true,
       space: false,
+      starHalf: "<%= image_path('raty/star-half.png') %>",
+      starOn: "<%= image_path('raty/star-on.png') %>",
+      starOff: "<%= image_path('raty/star-off.png') %>",
       score: function() {
         return $(this).attr('data-rating-score');
       }
@@ -261,10 +267,9 @@ $(document).on("turbolinks:load", function(){
     
     // Smaller size star
     $('.star-rating-12px').raty({
-      path: 'images/raty',
-      starHalf: 'star-half-sm.png',
-      starOff: 'star-off-sm.png',
-      starOn: 'star-on-sm.png',
+      starHalf: "<%= image_path('raty/star-half-sm.png') %>",
+      starOn: "<%= image_path('raty/star-on-sm.png') %>",
+      starOff: "<%= image_path('raty/star-off-sm.png') %>",
       readOnly: true,
       round : { down: .2, full: .6, up: .8 },
       half: true,
@@ -276,10 +281,9 @@ $(document).on("turbolinks:load", function(){
     
     // White color default size star
     $('.star-rating-white').raty({
-      path: 'images/raty',
-      starHalf: 'star-half-white.png',
-      starOff: 'star-off-white.png',
-      starOn: 'star-on-white.png',
+      starHalf: "<%= image_path('raty/star-half-white.png') %>",
+      starOn: "<%= image_path('raty/star-on-white.png') %>",
+      starOff: "<%= image_path('raty/star-off-white.png') %>",
       readOnly: true,
       round : { down: .2, full: .6, up: .8 },
       half: true,
