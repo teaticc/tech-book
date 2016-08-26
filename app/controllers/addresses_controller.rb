@@ -1,4 +1,7 @@
 class AddressesController < ApplicationController
+  include Common
+  before_action :login_check, only: :update
+
   def update
     @address = Address.find(params[:id])
     if @address.update(address_params)

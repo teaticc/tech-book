@@ -1,4 +1,6 @@
 class DealingsController < ApplicationController
+  include Common
+  before_action :login_check
   def new
     @book = Book.find(params[:book_id])
     @dealing = Dealing.new

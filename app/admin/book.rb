@@ -10,7 +10,7 @@ ActiveAdmin.register Book do
     end
     column :image do |book|
       if book.image.present?
-        image_tag(book.image.url)
+        image_tag(book.image.url(:thumb))
       end
     end
     column :category
