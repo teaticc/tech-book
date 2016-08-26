@@ -18,7 +18,6 @@ ja:
     models:
       address: 住所
       dealing: 取引
-      book: この商品
     attributes:
       address:
         first_name: 姓
@@ -33,6 +32,10 @@ ja:
         password: パスワード
         password_confirmation: パスワードの再入力
         current_password: 現在のパスワード
+      book:
+        postage: 送料
+        detail: 詳細
+        state: 状態
   date:
     abbr_day_names:
     - 日

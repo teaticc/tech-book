@@ -57,4 +57,4 @@ gem 'font-awesome-sass', '~> 4.6.2'
 gem "rmagick"
 gem "puma"
 gem "rails_12factor"
-gem "pg"
+gem 'activeadmin', github: "activeadmin"

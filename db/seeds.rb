@@ -10,3 +10,4 @@ json = ActiveSupport::JSON.decode(File.read('db/books.json'))
 json.each do |data|
   Book.create(data)
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
