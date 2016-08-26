@@ -59,7 +59,7 @@ ActiveAdmin.register Book do
       input :postage
       input :state
       input :detail
-      input :seller_id, as: :select, collection: User.all.collect { |user| user.nickname }, label: "出品者"
+      input :seller_id, as: :select, collection: User.all.collect { |user| [user.nickname, user.id] }, label: "出品者"
       input :image, as: :file, label: "画像"
     end
     actions
