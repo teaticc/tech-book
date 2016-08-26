@@ -10,7 +10,9 @@ ActiveAdmin.register Dealing do
       link_to dealing.book.buyer.nickname, admin_user_path(dealing.book.buyer)
     end
     column "出品者" do |dealing|
-      link_to dealing.book.seller.nickname, admin_user_path(dealing.book.seller)
+      if dealing.book.seller.present?
+        link_to dealing.book.seller.nickname, admin_user_path(dealing.book.seller)
+      end
     end
     column "購入日時" do |dealing|
       dealing.created_at.in_time_zone("Tokyo")

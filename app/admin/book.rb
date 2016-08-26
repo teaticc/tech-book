@@ -13,7 +13,11 @@ ActiveAdmin.register Book do
     column :postage
     column :state
     column "出品者" do |book|
-      link_to book.seller.nickname, admin_user_path(book.seller)
+      if book.seller.present?
+        link_to book.seller.nickname, admin_user_path(book.seller)
+      else
+        "管理者"
+      end
     end
     column "購入者" do |book|
       if book.buyer.present?
@@ -22,6 +26,20 @@ ActiveAdmin.register Book do
         "出品中"
       end
     end
+  end
+
+  form do |f|
+    inputs 'Book' do
+      input :title
+      input :category
+      input :price, label: "価格(送料/税別):"
+      input :postage
+      input :detail
+      input :state
+      input :image, as: :file
+      input :seller_id, as: :select, collection: User.all.collect { |user| user.nickname }
+    end
+    actions
   end
 
 end
