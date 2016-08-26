@@ -55,6 +55,7 @@ before_action :configure_account_update_params, only: [:update]
     else
       clean_up_passwords resource
       flash[:error] = resource.errors.full_messages
+      redirect_to :back
       # respond_with resource
     end
   end
