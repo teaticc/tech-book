@@ -1,18 +1,4 @@
 ActiveAdmin.register Address do
-
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
-
   index do
     selectable_column
 
@@ -32,11 +18,5 @@ ActiveAdmin.register Address do
          link_to "取引: #{address.addressable.book.title}", admin_dealing_path(address.addressable)
       end
     end
-    # column "出品者" do |address|
-    #   link_to address.book.seller.nickname, admin_user_path(address.book.seller)
-    # end
-    # column "購入日時" do |address|
-    #   address.created_at.in_time_zone("Tokyo")
-    # end
   end
 end
