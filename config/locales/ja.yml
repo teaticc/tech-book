@@ -37,6 +37,7 @@ ja:
         postage: 送料
         detail: 詳細
         state: 状態
+        price: 価格(税・送料別)
   date:
     abbr_day_names:
     - 日

@@ -15,3 +15,5 @@
 # frontend unnecessary files
 /tech-book_or
 /js_escape
+
+/public/uploads

@@ -1,5 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
-before_action :configure_sign_in_params, only: [:create]
+  include Common
+  before_action :login_check, only: [:create]
 
   # GET /resource/sign_in
   def new
@@ -21,9 +22,9 @@ before_action :configure_sign_in_params, only: [:create]
   end
 
   # DELETE /resource/sign_out
-  def destroy
-    super
-  end
+  # def destroy
+  #   super
+  # end
 
   protected
 
