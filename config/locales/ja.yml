@@ -20,11 +20,12 @@ ja:
       dealing: 取引
     attributes:
       address:
-        first_name: 姓
-        family_name: 名
+        first_name: 名
+        family_name: 姓
         street_address: 住所
         post_number: 郵便番号
         order_email: メールアドレス
+        phone_number: 電話番号
       dealing:
         registered: 規約確認
       user:
