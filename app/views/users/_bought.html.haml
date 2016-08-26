@@ -1,0 +1,8 @@
+%li.clearfix
+  = link_to book_path(bought_book) do
+    = image_tag bought_book.image, alt: bought_book.title, class: "image"
+    .content
+      %h6= bought_book.title
+      %p.recent-post-sm-meta
+        %i.fa.fa-clock-o.mr-5>
+        = bought_book.dealing.created_at.in_time_zone("Tokyo").strftime("%b %d, %Y")
