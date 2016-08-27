@@ -54,7 +54,10 @@ ActiveAdmin.register Book do
   form do |f|
     inputs 'Book' do
       input :title
-      input :category
+      input :category_list,
+        label: "カテゴリータグ",
+        as: :check_boxes,
+        collection: ActsAsTaggableOn::Tag.pluck(:name)
       input :price
       input :postage
       input :state
