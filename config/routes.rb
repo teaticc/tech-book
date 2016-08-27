@@ -5,10 +5,11 @@ Rails.application.routes.draw do
         sessions: 'users/sessions',
         registrations: "users/registrations"
       }
-  root "books#index"
+  get 'books/search', to: 'books#search'
   resources :books, only: [:index, :show] do
     resources :dealings, only: [:new, :create]
   end
   resources :users, only: :show
   resources :addresses, only: :update
+  root "books#index"
 end

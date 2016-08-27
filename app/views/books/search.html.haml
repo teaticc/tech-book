@@ -2,7 +2,7 @@
 / start Main Wrapper
 .main-wrapper
   / start end Page title
-  .page-title{:style => "background-image:url('images/books_on_desk2.jpg');"}
+  .page-title.image-bg
     .container
       .row
         .col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
@@ -12,11 +12,11 @@
     .container
       %ol.breadcrumb-list.booking-step
         %li
-          %a{:href => ""} トップ
+          = link_to "トップ", root_path
         %li
           %span カテゴリ：
-          %a{:href => "#"} デザイン
-          %span キーワード：デザイン
+          %a{:href => "#"} #{@searcher[:category]}
+          %span キーワード：#{@searcher[:keyword]}
   .content-wrapper
     .container
       .row
@@ -26,95 +26,24 @@
               .sidebar-search-header
                 %h4 再検索
               .sidebar-search-content
-                .form-group
-                  %select.select2-multi.form-control{"data-placeholder" => "カテゴリを選択", :name => "destination"}
-                    %option{:value => ""} カテゴリを選択
-                    %option{:value => "0"} HTML CSS
-                    %option{:value => "ruby"} Ruby
-                    %option{:value => "javascript"} JavaScript
-                    %option{:value => "rails"} Ruby on Rails
-                    %option{:value => "php"} PHP
-                    %option{:value => "java"} Java
-                    %option{:value => "php"} PHP
-                .form-group
-                  %input.form-control{:name => "month", :placeholder => "キーワード"}/
-                %a.btn.btn-primary.btn-block{:href => "#"} 検索
+                = form_tag books_search_path, method: :get do
+                  .form-group
+                    = select "", :category, @categories.pluck(:name), { include_blank: "カテゴリを選択" }, { class: "select select2-multi form-control" }
+                  .form-group
+                    = text_field "", :keyword, class: "form-control", placeholder: "キーワード", value: @searcher[:keyword]
+                  = submit_tag "書籍を検索", class: "btn btn-primary btn-block"
         .col-sm-8.col-md-9
           .sorting-wrappper
             .sorting-header
-              %p.sorting-lead 50件の検索結果が見つかりました。
+              %p.sorting-lead #{@books.count}件の検索結果が見つかりました。
           .package-list-item-wrapper.on-page-result-page.clearfix
-            .col-md-6.col-lg-4.pl-0.ml-0
-              .package-list-item.clearfix.pl-15
-                %a.package-list-item-link{:href => "#"}
-                  .image
-                    %img{:alt => "Tour Package", :src => "images/books/book1.png"}/
-                    .absolute-in-image
-                      .duration
-                        %span デザイン
-                  .content
-                    .row.gap-10
-                      .col-sm-12.col-md-12
-                        %h5 ランディングページ・デザインメソッド
-                        %p.line18 ランディングページの開発をするフロントエンドのエンジニアには必須の本になります。
-                      .col-sm-12.col-md-12.text-left-sm
-                        .price 1000円
-            .col-md-6.col-lg-4.pl-0.ml-0
-              .package-list-item.clearfix.pl-15
-                %a.package-list-item-link{:href => "#"}
-                  .image
-                    %img{:alt => "Tour Package", :src => "images/books/book1.png"}/
-                    .absolute-in-image
-                      .duration
-                        %span デザイン
-                  .content
-                    .row.gap-10
-                      .col-sm-12.col-md-12
-                        %h5 ランディングページ・デザインメソッド
-                        %p.line18 ランディングページの開発をするフロントエンドのエンジニアには必須の本になります。
-                      .col-sm-12.col-md-12.text-left-sm
-                        .price 1000円
-            .col-md-6.col-lg-4.pl-0.ml-0
-              .package-list-item.clearfix.pl-15
-                %a.package-list-item-link{:href => "#"}
-                  .image
-                    %img{:alt => "Tour Package", :src => "images/books/book1.png"}/
-                    .absolute-in-image
-                      .duration
-                        %span デザイン
-                  .content
-                    .row.gap-10
-                      .col-sm-12.col-md-12
-                        %h5 ランディングページ・デザインメソッド
-                        %p.line18 ランディングページの開発をするフロントエンドのエンジニアには必須の本になります。
-                      .col-sm-12.col-md-12.text-left-sm
-                        .price 1000円
+            = render partial: "searchedBook", collection: @books, as: :book
           .pager-wrappper.clearfix
             .pager-innner
               .flex-row.flex-align-middle
                 .flex-column.flex-sm-12
-                  50件中1から8件目を表示しています。
+                  #{@books.count}件中1から8件目を表示しています。
                 .flex-column.flex-sm-12
                   %nav.pager-right
-                    %ul.pagination
-                      %li
-                        %a{"aria-label" => "Previous", :href => "#"}
-                          %span{"aria-hidden" => "true"} «
-                      %li.active
-                        %a{:href => "#"} 1
-                      %li
-                        %a{:href => "#"} 2
-                      %li
-                        %a{:href => "#"} 3
-                      %li
-                        %span ...
-                      %li
-                        %a{:href => "#"} 11
-                      %li
-                        %a{:href => "#"} 12
-                      %li
-                        %a{:href => "#"} 13
-                      %li
-                        %a{"aria-label" => "Next", :href => "#"}
-                          %span{"aria-hidden" => "true"} »
+                    = paginate @books
 / end Main Wrapper
