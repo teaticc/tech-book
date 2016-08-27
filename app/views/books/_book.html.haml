@@ -3,10 +3,10 @@
     = link_to book_path(book) do
       .image
         = image_tag book.image, alt: book.title
-        .absolute-in-image.clearfix.tag-container
-          - book.category_list.each do |category_tag|
-            .duration.tag-float
-              %span= category_tag
+    .absolute-in-image.clearfix.tag-container
+      - book.category_list.each do |category_tag|
+        .duration.tag-float
+          %span= link_to category_tag, books_search_path(category: category_tag), class: "tag-color"
     .content.clearfix
       %h5= book.title
       .rating-wrapper

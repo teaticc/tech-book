@@ -15,7 +15,7 @@
           = link_to "トップ", root_path
         %li
           %span カテゴリ：
-          %a{:href => "#"} #{@searcher[:category]}
+          = link_to @searcher[:category], books_search_path(category: @searcher[:category])
           %span キーワード：#{@searcher[:keyword]}
   .content-wrapper
     .container

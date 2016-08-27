@@ -91,10 +91,25 @@
   padding: 15px;
 }
 
-.absolute-in-image div.duration.tag-float {
-  padding: 3px;
+.tag-container--search {
+  width: 50%;
+  padding: 15px;
+  padding-top: 30px;
+  padding-left: 30px;
 }
 
-.tag-float {
+.absolute-in-image div.duration.tag-float {
+  padding: 3px;
   float: left;
+}
+
+
+.package-grid-item {
+  position: relative;
+}
+
+a.tag-color {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
 }
