@@ -86,3 +86,45 @@
   margin: 0;
   width: inherit;
 }
+
+.tag-container {
+  padding: 15px;
+}
+
+.tag-container--search {
+  width: 50%;
+  padding: 15px;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.absolute-in-image div.duration.tag-float {
+  padding: 3px;
+  float: left;
+}
+
+
+.package-grid-item {
+  position: relative;
+}
+
+a.tag-color {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.tag-link {
+  background: #0f926d;
+  color: #FFF;
+  margin: 1px 0;
+  padding: 4px 7px;
+  border-radius: 3px;
+  line-height: 1;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+  }
+}

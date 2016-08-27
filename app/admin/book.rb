@@ -13,7 +13,7 @@ ActiveAdmin.register Book do
         image_tag(book.image.url(:thumb))
       end
     end
-    column :category
+    column "カテゴリー", :category_list
     column :price
     column :postage
     column :state
@@ -36,13 +36,13 @@ ActiveAdmin.register Book do
   show do |book|
     attributes_table do
       row :title
-      row :category
+      row :category_list
       row :price
       row :postage
       row :state
       row :detail
-      row :seller, label: "出品者"
-      row :buyer, label: "購入者"
+      row "出品者", :seller
+      row "購入者", :buyer
       row :image do
         if book.image.present?
           image_tag(book.image.url)
@@ -54,7 +54,10 @@ ActiveAdmin.register Book do
   form do |f|
     inputs 'Book' do
       input :title
-      input :category
+      input :category_list,
+        label: "カテゴリータグ",
+        as: :check_boxes,
+        collection: ActsAsTaggableOn::Tag.pluck(:name)
       input :price
       input :postage
       input :state
