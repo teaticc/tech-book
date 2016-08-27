@@ -113,3 +113,18 @@ a.tag-color {
   font-size: 12px;
   font-weight: bold;
 }
+
+.tag-link {
+  background: #0f926d;
+  color: #FFF;
+  margin: 1px 0;
+  padding: 4px 7px;
+  border-radius: 3px;
+  line-height: 1;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+  }
+}

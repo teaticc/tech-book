@@ -140,7 +140,9 @@
             %ul.price-summary-list
               %li
                 %h6.heading.mt-0.mb-0= @book.title
-                %p.font12.text-light= @book.category_list
+                %p.font12.text-light
+                  - @book.category_list.each do |category_tag|
+                    %span.tag-link= category_tag
               %li.divider
               %li
                 %h6.heading.mt-20.mb-5.text-primary.uppercase 価格内訳
@@ -148,24 +150,20 @@
                   .col-xs-7.col-sm-7
                     本体価格
                   .col-xs-5.col-sm-5.text-right
-                    = @book.price
-                    円
+                    #{@book.price}円
                 .row.gap-10.mt-10
                   .col-xs-7.col-sm-7
                     送料
                   .col-xs-5.col-sm-5.text-right
-                    = @book.postage
-                    円
+                    #{@book.postage}円
                 .row.gap-10.mt-10
                   .col-xs-7.col-sm-7
                     消費税
                   .col-xs-5.col-sm-5.text-right
-                    = ((@book.price + @book.postage) * 0.08).ceil
-                    円
+                    #{((@book.price + @book.postage) * 0.08).ceil}円
               %li.divider
               %li.text-right.font600.font14
-                = ((@book.price + @book.postage) * 1.08).ceil
-                円
+                #{((@book.price + @book.postage) * 1.08).ceil}円
               %li.divider
               %li
                 .row.gap-10.font600.font14
@@ -180,6 +178,5 @@
                     %p.font12 合計金額
                   .col-xs-6.col-sm-6.text-right
                     %span.block.font20.font600.mb-5
-                      = ((@book.price + @book.postage) * 1.08).ceil
-                      円
+                      #{((@book.price + @book.postage) * 1.08).ceil}円
 / end Main Wrapper
