@@ -19,5 +19,6 @@ class BooksController < ApplicationController
     end
     @searcher = { category: params[:category], keyword: params[:keyword] }
     @categories = ActsAsTaggableOn::Tag.all
+    @books = @books.page(params[:page])
   end
 end

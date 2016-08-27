@@ -51,6 +51,7 @@ gem "haml-rails"
 gem "bootstrap-sass"
 gem 'font-awesome-sass', '~> 4.6.2'
 gem "kaminari"
+gem "bootstrap-kaminari-views"
 gem "html2haml"
 gem "devise"
 gem "carrierwave"

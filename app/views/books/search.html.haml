@@ -35,15 +35,15 @@
         .col-sm-8.col-md-9
           .sorting-wrappper
             .sorting-header
-              %p.sorting-lead #{@books.count}件の検索結果が見つかりました。
+              %p.sorting-lead #{@books.total_count}件の検索結果が見つかりました。
           .package-list-item-wrapper.on-page-result-page.clearfix
             = render partial: "searchedBook", collection: @books, as: :book
           .pager-wrappper.clearfix
             .pager-innner
               .flex-row.flex-align-middle
                 .flex-column.flex-sm-12
-                  #{@books.count}件中1から8件目を表示しています。
+                  #{@books.total_count}件中#{@books.offset_value}~#{@books.offset_value + @books.length}件目を表示しています。
                 .flex-column.flex-sm-12
                   %nav.pager-right
-                    = paginate @books
+                    = paginate @books, theme: "twitter-bootstrap-3", pagination_class: "pagination-sm"
 / end Main Wrapper
