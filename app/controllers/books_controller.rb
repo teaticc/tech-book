@@ -7,7 +7,6 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @related_books = Book.tagged_with(@book.category_list, any: true).uniq.page(params[:page])
-    binding.pry
   end
 
   def search
