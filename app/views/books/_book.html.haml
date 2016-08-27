@@ -3,18 +3,19 @@
     = link_to book_path(book) do
       .image
         = image_tag book.image, alt: book.title
-        .absolute-in-image
-          .duration
-            %span= book.category
-      .content.clearfix
-        %h5= book.title
-        .rating-wrapper
-          .raty-wrapper
-            .star-rating-read-only{"data-rating-score" => "4.0"}
-            %span / 7 review
-        .absolute-in-content
-          %span.btn
-            %i.fa.fa-heart-o
-          .price
-            = book.price
-            円
+        .absolute-in-image.clearfix.tag-container
+          - book.category_list.each do |category_tag|
+            .duration.tag-float
+              %span= category_tag
+    .content.clearfix
+      %h5= book.title
+      .rating-wrapper
+        .raty-wrapper
+          .star-rating-read-only{"data-rating-score" => "4.0"}
+          %span / 7 review
+      .absolute-in-content
+        %span.btn
+          %i.fa.fa-heart-o
+        .price
+          = book.price
+          円

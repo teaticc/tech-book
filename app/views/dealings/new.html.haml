@@ -17,54 +17,54 @@
   .content-wrapper
     .container
       .row
-        .col-sm-12.visible-xs.mb-50
-          .price-summary-wrapper
-            %h4.heading.mt-0.text-primary.uppercase 注文内容
-            %ul.price-summary-list
-              %li
-                %h6.heading.mt-0.mb-0= @book.title
-                %p.font12.text-light= @book.category
-              %li.divider
-              %li
-                %h6.heading.mt-20.mb-5.text-primary.uppercase 価格内訳
-                .row.gap-10.mt-10
-                  .col-xs-7.col-sm-7
-                    本体価格
-                  .col-xs-5.col-sm-5.text-right
-                    = @book.price
-                    円
-                .row.gap-10.mt-10
-                  .col-xs-7.col-sm-7
-                    送料
-                  .col-xs-5.col-sm-5.text-right
-                    = @book.postage
-                    円
-                .row.gap-10.mt-10
-                  .col-xs-7.col-sm-7
-                    消費税
-                  .col-xs-5.col-sm-5.text-right
-                    = ((@book.price + @book.postage) * 0.08).ceil
-                    円
-              %li.divider
-              %li.text-right.font600.font14
-                = ((@book.price + @book.postage) * 1.08).ceil
-                円
-              %li.divider
-              %li
-                .row.gap-10.font600.font14
-                  .col-xs-9.col-sm-9
-                    購入点数
-                  .col-xs-3.col-sm-3.text-right
-                    1
-              %li.total-price
-                .row.gap-10
-                  .col-xs-6.col-sm-6
-                    %h5.heading.mt-0.mb-0.text-white Amount due
-                    %p.font12 合計金額
-                  .col-xs-6.col-sm-6.text-right
-                    %span.block.font20.font600.mb-5
-                      = ((@book.price + @book.postage) * 1.08).ceil
-                      円
+        / .col-sm-12.visible-xs.mb-50
+        /   .price-summary-wrapper
+        /     %h4.heading.mt-0.text-primary.uppercase 注文内容
+        /     %ul.price-summary-list
+        /       %li
+        /         %h6.heading.mt-0.mb-0= @book.title
+        /         %p.font12.text-light= @book.category_list
+        /       %li.divider
+        /       %li
+        /         %h6.heading.mt-20.mb-5.text-primary.uppercase 価格内訳
+        /         .row.gap-10.mt-10
+        /           .col-xs-7.col-sm-7
+        /             本体価格
+        /           .col-xs-5.col-sm-5.text-right
+        /             = @book.price
+        /             円
+        /         .row.gap-10.mt-10
+        /           .col-xs-7.col-sm-7
+        /             送料
+        /           .col-xs-5.col-sm-5.text-right
+        /             = @book.postage
+        /             円
+        /         .row.gap-10.mt-10
+        /           .col-xs-7.col-sm-7
+        /             消費税
+        /           .col-xs-5.col-sm-5.text-right
+        /             = ((@book.price + @book.postage) * 0.08).ceil
+        /             円
+        /       %li.divider
+        /       %li.text-right.font600.font14
+        /         = ((@book.price + @book.postage) * 1.08).ceil
+        /         円
+        /       %li.divider
+        /       %li
+        /         .row.gap-10.font600.font14
+        /           .col-xs-9.col-sm-9
+        /             購入点数
+        /           .col-xs-3.col-sm-3.text-right
+        /             1
+        /       %li.total-price
+        /         .row.gap-10
+        /           .col-xs-6.col-sm-6
+        /             %h5.heading.mt-0.mb-0.text-white Amount due
+        /             %p.font12 合計金額
+        /           .col-xs-6.col-sm-6.text-right
+        /             %span.block.font20.font600.mb-5
+        /               = ((@book.price + @book.postage) * 1.08).ceil
+        /               円
         .col-sm-8.col-md-9{:role => "main"}
           .section-title.text-left
             %h3
@@ -140,7 +140,7 @@
             %ul.price-summary-list
               %li
                 %h6.heading.mt-0.mb-0= @book.title
-                %p.font12.text-light= @book.category
+                %p.font12.text-light= @book.category_list
               %li.divider
               %li
                 %h6.heading.mt-20.mb-5.text-primary.uppercase 価格内訳
