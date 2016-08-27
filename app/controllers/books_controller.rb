@@ -1,11 +1,13 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
-    @categories = ActsAsTaggableOn::Tag.all
+    @books = Book.order(created_at: :desc)
+    @categories = ActsAsTaggableOn::Tag.order(taggings_count: :desc)
   end
 
   def show
     @book = Book.find(params[:id])
+    @related_books = Book.tagged_with(@book.category_list, any: true).uniq.page(params[:page])
+    binding.pry
   end
 
   def search
@@ -18,7 +20,7 @@ class BooksController < ApplicationController
       end
     end
     @searcher = { category: params[:category], keyword: params[:keyword] }
-    @categories = ActsAsTaggableOn::Tag.all
+    @categories = ActsAsTaggableOn::Tag.all.order(taggings_count: :desc)
     @books = @books.page(params[:page])
   end
 end

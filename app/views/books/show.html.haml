@@ -66,47 +66,13 @@
                           %p= @book.detail
                 .text-center.pt-10
                   = link_to "購入ページへ", new_book_dealing_path(@book), class: "btn btn-primary btn-full-width"
-            / .detail-content
-            /   .section-title.text-left
-            /     %h4 関連する書籍
-            /   .GridLex-gap-20-wrappper.package-grid-item-wrapper.on-page-result-page.alt-smaller
-            /     .GridLex-grid-noGutter-equalHeight
-            /       .GridLex-col-4_sm-4_xs-12.mb-20
-            /         .package-grid-item
-            /           %a{:href => "#"}
-            /             .image
-            /               %img{:alt => "Tour Package", :src => "images/books/book9.jpg"}/
-            /               .absolute-in-image
-            /                 .duration
-            /                   %span デザイン
-            /             .content.clearfix
-            /               %h6 だから、そのデザインはダメなんだ。
-            /               .absolute-in-content
-            /                 .price $1500
-            /       .GridLex-col-4_sm-4_xs-12.mb-20
-            /         .package-grid-item
-            /           %a{:href => "#"}
-            /             .image
-            /               %img{:alt => "Tour Package", :src => "images/books/book9.jpg"}/
-            /               .absolute-in-image
-            /                 .duration
-            /                   %span デザイン
-            /             .content.clearfix
-            /               %h6 だから、そのデザインはダメなんだ。
-            /               .absolute-in-content
-            /                 .price $1500
-            /       .GridLex-col-4_sm-4_xs-12.mb-20
-            /         .package-grid-item
-            /           %a{:href => "#"}
-            /             .image
-            /               %img{:alt => "Tour Package", :src => "images/books/book9.jpg"}/
-            /               .absolute-in-image
-            /                 .duration
-            /                   %span デザイン
-            /             .content.clearfix
-            /               %h6 だから、そのデザインはダメなんだ。
-            /               .absolute-in-content
-            /                 .price $1500
+            .detail-content
+              .section-title.text-left
+                %h4 関連する書籍
+              .GridLex-gap-20-wrappper.package-grid-item-wrapper.on-page-result-page.alt-smaller
+                .GridLex-grid-noGutter-equalHeight
+                  = render partial: "relatedBook", collection: @related_books, as: :book
+              = paginate @related_books, theme: "twitter-bootstrap-3", pagination_class: "pagination-sm"
             .call-to-action
               %a.btn.btn-primary.btn-sm.btn-inverse{:href => "#"} お問い合わせ
 / end Main Wrapper
