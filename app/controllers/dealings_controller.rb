@@ -1,6 +1,6 @@
 class DealingsController < ApplicationController
   include Common
-  before_action :login_check
+  before_action :login_check, :buyer_check
   def new
     @book = Book.find(params[:book_id])
     @dealing = Dealing.new
@@ -32,6 +32,12 @@ class DealingsController < ApplicationController
   def user_address_check
     if current_user.address.blank?
       current_user.create_address(@address.attributes.except("id", "created_at", "updated_at"))
+    end
+  end
+
+  def buyer_check
+    if Book.find(params[:book_id]).buyer.present?
+      redirect_to :back, flash: { alert: "この本の取引は終了しました" }
     end
   end
 end

@@ -128,3 +128,22 @@ a.tag-color {
     color: white;
   }
 }
+
+.related-title {
+  color: black;
+  margin-top: 0;
+}
+
+.sold-out {
+  float: right;
+  width: 30%;
+  -webkit-transform: rotate(15deg);
+     -moz-transform: rotate(15deg);
+      -ms-transform: rotate(15deg);
+       -o-transform: rotate(15deg);
+          transform: rotate(15deg);
+}
+
+.width100 {
+  width: 100%;
+}
