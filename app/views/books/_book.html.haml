@@ -4,6 +4,8 @@
       .image
         = image_tag book.image, alt: book.title
     .absolute-in-image.clearfix.tag-container
+      - if book.buyer.present?
+        = image_tag "sold3.svg", class: "sold-out"
       - book.category_list.each do |category_tag|
         .duration.tag-float
           %span= link_to category_tag, books_search_path(category: category_tag), class: "tag-color"
