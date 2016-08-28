@@ -8,6 +8,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @related_books = Book.tagged_with(@book.category_list, any: true)
                          .uniq
+                         .where.not(id: @book.id)
                          .page(params[:page])
   end
 
