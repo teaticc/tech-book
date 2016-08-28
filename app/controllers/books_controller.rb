@@ -23,7 +23,7 @@ class BooksController < ApplicationController
     if params[:category].present?
       if params[:keyword].present?
         @books = Book.tagged_with(params[:category])
-                     .where("title LIKE ?", "%#{params[:keyword]}%")
+                     .where("title LIKE %#{params[:keyword]}%", "%#{params[:keyword]}%")
                      .page(params[:page])
       else
         @books = Book.tagged_with(params[:category])
@@ -32,6 +32,9 @@ class BooksController < ApplicationController
     else
       @books = Book.where("title LIKE ?", "%#{params[:keyword]}%")
                    .page(params[:page])
+    end
+    if params[:reject_sold] == "yes"
+      @books = @books.where(buyer_id: nil)
     end
   end
 end
