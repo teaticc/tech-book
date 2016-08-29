@@ -1,5 +1,4 @@
 ActiveAdmin.register_page "Dashboard" do
-
   menu priority: 1, label: "管理TOP"
 
   content title: "管理TOP" do |books|
@@ -28,4 +27,7 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
   end # content
+  sidebar "メニュー" do
+    render "admin/menu"
+  end
 end

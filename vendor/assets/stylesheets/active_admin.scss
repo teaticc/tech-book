@@ -18,12 +18,14 @@
 
 @import "variables";
 
-@import "main";
 $skinMainFirstColor: $main_color!default;
 $skinMainSecondColor: lighten($main_color, 10%)!default;
 $skinBorderWindowColor: #B8BABE!default;
 @import "active_admin_theme";
 
+@import "active_admin_sidebar";
+
 @import "bootstrap";
+@import "main";
 @import "style";
 @import "custom"
