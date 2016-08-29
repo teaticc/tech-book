@@ -16,9 +16,14 @@
 //
 //   .status_tag { background: #6090DB; }
 
-@import "active_admin_theme";
-@import "bootstrap";
 @import "variables";
-@import "style";
+
 @import "main";
+$skinMainFirstColor: $main_color!default;
+$skinMainSecondColor: lighten($main_color, 10%)!default;
+$skinBorderWindowColor: #B8BABE!default;
+@import "active_admin_theme";
+
+@import "bootstrap";
+@import "style";
 @import "custom"

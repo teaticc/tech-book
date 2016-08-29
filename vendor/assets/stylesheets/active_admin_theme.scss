@@ -764,17 +764,10 @@ input[type='radio'] {
     display:block;
     width:50%;
     height:50%;
-    margin: 20% auto;    
-    border-radius:50%;   
+    margin: 20% auto;
+    border-radius:50%;
   }
   &:checked:before{
     background: $skinMainSecondColor;
-  }
-}
-
-#site_title {
-  height: 50px;
-  img {
-    height: 100%;
   }
 }
