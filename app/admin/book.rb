@@ -1,4 +1,10 @@
 ActiveAdmin.register Book do
+
+  scope :all, default: true
+  scope "出品中" do |books|
+    books.where(buyer_id: nil)
+  end
+
   index do
     selectable_column
 
