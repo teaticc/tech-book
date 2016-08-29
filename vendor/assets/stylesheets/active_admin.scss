@@ -16,11 +16,9 @@
 //
 //   .status_tag { background: #6090DB; }
 
-@import "wigu/active_admin_theme";
-
-#site_title {
-  height: 50px;
-  img {
-    height: 100%;
-  }
-}
+@import "active_admin_theme";
+@import "bootstrap";
+@import "variables";
+@import "style";
+@import "main";
+@import "custom"

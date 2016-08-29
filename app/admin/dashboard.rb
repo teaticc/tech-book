@@ -2,38 +2,30 @@ ActiveAdmin.register_page "Dashboard" do
 
   menu priority: 1, label: "管理TOP"
 
-  # index as: :grid do
-  #   Book.all.each do |book|
-  #     link_to image_tag(book.image.url(:thumb)), admin_book_path(book)
-  #   end
-  # end
-
-  content title: "管理TOP" do
-
+  content title: "管理TOP" do |books|
+    panel "本一覧" do
+      render partial: "admin/booksGrid", locals: { books: Book.all.limit(12) }
+    end
     columns do
       column do
         panel "出品中の本" do
-          ul do
-            Book.all.each do |book|
-              li link_to(book.title, admin_book_path(book))
-            end
+          table_for Book.where(buyer_id: nil) do
+            column("タイトル") { |book| link_to book.title, admin_book_path(book) }
+            column("出品者") { |book| link_to book.seller, admin_user_path(book.seller) if book.seller.present? }
+            column("値段") { |book| "#{book.price}円" }
           end
         end
       end
 
       column do
-        panel "取引" do
-          ul do
-            Dealing.all.each do |dealing|
-              li link_to(dealing.book.title, admin_dealing_path(dealing))
-            end
+        panel "最近の取引" do
+          table_for Dealing.order(id: :desc).limit(10) do
+            column("タイトル") {|dealing| link_to dealing.book.title, admin_book_path(dealing.book) }
+            column("購入者") { |dealing| link_to dealing.book.buyer.nickname, admin_user_path(dealing.book.buyer) }
+            column("出品者") { |dealing| link_to dealing.book.seller.nickname, admin_user_path(dealing.book.seller) if dealing.book.seller.present? }
           end
         end
       end
     end
   end # content
-
-  sidebar :help do
-    "test"
-  end
 end

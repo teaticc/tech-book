@@ -112,6 +112,7 @@ a.tag-color {
   color: white;
   font-size: 12px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .tag-link {
@@ -146,4 +147,8 @@ a.tag-color {
 
 .width100 {
   width: 100%;
+}
+
+.panel h3{
+  margin-top: 0;
 }
