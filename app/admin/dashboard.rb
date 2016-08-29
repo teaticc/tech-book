@@ -3,7 +3,7 @@ ActiveAdmin.register_page "Dashboard" do
 
   content title: "管理TOP" do |books|
     panel "本一覧" do
-      render partial: "admin/booksGrid", locals: { books: Book.all.limit(12) }
+      render partial: "admin/booksGrid", locals: { books: Book.order(created_at: :desc).limit(12) }
     end
     columns do
       column do
