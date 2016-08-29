@@ -1,0 +1,8 @@
+.main-wrapper
+  .bg-light.new-books
+    .container
+      .section-title
+        %h3 新着の技術書一覧
+      .GridLex-gap-30-wrappper.package-grid-item-wrapper
+        .GridLex-grid-noGutter-equalHeight
+          = render partial: "books/relatedBook", collection: books, as: :book

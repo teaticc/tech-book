@@ -2,14 +2,15 @@ ActiveAdmin.register User do
   index do
     selectable_column
 
-    column :id do |user|
-      link_to user.id, admin_user_path(user)
-    end
     column :nickname do |user|
       link_to user.nickname, admin_user_path(user)
     end
-    column :email
-    column :sign_in_count
+    column "メールアドレス", :email
+    column "ログイン回数", :sign_in_count
+    actions
   end
 
+  filter :nickname
+  filter :email, label: "メールアドレス"
+  filter :sign_in_count, label: "ログイン回数"
 end

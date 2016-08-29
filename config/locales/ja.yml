@@ -16,9 +16,12 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     models:
+      book: 技術書
+      user: ユーザー
       address: 住所
       dealing: 取引
-      acts_as_taggable_on/tag: タグ
+      admin_user: 管理者
+      acts_as_taggable_on/tag: カテゴリー
     attributes:
       address:
         first_name: 名
@@ -35,10 +38,16 @@ ja:
         password_confirmation: パスワードの再入力
         current_password: 現在のパスワード
       book:
+        title: タイトル
         postage: 送料
+        image: 画像
         detail: 詳細
         state: 状態
         price: 価格(税・送料別)
+        buyer: 購入者
+        seller: 出品者
+        dealing: 取引
+        categories: カテゴリー
   date:
     abbr_day_names:
     - 日
