@@ -16,7 +16,7 @@ ActiveAdmin.setup do |config|
   #
   # Note: Aim for an image that's 21px high so it fits in the header.
   #
-  # config.site_title_image = "logo.png"
+  config.site_title_image = "techbook_logo.png"
 
   # == Default Namespace
   #
@@ -153,7 +153,7 @@ ActiveAdmin.setup do |config|
   # To understand how to localize your app with I18n, read more at
   # https://github.com/svenfuchs/i18n/blob/master/lib%2Fi18n%2Fbackend%2Fbase.rb#L52
   #
-  config.localize_format = :long
+  config.localize_format = :short
 
   # == Setting a Favicon
   #
@@ -177,7 +177,7 @@ ActiveAdmin.setup do |config|
   # Breadcrumbs are enabled by default. You can customize them for individual
   # resources or you can disable them globally from here.
   #
-  # config.breadcrumb = false
+  config.breadcrumb = false
 
   # == Register Stylesheets & Javascripts
   #
@@ -208,13 +208,13 @@ ActiveAdmin.setup do |config|
   #
   # To change the default utility navigation to show a link to your website & a logout btn
   #
-  #   config.namespace :admin do |admin|
-  #     admin.build_menu :utility_navigation do |menu|
-  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
-  #       admin.add_logout_button_to_menu menu
-  #     end
-  #   end
-  #
+  config.namespace :admin do |admin|
+    admin.build_menu :utility_navigation do |menu|
+      menu.add label: "TechBook", url: "http://tech-book-heroku.herokuapp.com", html_options: { target: :blank }
+      admin.add_logout_button_to_menu menu
+    end
+  end
+
   # If you wanted to add a static menu item to the default menu provided:
   #
   #   config.namespace :admin do |admin|
@@ -230,19 +230,19 @@ ActiveAdmin.setup do |config|
   #
   # To disable/customize for the :admin namespace:
   #
-  #   config.namespace :admin do |admin|
-  #
-  #     # Disable the links entirely
-  #     admin.download_links = false
-  #
-  #     # Only show XML & PDF options
-  #     admin.download_links = [:xml, :pdf]
-  #
-  #     # Enable/disable the links based on block
-  #     #   (for example, with cancan)
-  #     admin.download_links = proc { can?(:view_download_links) }
-  #
-  #   end
+  config.namespace :admin do |admin|
+
+    # Disable the links entirely
+    admin.download_links = false
+
+    # # Only show XML & PDF options
+    # admin.download_links = [:xml, :pdf]
+
+    # # Enable/disable the links based on block
+    # #   (for example, with cancan)
+    # admin.download_links = proc { can?(:view_download_links) }
+
+  end
 
   # == Pagination
   #

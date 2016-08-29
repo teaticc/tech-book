@@ -17,3 +17,10 @@
 //   .status_tag { background: #6090DB; }
 
 @import "wigu/active_admin_theme";
+
+#site_title {
+  height: 50px;
+  img {
+    height: 100%;
+  }
+}
