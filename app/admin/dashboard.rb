@@ -1,8 +1,14 @@
 ActiveAdmin.register_page "Dashboard" do
 
-  menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
+  menu priority: 1, label: "管理TOP"
 
-  content title: proc{ I18n.t("active_admin.dashboard") } do
+  # index as: :grid do
+  #   Book.all.each do |book|
+  #     link_to image_tag(book.image.url(:thumb)), admin_book_path(book)
+  #   end
+  # end
+
+  content title: "管理TOP" do
 
     columns do
       column do
@@ -26,4 +32,8 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
   end # content
+
+  sidebar :help do
+    "test"
+  end
 end

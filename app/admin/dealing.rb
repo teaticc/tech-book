@@ -1,10 +1,6 @@
 ActiveAdmin.register Dealing do
   index do
     selectable_column
-
-    column :id do |dealing|
-      link_to dealing.id, admin_dealing_path(dealing)
-    end
     column :book_id
     column "購入者" do |dealing|
       link_to dealing.book.buyer.nickname, admin_user_path(dealing.book.buyer)
@@ -15,8 +11,13 @@ ActiveAdmin.register Dealing do
       end
     end
     column "購入日時" do |dealing|
-      dealing.created_at.in_time_zone("Tokyo")
+      dealing.created_at.in_time_zone("Tokyo").strftime("%Y/%m/%d %X")
     end
+    actions
   end
 
+  filter :book_title, as: :string, label: "本のタイトル"
+  filter :book_buyer_nickname, as: :string, label: "購入者"
+  filter :book_seller_nickname, as: :string, label: "出品者"
+  filter :created_at, label: "購入日"
 end

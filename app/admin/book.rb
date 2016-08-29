@@ -2,15 +2,12 @@ ActiveAdmin.register Book do
   index do
     selectable_column
 
-    column :id do |book|
-      link_to book.id, admin_book_path(book)
-    end
     column :title do |book|
       link_to book.title, admin_book_path(book)
     end
     column :image do |book|
       if book.image.present?
-        image_tag(book.image.url(:thumb))
+        link_to image_tag(book.image.url(:thumb)), admin_book_path(book)
       end
     end
     column "カテゴリー", :category_list
@@ -31,6 +28,7 @@ ActiveAdmin.register Book do
         "出品中"
       end
     end
+    actions
   end
 
   show do |book|
@@ -68,4 +66,10 @@ ActiveAdmin.register Book do
     actions
   end
 
+  filter :categories
+  filter :title
+  filter :price
+  filter :postage
+  filter :buyer_nickname, as: :string, label: "購入者"
+  filter :seller_nickname, as: :string, label: "出品者"
 end

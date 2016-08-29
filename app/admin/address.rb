@@ -2,9 +2,6 @@ ActiveAdmin.register Address do
   index do
     selectable_column
 
-    column :id do |address|
-      link_to address.id, admin_address_path(address)
-    end
     column :family_name
     column :first_name
     column :order_email
@@ -18,5 +15,13 @@ ActiveAdmin.register Address do
          link_to "取引: #{address.addressable.book.title}", admin_dealing_path(address.addressable)
       end
     end
+    actions
   end
+
+  filter :family_name
+  filter :first_name
+  filter :street_address
+  filter :post_number
+  filter :phone_number
+  filter :addressable_type, label: "住所タイプ"
 end
