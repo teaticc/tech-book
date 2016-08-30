@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
       #認証の条件式を変更する
-      where(conditions).where(["username = :value", { :value => username }]).first
+      where(conditions).where(["nickname = :value", { :value => nickname }]).first
     else
       where(conditions).first
     end

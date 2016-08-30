@@ -1,0 +1,8 @@
+.pager-wrappper.clearfix
+  .pager-innner
+    .flex-row.flex-align-middle
+      .flex-column.flex-sm-12.flex-display-12
+        #{books.total_count}件中#{books.offset_value + 1}~#{books.offset_value + books.length}件目を表示しています。
+      .flex-column.flex-sm-12.flex-display-12
+        %nav.pager-right
+          = paginate books, theme: "twitter-bootstrap-3", pagination_class: "pagination-sm"
