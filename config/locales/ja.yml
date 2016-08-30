@@ -6,6 +6,9 @@ ja:
           blank: は必須項目です。
           taken: はすでに存在します。
           confirmation: の値が一致しません。
+          attributes:
+            reset_password_token:
+              invalid: が無効です。6文字以上に設定してください。
         dealing:
           taken: は他の方が既に購入されています
         address:
@@ -38,6 +41,7 @@ ja:
         password_confirmation: パスワードの再入力
         current_password: 現在のパスワード
         email: メールアドレス
+        reset_password_token: パスワード
       book:
         title: タイトル
         postage: 送料

@@ -10,9 +10,6 @@
     .form-group
       = f.email_field :email, class: "form-control", placeholder: "Emailアドレス"
     .form-group
-      - if @minimum_password_length
-        %em
-          (#{@minimum_password_length} 文字以上のパスワードを入力してください)
       = f.password_field :password, class: "form-control", placeholder: "パスワード", autocomplete: "off"
     .form-group
       = f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードを再入力", autocomplete: "off"
