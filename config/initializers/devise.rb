@@ -249,7 +249,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   if Rails.env.production?
-  config.omniauth :facebook, ENV["FBOOK_TBOOK_ID"], ENV["FBOOK_TBOOK_PASS"], callback_url: "http://tech-book-heroku.herokuapp.com/users/auth/facebook/callback"
+    config.omniauth :facebook, ENV["FBOOK_TBOOK_ID"], ENV["FBOOK_TBOOK_PASS"], callback_url: "http://tech-book-heroku.herokuapp.com/users/auth/facebook/callback"
   else
     config.omniauth :facebook, ENV["FBOOK_TBOOK_ID"], ENV["FBOOK_TBOOK_PASS"], callback_url: "http://localhost:3000/users/auth/facebook/callback"
   end

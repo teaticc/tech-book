@@ -1,6 +1,5 @@
 class Users::SessionsController < Devise::SessionsController
   include Common
-  before_action :login_check, only: [:create]
 
   # GET /resource/sign_in
   def new
@@ -8,7 +7,6 @@ class Users::SessionsController < Devise::SessionsController
     clean_up_passwords(resource)
     yield resource if block_given?
     # respond_with(resource, serialize_options(resource))
-    render :new
   end
 
   # POST /resource/sign_in
