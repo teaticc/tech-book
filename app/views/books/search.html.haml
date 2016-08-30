@@ -39,14 +39,7 @@
           .sorting-wrappper
             .sorting-header
               %p.sorting-lead #{@books.total_count}件の検索結果が見つかりました。
-          .package-list-item-wrapper.on-page-result-page.clearfix
+          .package-list-item-wrapper.on-page-result-page.clearfix.flex-display
             = render partial: "searchedBook", collection: @books, as: :book
-          .pager-wrappper.clearfix
-            .pager-innner
-              .flex-row.flex-align-middle
-                .flex-column.flex-sm-12
-                  #{@books.total_count}件中#{@books.offset_value + 1}~#{@books.offset_value + @books.length}件目を表示しています。
-                .flex-column.flex-sm-12
-                  %nav.pager-right
-                    = paginate @books, theme: "twitter-bootstrap-3", pagination_class: "pagination-sm"
+          = render partial: "bookPager", locals: { books: @books }
 / end Main Wrapper

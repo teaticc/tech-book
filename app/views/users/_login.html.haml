@@ -2,7 +2,7 @@
   .modal-body.pb-5
     #js-login-error
     %h4.text-center.heading.mt-10.mb-20 ログイン
-    %button.btn.btn-facebook.btn-block Facebookでログイン
+    = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, class: "btn btn-facebook btn-block"
     .modal-seperator
       %span or
     = form_for(resource, as: resource_name, url: user_session_path, remote: true) do |f|

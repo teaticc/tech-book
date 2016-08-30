@@ -6,6 +6,9 @@ ja:
           blank: は必須項目です。
           taken: はすでに存在します。
           confirmation: の値が一致しません。
+          attributes:
+            reset_password_token:
+              invalid: が無効です。6文字以上に設定してください。
         dealing:
           taken: は他の方が既に購入されています
         address:
@@ -37,6 +40,8 @@ ja:
         password: パスワード
         password_confirmation: パスワードの再入力
         current_password: 現在のパスワード
+        email: メールアドレス
+        reset_password_token: パスワード
       book:
         title: タイトル
         postage: 送料
@@ -295,7 +300,7 @@ ja:
       already_confirmed: 'は既に登録済みです。ログインしてください。'
       confirmation_period_expired: "の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。"
       expired: 'の有効期限が切れました。新しくリクエストしてください。'
-      not_found: 'は見つかりませんでした。'
+      not_found: 'が見つかりませんでした。'
       not_locked: 'は凍結されていません。'
       not_saved:
         one: "エラーが発生したため %{resource} は保存されませんでした:"

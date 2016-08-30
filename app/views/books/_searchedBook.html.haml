@@ -1,14 +1,11 @@
-.col-md-6.col-lg-4.pl-0.ml-0
-  .package-list-item.clearfix.pl-15
+.pl-0.ml-0.flex-display.flex-3
+  .package-list-item.width100.pos-rel
     = link_to book_path(book) do
       .image
         = image_tag book.image, alt: book.title
-    .absolute-in-image.clearfix.tag-container--search
+    .absolute-in-image
       - if book.buyer.present?
         = image_tag "sold3.svg", class: "sold-out"
-      - book.category_list.each do |category_tag|
-        .duration.tag-float
-          %span= link_to category_tag, books_search_path(category: category_tag), class: "tag-color"
     .content
       .row.gap-10
         .col-sm-12.col-md-12
@@ -16,3 +13,6 @@
           %p.line18= book.detail
         .col-sm-12.col-md-12.text-left-sm
           .price #{book.price}円
+        %p.font12.text-light
+          - book.category_list.each do |category_tag|
+            %span.tag-link= link_to category_tag, books_search_path(category: category_tag), class: "tag-color"

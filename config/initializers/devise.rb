@@ -15,7 +15,7 @@ Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = 'Users::Mailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -248,6 +248,11 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  if Rails.env.production?
+    config.omniauth :facebook, ENV["FBOOK_TBOOK_ID"], ENV["FBOOK_TBOOK_PASS"], callback_url: "http://tech-book-heroku.herokuapp.com/users/auth/facebook/callback"
+  else
+    config.omniauth :facebook, ENV["FBOOK_TBOOK_ID"], ENV["FBOOK_TBOOK_PASS"], callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

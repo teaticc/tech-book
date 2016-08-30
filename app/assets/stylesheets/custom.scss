@@ -149,6 +149,10 @@ a.tag-color {
   width: 100%;
 }
 
+.pos-rel {
+  position: relative;
+}
+
 .panel h3{
   margin-top: 0;
 }
@@ -160,4 +164,31 @@ a.tag-color {
     width: initial;
     max-width: initial;
   }
+}
+
+.flex-display-12 {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 100%;
+}
+
+.flex-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.flex-4 {
+  display: flex;
+  flex: 0 0 25%;
+}
+
+.flex-3 {
+  display: flex;
+  flex: 0 0 31%;
+}
+
+.reset-pass-content {
+  width: 75%;
+  margin: 30px auto;
 }
