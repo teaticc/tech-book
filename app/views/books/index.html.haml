@@ -32,6 +32,7 @@
       .GridLex-gap-30-wrappper.package-grid-item-wrapper
         .GridLex-grid-noGutter-equalHeight
           = render @books
+      = render partial: "bookPager", locals: { books: @books }
   %section.overflow-hidden.why-us-half-image-wrapper
     .GridLex-grid-noGutter-equalHeight
       .GridLex-col-6_sm-12

@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.order(created_at: :desc)
+    @books = Book.order(created_at: :desc).page(params[:page])
     @categories = ActsAsTaggableOn::Tag.order(taggings_count: :desc)
   end
 
