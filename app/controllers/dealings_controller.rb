@@ -13,7 +13,7 @@ class DealingsController < ApplicationController
 
   def create
     @dealing = Dealing.new(dealing_params)
-    if @dealing.save
+    if (@dealing.save) && (params[:dealing][:payment] == "bank_account")
       @address = @dealing.address
       @book = @dealing.book
       @book.update_attributes(buyer_id: current_user.id)
@@ -26,7 +26,7 @@ class DealingsController < ApplicationController
 
   private
   def dealing_params
-    params.require(:dealing).permit(:registered, address_attributes: [:family_name, :first_name, :order_email, :phone_number, :post_number, :street_address]).merge(book_id: params[:book_id])
+    params.require(:dealing).permit(:registered, :payment, address_attributes: [:family_name, :first_name, :order_email, :phone_number, :post_number, :street_address]).merge(book_id: params[:book_id])
   end
 
   def user_address_check
