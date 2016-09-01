@@ -12,4 +12,5 @@
     .content.clearfix
       %h6.related-title= book.title
       .absolute-in-content
+        = render "favorite", book: book
         .price #{book.price}円

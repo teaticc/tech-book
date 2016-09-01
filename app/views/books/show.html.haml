@@ -33,7 +33,9 @@
             #section-0.detail-content
               .section-title.text-left
                 %h4 概要
-              %h5.heading= @book.title
+              %h5.heading
+                = @book.title
+                = render "favorite", book: @book
               %h5.price.mt-0
                 合計金額:
                 %span #{((@book.price + @book.postage) * 1.08).ceil}円
