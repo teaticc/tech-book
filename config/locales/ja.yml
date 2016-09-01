@@ -14,6 +14,7 @@ ja:
         address:
           blank: は必須項目です
       messages:
+        blank: は必須項目です
         record_invalid: "バリデーションに失敗しました: %{errors}"
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
@@ -48,7 +49,7 @@ ja:
         image: 画像
         detail: 詳細
         state: 状態
-        price: 価格(税・送料別)
+        price: 価格
         buyer: 購入者
         seller: 出品者
         dealing: 取引

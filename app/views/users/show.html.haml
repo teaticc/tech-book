@@ -50,6 +50,6 @@
                 %h4.sidebar-title 購入履歴
                 .sidebar-module-inner
                   %ul.sidebar-post
-                    = render partial: "bought", collection: @user.buyer_books, as: :bought_book
+                    = render partial: "books/bought", collection: @user.buyer_books, as: :bought_book
               .clear
 / end Main Wrapper

@@ -19,6 +19,21 @@ class BooksController < ApplicationController
     @categories = ActsAsTaggableOn::Tag.all.order(taggings_count: :desc)
   end
 
+
+  def new
+    @book = Book.new
+  end
+
+  def create
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to root_path, flash: {notice: "出品しました"}
+    else
+      flash[:error] = @book.errors.full_messages
+      render :new
+    end
+  end
+
   private
 
   def books_search
@@ -41,5 +56,9 @@ class BooksController < ApplicationController
     if params[:reject_sold] == "yes"
       @books = @books.where(buyer_id: nil)
     end
+  end
+
+  def book_params
+    params.require(:book).permit(:title, :price, :postage, :state, :detail, :image).merge(seller_id: current_user.id)
   end
 end

@@ -1,0 +1,8 @@
+%li.clearfix
+  = link_to book_path(book) do
+    = image_tag book.image, alt: book.title, class: "image"
+    .content
+      %h6= book.title
+      %p.recent-post-sm-meta
+        %i.fa.fa-jpy
+        = book.price
