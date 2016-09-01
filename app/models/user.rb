@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :nickname, presence: true, uniqueness: true
   has_many :seller_books, class_name: "Book", foreign_key: "seller_id"
   has_many :buyer_books, class_name: "Book", foreign_key: "buyer_id"
+  has_many :favorites, dependent: :destroy
   has_one :address, as: :addressable
 
   devise :omniauthable, omniauth_providers: [:facebook]

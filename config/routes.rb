@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'books/search', to: 'books#search'
   resources :books, only: [:index, :show] do
     resources :dealings, only: [:new, :create]
-    resources :favorites, only: [:create, :delete]
+    resources :favorites, only: [:create, :destroy]
   end
   resources :users, only: :show
   resources :addresses, only: :update
