@@ -1,0 +1,32 @@
+.clear
+/ start Main Wrapper
+.main-wrapper.scrollspy-container
+  / start end Page title
+  .page-title.page-title--user
+    .container
+      .row
+        .col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
+          %h2.text-white= current_user.nickname
+          .user-thumbnail.mb-10{:style => "background-image:url('/assets/sekiya.jpeg');"}
+  / end Page title
+  .content-wrapper
+    .container
+      .row
+        .col-sm-8.col-md-8
+          .payment-box
+            .payment-header.clearfix
+              %h4.heading.mt-0 出品する
+            .payment-content
+              = render "sell", book: @book
+        .col-sm-4.col-md-4.mt-50-xs
+          %aside.sidebar
+            .sidebar-inner.no-border.for-blog
+              .clear
+              .sidebar-module
+                %h4.sidebar-title 出品中の本
+                .sidebar-module-inner
+                  %ul.sidebar-post
+                    - if current_user.seller_books.present?
+                      = render partial: "onSale", collection: current_user.seller_books, as: :book
+                    - else
+                      %p 現在出品中の本はありません

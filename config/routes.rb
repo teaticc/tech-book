@@ -8,7 +8,7 @@ Rails.application.routes.draw do
         omniauth_callbacks: "users/omniauth_callbacks"
       }
   get 'books/search', to: 'books#search'
-  resources :books, only: [:index, :show] do
+  resources :books do
     resources :dealings, only: [:new, :create]
     resources :favorites, only: [:create, :destroy]
   end
