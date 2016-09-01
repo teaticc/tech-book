@@ -1,0 +1,20 @@
+.clear
+/ start Main Wrapper
+.main-wrapper.scrollspy-container
+  / start end Page title
+  .page-title.page-title--user
+    .container
+      .row
+        .col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
+          %h2.text-white= current_user.nickname
+          .user-thumbnail.mb-10{:style => "background-image:url('/assets/sekiya.jpeg');"}
+  / end Page title
+  .content-wrapper
+    .container
+      .row
+        .col-sm-8.col-md-8
+          .payment-box
+            .payment-header.clearfix
+              %h4.heading.mt-0 出品内容を変更する
+            .payment-content
+              = render "sell", book: @book
