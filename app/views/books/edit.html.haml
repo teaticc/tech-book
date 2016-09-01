@@ -2,19 +2,20 @@
 / start Main Wrapper
 .main-wrapper.scrollspy-container
   / start end Page title
-  .page-title.page-title--user
+  .page-title.detail-page-title
     .container
-      .row
-        .col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
-          %h2.text-white= current_user.nickname
-          .user-thumbnail.mb-10{:style => "background-image:url('/assets/sekiya.jpeg');"}
+      .flex-row
+        .flex-column.flex-md-8.flex-sm-12
+          %h1.hero-title= @book.title
+          %p.line18= @book.detail
   / end Page title
   .content-wrapper
     .container
       .row
-        .col-sm-8.col-md-8
-          .payment-box
-            .payment-header.clearfix
-              %h4.heading.mt-0 出品内容を変更する
-            .payment-content
-              = render "sell", book: @book
+        .col-sm-3.col-xs-12.mb-50-xs
+          .scrollspy-sidebar.sidebar-detail
+            = image_tag @book.image, alt: @book.title
+        .col-sm-9.col-xs-12.mt-30-xs
+          %h4.text-center 出品内容を変更する
+          .payment-content
+            = render "sell", book: @book
