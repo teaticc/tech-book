@@ -11,8 +11,8 @@
         .col-sm-12.col-md-12
           %h5
             = book.title
-            = render "favorite", book: book
-          %p.line18= book.detail
+            = render "books/favorite", book: book
+          %p.line18.hidden-text= book.detail
         .col-sm-12.col-md-12.text-left-sm
           .price
             #{book.price}円

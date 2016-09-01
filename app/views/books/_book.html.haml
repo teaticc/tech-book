@@ -16,6 +16,6 @@
           .star-rating-read-only{"data-rating-score" => "4.0"}
           %span / 7 review
       .absolute-in-content
-        = render "favorite", book: book
+        = render "books/favorite", book: book
         .price
           #{book.price}円

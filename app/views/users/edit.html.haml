@@ -1,0 +1,92 @@
+.clear
+/ start Main Wrapper
+.main-wrapper.scrollspy-container
+  / start end Page title
+  .page-title.page-title--user
+    .container
+      .row
+        .col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
+          %h2.text-white= @user.nickname
+          .user-thumbnail.mb-10{:style => "background-image:url('/assets/sekiya.jpeg');"}
+  / end Page title
+  .content-wrapper
+    .container
+      .row
+        .col-sm-8.col-md-8
+          .payment-box
+            .payment-header.clearfix
+              %h5.heading.mt-0 購入者情報
+            .payment-content
+              .payment-traveller.mb-0
+                = form_for(@address, url: address_path(@address), html: { method: :put, class: "form-horizontal" }) do |f|
+                  .form-horizontal
+                    .form-group.gap-20
+                      = f.label :family_name, "姓:", class: "col-sm-4 col-md-4 control-label"
+                      .col-sm-8.col-md-6
+                        = f.text_field :family_name, class: "form-control"
+                  .form-horizontal
+                    .form-group.gap-20
+                      = f.label :first_name, "名:", class: "col-sm-4 col-md-4 control-label"
+                      .col-sm-8.col-md-6
+                        = f.text_field :first_name, class: "form-control"
+                  .form-horizontal
+                    .form-group.gap-20
+                      = f.label :post_number, "郵便番号:", class: "col-sm-4 col-md-4 control-label"
+                      .col-sm-8.col-md-6
+                        = f.text_field :post_number, class: "form-control"
+                  .form-horizontal
+                    .form-group.gap-20
+                      = f.label :street_address, "住所:", class: "col-sm-4 col-md-4 control-label"
+                      .col-sm-8.col-md-6
+                        = f.text_field :street_address, class: "form-control"
+                  .text-center
+                    = f.submit "購入者情報の編集", class: "btn btn-primary btn-sm btn-inverse"
+          .payment-box
+            .payment-header.clearfix
+              %h5.heading.mt-0 登録情報
+            .payment-content
+              .payment-traveller.mb-0
+                = form_for(@user, url: "/users", html: { method: :put, class: "form-horizontal" }) do |f|
+                  .form-horizontal
+                    .form-group.gap-20
+                      = f.label :nickname, "ニックネーム:", class: "col-sm-4 col-md-4 control-label"
+                      .col-sm-8.col-md-6
+                        = f.text_field :nickname, class: "form-control"
+                  .form-horizontal
+                    .form-group.gap-20
+                      = f.label :email, "メールアドレス:", class: "col-sm-4 col-md-4 control-label"
+                      .col-sm-8.col-md-6
+                        = f.text_field :email, class: "form-control"
+                  .form-horizontal
+                    .form-group.gap-20
+                      = f.label :current_password, "現在のパスワード:", class: "col-sm-4 col-md-4 control-label"
+                      .col-sm-8.col-md-6
+                        = f.password_field :current_password, class: "form-control", autocomplete: "off"
+                  .form-horizontal
+                    .form-group.gap-20
+                      = f.label :password, "新しいパスワード:", class: "col-sm-4 col-md-4 control-label"
+                      .col-sm-8.col-md-6
+                        = f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "変更しない場合は空にして下さい"
+                        - if @minimum_password_length
+                          %br/
+                          %em
+                            = @minimum_password_length
+                            文字以上で入力して下さい
+                  .form-horizontal
+                    .form-group.gap-20
+                      = f.label :password_confirmation, "新しいパスワード(確認):", class: "col-sm-4 col-md-4 control-label"
+                      .col-sm-8.col-md-6
+                        = f.password_field :password_confirmation, class: "form-control", autocomplete: "off"
+                  .text-center
+                    = f.submit "登録情報の編集", class: "btn btn-primary btn-sm btn-inverse"
+        .col-sm-4.col-md-4.mt-50-xs
+          %aside.sidebar
+            .sidebar-inner.no-border.for-blog
+              .clear
+              .sidebar-module
+                %h4.sidebar-title 購入履歴
+                .sidebar-module-inner
+                  %ul.sidebar-post
+                    = render partial: "bought", collection: @user.buyer_books, as: :bought_book
+              .clear
+/ end Main Wrapper

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :dealings, only: [:new, :create]
     resources :favorites, only: [:create, :destroy]
   end
-  resources :users, only: :show
+  resources :users, only: [:show, :edit]
   resources :addresses, only: :update
   root "books#index"
 end

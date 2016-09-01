@@ -186,6 +186,7 @@ a.tag-color {
 .flex-3 {
   display: flex;
   flex: 0 0 31%;
+  max-width: 31%;
 }
 
 .reset-pass-content {
@@ -195,4 +196,25 @@ a.tag-color {
 
 .fa-heart {
   color: pink;
+}
+
+.float-list {
+  float: left;
+  li {
+    padding: 5px 0;
+  }
+}
+
+.align-right {
+  text-align: right;
+}
+
+.pad-left {
+  padding-left: 10px;
+}
+
+.hidden-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
