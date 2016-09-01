@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-tagsinput
 //= require select2.full
 //= require jquery.placeholder.min
 //= require jquery.responsivegrid
