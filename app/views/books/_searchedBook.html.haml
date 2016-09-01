@@ -9,10 +9,13 @@
     .content
       .row.gap-10
         .col-sm-12.col-md-12
-          %h5= book.title
-          %p.line18= book.detail
+          %h5
+            = book.title
+            = render "books/favorite", book: book
+          %p.line18.hidden-text= book.detail
         .col-sm-12.col-md-12.text-left-sm
-          .price #{book.price}円
+          .price
+            #{book.price}円
         %p.font12.text-light
           - book.category_list.each do |category_tag|
             %span.tag-link= link_to category_tag, books_search_path(category: category_tag), class: "tag-color"

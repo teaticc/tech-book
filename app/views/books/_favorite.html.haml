@@ -1,0 +1,13 @@
+%span{id: "favorite_#{book.id}"}
+  - if user_signed_in?
+    - if current_user.favorites.pluck(:book_id).include?(book.id)
+      = link_to book_favorite_path(book, "#"), method: :delete, remote: true do
+        %span.btn
+          %i.fa.fa-heart
+    - else
+      = link_to book_favorites_path(book), method: :post, remote: true do
+        %span.btn
+          %i.fa.fa-heart-o
+  - else
+    %span.btn
+      %i.fa.fa-heart-o
