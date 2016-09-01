@@ -18,6 +18,7 @@
 //= require jquery.placeholder.min
 //= require jquery.responsivegrid
 //= require jquery.raty
+//= require jquery.easing.1.3
 //= require readmore.min
 //= require ion.rangeSlider.min
 //= require slick.min
