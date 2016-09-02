@@ -13,7 +13,6 @@ class DealingsController < ApplicationController
   end
 
   def create
-    binding.pry
     @dealing = Dealing.new(dealing_params)
     if @dealing.save
       @address = @dealing.address
@@ -49,7 +48,6 @@ class DealingsController < ApplicationController
   end
 
   def pay
-    binding.pry
     webpay = WebPay.new(ENV["WEBPAY_SECRET"])
     if current_user.customer_id.nil?
       new_customer = webpay.customer.create(
