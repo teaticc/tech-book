@@ -82,6 +82,8 @@
                           支払い方法:
                         .col-sm-6.col-md-6
                           = f.select :payment, { "クレジットカード": "credit_card", "銀行振り込み": "bank_account" }, { include_blank: "選択してください" }, { class: "form-control" }
+                      .text-center.hidden
+                        = javascript_include_tag "https://checkout.webpay.jp/v2/", class: 'webpay-button', data: { key: "#{ENV['WEBPAY_PUBLIC']}", lang: "ja", partial: true }
             .checkbox-block
               = f.check_box :registered, class: "checkbox", id: "accept_booking"
               / %input#accept_booking.checkbox{:name => "accept_booking", :type => "checkbox", :value => "paymentsCreditCard"}/

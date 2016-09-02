@@ -444,4 +444,11 @@ $(document).on("turbolinks:load", function(){
 
     });
 
+    $("#dealing_payment").change(function(){
+      if ($(this).val() === "credit_card") {
+        $("#WP_checkoutBox").parent().removeClass("hidden")
+      } else {
+        $("#WP_checkoutBox").parent().addClass("hidden")
+      }
+    })
 });
