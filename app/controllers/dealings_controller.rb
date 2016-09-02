@@ -26,7 +26,7 @@ class DealingsController < ApplicationController
         DealingMailer.credit_email(@book, @address).deliver_now
       end
     else
-      redirect_to :back, error: @dealing.errors.full_messages, "webpay_token": params["webpay-token"]
+      redirect_to :back, error: @dealing.errors.full_messages
     end
   end
 
