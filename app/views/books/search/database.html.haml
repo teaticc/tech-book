@@ -15,7 +15,7 @@
           = link_to "トップ", root_path
         %li
           %span カテゴリ：
-          = link_to @searcher[:category], books_search_path(category: @searcher[:category])
+          = link_to @searcher[:category], books_database_path(category: @searcher[:category])
           %span キーワード：#{@searcher[:keyword]}
   .content-wrapper
     .container
@@ -26,7 +26,7 @@
               .sidebar-search-header
                 %h4 再検索
               .sidebar-search-content
-                = form_tag books_search_path, method: :get do
+                = form_tag books_database_path, method: :get do
                   .form-group
                     = select "", :category, @categories.pluck(:name), { include_blank: "カテゴリを選択" }, { class: "select select2-multi form-control" }
                   .form-group
@@ -40,6 +40,6 @@
             .sorting-header
               %p.sorting-lead #{@books.total_count}件の検索結果が見つかりました。
           .package-list-item-wrapper.on-page-result-page.clearfix.flex-display
-            = render partial: "searchedBook", collection: @books, as: :book
-          = render partial: "bookPager", locals: { books: @books }
+            = render partial: "books/searchedBook", collection: @books, as: :book
+          = render partial: "books/bookPager", locals: { books: @books }
 / end Main Wrapper

@@ -59,7 +59,7 @@
                       %li
                         %span.font600 カテゴリ:
                         - @book.category_list.each do |category_tag|
-                          %span= link_to category_tag, books_search_path(category: category_tag), class: "tag-link"
+                          %span= link_to category_tag, books_database_path(category: category_tag), class: "tag-link"
                       %li
                         %span.font600 状態:
                         = @book.state
