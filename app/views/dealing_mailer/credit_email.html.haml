@@ -1,0 +1,26 @@
+%h2= "#{@book.title}のご注文を承りました"
+.clearfix.mb-20
+  .col-xs-8.col-md-4.pl-0
+    = image_tag @book.image
+.confirmation-content
+  .section-title.text-left
+    %h4 お届け先詳細
+  %ul.book-sum-list
+    %li
+      %span.font600 宛名:
+      = @address.family_name + " " + @address.first_name + " 様"
+    %li
+      %span.font600 書籍名:
+      = @book.title
+    %li
+      %span.font600 お届け先郵便番号:
+      = @address.post_number
+    %li
+      %span.font600> お届け先住所:
+      = @address.street_address
+    %li
+      %span.font600> お支払金額合計:
+      = ((@book.price + @book.postage) * 1.08).ceil
+      円（クレジット決済）
+  %p
+    出品者の発送を確認後、ご連絡を差し上げます
