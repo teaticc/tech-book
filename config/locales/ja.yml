@@ -36,6 +36,7 @@ ja:
         phone_number: 電話番号
       dealing:
         registered: 規約確認
+        payment: 支払い方法
       user:
         nickname: ニックネーム
         password: パスワード

@@ -75,6 +75,15 @@
                             住所:
                           .col-sm-6.col-md-6
                             = address_form.text_field :street_address, class: "form-control"
+                    .form-horizontal
+                      .form-group.gap-20
+                        = f.label :pay_select, class: "col-sm-4 col-md-4 control-label" do
+                          %span.necessary-info> *
+                          支払い方法:
+                        .col-sm-6.col-md-6
+                          = f.select :payment, { "クレジットカード": "credit_card", "銀行振り込み": "bank_account" }, { include_blank: "選択してください" }, { class: "form-control" }
+                      .text-center.hidden
+                        = javascript_include_tag "https://checkout.webpay.jp/v2/", class: 'webpay-button', data: { key: "#{ENV['WEBPAY_PUBLIC']}", lang: "ja", partial: true, previous: { token: true } }
             .checkbox-block
               = f.check_box :registered, class: "checkbox", id: "accept_booking"
               / %input#accept_booking.checkbox{:name => "accept_booking", :type => "checkbox", :value => "paymentsCreditCard"}/
@@ -83,6 +92,7 @@
                 及び
                 %a{:href => "#"}> プライバシーポリシー
                 に同意します。
+
             .row.mt-20.clearfix
               .col-sm-12.col-md-12
                 = f.button "注文を確定する", class: "btn btn-primary"
