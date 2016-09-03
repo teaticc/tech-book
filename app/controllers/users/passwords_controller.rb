@@ -11,7 +11,7 @@ class Users::PasswordsController < Devise::PasswordsController
     if successfully_sent?(resource)
       redirect_to root_path, flash: {notice: "入力されたアドレスにメールを送信しました"}
     else
-      flash[:error] = resource.errors.full_messages
+      flash.now[:error] = resource.errors.full_messages
       render :new
       # respond_with(resource)
     end
