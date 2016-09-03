@@ -14,8 +14,7 @@ class Books::SearchController < ApplicationController
           dataType: 'script',
           response_group: 'ItemAttributes, Images',
           country: 'jp',
-          power: "Not kindle",
-          sort: "salesrank"
+          power: "Not kindle"
         }
       )
       @books = []
