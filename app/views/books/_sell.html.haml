@@ -1,5 +1,6 @@
 .payment-traveller.mb-0
   = form_for book, class: "form-horizontal" do |f|
+    = f.hidden_field :amazon_url
     .form-horizontal
       .form-group.gap-20
         = f.label :title, class: "col-sm-2 col-md-2 control-label" do
@@ -46,6 +47,7 @@
         = f.label :remote_image_url, "画像(URL):", class: "col-sm-2 col-md-2 control-label"
         .col-sm-10.col-md-10
           = f.text_field :remote_image_url, class: "form-control"
+          = image_tag @book.image_url, class: "img-thumbnail" if @book.image.present?
     .text-center
       - if request.path_info == new_book_path
         = f.submit "出品", class: "btn btn-primary btn-bg btn-lg"

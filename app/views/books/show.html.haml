@@ -11,6 +11,9 @@
         .flex-column.flex-md-4.flex-align-bottom.flex-sm-12.mt-20-sm
           .text-right.text-left-sm
             = link_to "購入ページへ", new_book_dealing_path(@book), class: "anchor btn btn-primary"
+          - if @book.amazon_url.present?
+            .text-right.text-left-sm
+              = link_to image_tag("amazon.png"), @book.amazon_url, class: "btn amazon-btn"
   / end Page title
   .breadcrumb-wrapper.bg-light-2
     .container
