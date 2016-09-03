@@ -451,4 +451,9 @@ $(document).on("turbolinks:load", function(){
         $("#WP_checkoutBox").parent().addClass("hidden")
       }
     })
+
+    $("div.bootstrap-tagsinput:not(:last)").remove()
+    $("span.select2.select2-container.select2-container--default:not(:first)").remove()
+    $("span.select2.select2-container.select2-container--default")
+    $("span.select2[style='width: 1px;']").css("width", "100%")
 });
