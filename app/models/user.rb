@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   has_many :favorite_books, through: :favorites, source: :book
   has_one :address, as: :addressable
+  mount_uploader :avatar, AvatarUploader
 
   devise :omniauthable, omniauth_providers: [:facebook]
   def self.find_first_by_auth_conditions(warden_conditions)

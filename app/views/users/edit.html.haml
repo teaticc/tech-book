@@ -1,4 +1,5 @@
 .clear
+- binding.pry
 / start Main Wrapper
 .main-wrapper.scrollspy-container
   / start end Page title
@@ -7,7 +8,7 @@
       .row
         .col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
           %h2.text-white= @user.nickname
-          .user-thumbnail.mb-10{:style => "background-image:url('/assets/sekiya.jpeg');"}
+          = image_tag @user.avatar.url, class: "user-thumbnail mb-10 width-auto" if @user.avatar?
   / end Page title
   .content-wrapper
     .container
@@ -54,6 +55,12 @@
                         = f.text_field :nickname, class: "form-control"
                   .form-horizontal
                     .form-group.gap-20
+                      = f.label :avatar, "アバター:", class: "col-sm-4 col-md-4 control-label"
+                      .col-sm-8.col-md-6
+                        = f.file_field :avatar, class: "form-control"
+                        = image_tag @user.avatar.url, class: "img-thumbnail avatar-box center-block" if @user.avatar?
+                  .form-horizontal
+                    .form-group.gap-20
                       = f.label :email, "メールアドレス:", class: "col-sm-4 col-md-4 control-label"
                       .col-sm-8.col-md-6
                         = f.text_field :email, class: "form-control"
@@ -87,6 +94,6 @@
                 %h4.sidebar-title 購入履歴
                 .sidebar-module-inner
                   %ul.sidebar-post
-                    = render partial: "bought", collection: @user.buyer_books, as: :bought_book
+                    = render partial: "books/bought", collection: @user.buyer_books, as: :bought_book
               .clear
 / end Main Wrapper
