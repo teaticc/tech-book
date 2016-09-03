@@ -15,6 +15,7 @@ ja:
           blank: は必須項目です
       messages:
         blank: は必須項目です
+        not_a_number: は半角数字で入力してください
         record_invalid: "バリデーションに失敗しました: %{errors}"
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
