@@ -16,15 +16,9 @@ class BooksController < ApplicationController
                          .page(params[:page])
   end
 
-  def search
-    books_search
-    @searcher = { category: params[:category], keyword: params[:keyword] }
-    @categories = ActsAsTaggableOn::Tag.all.order(taggings_count: :desc)
-  end
-
-
   def new
-    @book = Book.new
+    @book = Book.new(title: params[:title], amazon_url: params[:amazon_url])
+    @book.remote_image_url = params[:image] if params[:image].present?
   end
 
   def create
@@ -58,31 +52,8 @@ class BooksController < ApplicationController
   end
 
   private
-
-  def books_search
-    if params[:category].present?
-      if params[:keyword].present?
-        @books = Book.tagged_with(params[:category])
-                     .where("title LIKE %#{params[:keyword]}%", "%#{params[:keyword]}%")
-                     .includes(:buyer)
-                     .page(params[:page])
-      else
-        @books = Book.tagged_with(params[:category])
-                     .includes(:buyer)
-                     .page(params[:page])
-      end
-    else
-      @books = Book.where("title LIKE ?", "%#{params[:keyword]}%")
-                   .includes(:buyer)
-                   .page(params[:page])
-    end
-    if params[:reject_sold] == "yes"
-      @books = @books.where(buyer_id: nil)
-    end
-  end
-
   def book_params
-    params.require(:book).permit(:title, :price, :postage, :state, :detail, :image, :category_list).merge(seller_id: current_user.id)
+    params.require(:book).permit(:title, :price, :postage, :state, :detail, :remote_image_url, :category_list, :amazon_url).merge(seller_id: current_user.id)
   end
 
   def set_book

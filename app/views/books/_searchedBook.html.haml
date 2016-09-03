@@ -18,4 +18,4 @@
             #{book.price}円
         %p.font12.text-light
           - book.category_list.each do |category_tag|
-            %span.tag-link= link_to category_tag, books_search_path(category: category_tag), class: "tag-color"
+            %span.tag-link= link_to category_tag, books_database_path(category: category_tag), class: "tag-color"

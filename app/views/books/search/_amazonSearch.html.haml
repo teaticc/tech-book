@@ -1,0 +1,7 @@
+%li.clearfix.panel.panel-default.amazon-panel
+  .panel-body
+    .col-md-4.col-sm-4
+      =image_tag book[:image], class: "img-thumbnail"
+    .content.col-md-8.col-sm-8
+      %h6= link_to book[:title], book[:amazon_url]
+      = link_to "この本の情報を使う", new_book_path(title: book[:title], image: book[:image], amazon_url: book[:amazon_url]), class: "btn btn-primary btn-inverse"

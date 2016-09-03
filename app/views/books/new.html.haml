@@ -16,7 +16,13 @@
           .payment-box
             .payment-header.clearfix
               %h4.heading.mt-0 出品する
-            .payment-content
+              .row.payment-box.clearfix
+                = form_tag books_amazon_path, method: :get, remote: true do
+                  .input-group
+                    %span.input-group-btn
+                      = submit_tag "情報を取得", class: "btn btn-primary"
+                    = text_field "", :keyword, class: "form-control", placeholder: "タイトル"
+                %ul#js-amazon-list
               = render "sell", book: @book
         .col-sm-4.col-md-4.mt-50-xs
           %aside.sidebar

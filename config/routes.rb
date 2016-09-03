@@ -7,7 +7,11 @@ Rails.application.routes.draw do
         passwords: "users/passwords",
         omniauth_callbacks: "users/omniauth_callbacks"
       }
-  get 'books/search', to: 'books#search'
+  # get 'books/search', to: 'books#search'
+  namespace :books do
+    get "/database", to: "search#database"
+    get "/amazon", to: "search#amazon"
+  end
   resources :books do
     resources :dealings, only: [:new, :create]
     resources :favorites, only: [:create, :destroy]
