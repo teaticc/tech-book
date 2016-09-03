@@ -7,7 +7,27 @@ class Books::SearchController < ApplicationController
   end
 
   def amazon
-    
+    if params[:keyword].present?
+      books = Amazon::Ecs.item_search(
+        params[:keyword], {
+          search_index: 'Books',
+          dataType: 'script',
+          response_group: 'ItemAttributes, Images',
+          country: 'jp',
+          power: "Not kindle",
+          sort: "salesrank"
+        }
+      )
+      @books = []
+      books.items.each do |item|
+        book = {
+          title: item.get('ItemAttributes/Title'),
+          image: item.get('LargeImage/URL'),
+          amazon_url: item.get('DetailPageURL')
+        }
+        @books << book
+      end
+    end
   end
 
   private

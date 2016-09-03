@@ -1,1 +1,2 @@
 console.log("ok")
+$("#js-amazon-list").html("<%= j(render partial: 'books/search/amazonSearch', collection: @books, as: :book) %>")
