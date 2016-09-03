@@ -445,7 +445,7 @@ $(document).on("turbolinks:load", function(){
     });
 
 
-    // original code
+    // display webpay button when selecting credit payment
     $("#dealing_payment").change(function(){
       if ($(this).val() === "credit_card") {
         $("#WP_checkoutBox").parent().removeClass("hidden")
@@ -454,6 +454,7 @@ $(document).on("turbolinks:load", function(){
       }
     })
 
+    // prevent increasing box elements created by jquery
     $("div.bootstrap-tagsinput:not(:last)").remove()
     $("span.select2.select2-container.select2-container--default:not(:first)").remove()
     $("span.select2.select2-container.select2-container--default")
