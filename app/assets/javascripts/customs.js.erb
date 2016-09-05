@@ -455,8 +455,10 @@ $(document).on("turbolinks:load", function(){
     })
 
     // prevent increasing box elements created by jquery
+    // tagsinput
     $("div.bootstrap-tagsinput:not(:last)").remove()
+    // select2
     $("span.select2.select2-container.select2-container--default:not(:first)").remove()
-    $("span.select2.select2-container.select2-container--default")
-    $("span.select2[style='width: 1px;']").css("width", "100%")
+    $("span.select2.select2-container.select2-container--default").css("width", "100%")
+    // $("span.select2[style='width: 1px;']").css("width", "100%")
 });
