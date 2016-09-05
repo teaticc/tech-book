@@ -60,10 +60,10 @@ ActiveRecord::Schema.define(version: 20160905044554) do
 
   create_table "dealings", force: :cascade do |t|
     t.integer  "book_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "payment",    limit: 4, null: false
-    t.boolean  "paid"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "payment",    limit: 4,                 null: false
+    t.boolean  "paid",                 default: false
   end
 
   create_table "favorites", force: :cascade do |t|
