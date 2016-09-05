@@ -26,7 +26,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to root_path, notice: "出品しました"
     else
-      flash[:error] = @book.errors.full_messages
+      flash.now[:error] = @book.errors.full_messages
       render :new
     end
   end
@@ -38,7 +38,7 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       redirect_to root_path, notice: "出品内容を変更しました"
     else
-      flash[:error] = @book.errors.full_messages
+      flash.now[:error] = @book.errors.full_messages
       render :edit
     end
   end

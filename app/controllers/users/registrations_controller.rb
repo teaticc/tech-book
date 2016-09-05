@@ -28,7 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
-      flash[:error] = resource.errors.full_messages
+      flash.now[:error] = resource.errors.full_messages
       render :new
     end
   end
@@ -84,7 +84,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :email])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :email, :avatar])
   end
 
   # The path used after sign up.

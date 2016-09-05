@@ -7,7 +7,7 @@
       .row
         .col-sm-10.col-sm-offset-1.col-md-6.col-md-offset-3
           %h2.text-white= @user.nickname
-          .user-thumbnail.mb-10{:style => "background-image:url('/assets/sekiya.jpeg');"}
+          = image_tag @user.avatar, class: "user-thumbnail mb-10 width-auto" if @user.avatar?
   / end Page title
   .content-wrapper
     .container

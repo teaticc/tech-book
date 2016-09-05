@@ -13,7 +13,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
     else
       # session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to root_path, flash: {error: "Facebookでの認証に失敗しました"}
+      redirect_to root_path, error: "Facebookでの認証に失敗しました"
     end
   end
 
@@ -27,7 +27,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # GET|POST /users/auth/twitter/callback
   def failure
-    binding.pry
     redirect_to root_path
   end
 

@@ -1,4 +1,4 @@
-$(document).on("turbolinks:load",function () {
+document.addEventListener("turbolinks:load", function () {
   "use strict";
 
   var defaultOptions = {

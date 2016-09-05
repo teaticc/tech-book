@@ -243,15 +243,15 @@ a:focus {
     color: $dark_color;
 }
 
-::selection {
-    color: #FFF;
-    background: #DE261D;
-}
+// ::selection {
+//     color: #FFF;
+//     background: #DE261D;
+// }
 
-::-moz-selection {
-    color: #FFF;
-    background: #DE261D;
-}
+// ::-moz-selection {
+//     color: #FFF;
+//     background: #DE261D;
+// }
 
 strong {
     font-weight: 700 !important;

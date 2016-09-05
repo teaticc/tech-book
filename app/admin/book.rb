@@ -1,5 +1,11 @@
 ActiveAdmin.register Book do
 
+  controller do
+    def scoped_collection
+      Book.includes(:buyer, :seller)
+    end
+  end
+
   scope :all, default: true
   scope "出品中" do |books|
     books.where(buyer_id: nil)

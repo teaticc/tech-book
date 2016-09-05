@@ -25,6 +25,7 @@ class DealingsController < ApplicationController
         pay
         DealingMailer.credit_email(@book, @address).deliver_now
       end
+      DealingMailer.tell_order(@book).deliver_now if @book.seller.present?
     else
       redirect_to :back, error: @dealing.errors.full_messages
     end
