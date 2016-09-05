@@ -1,4 +1,10 @@
 ActiveAdmin.register Address do
+  controller do
+    def scoped_collection
+      Address.includes(:addressable, {addressable: :book})
+    end
+  end
+
   index do
     selectable_column
 

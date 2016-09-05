@@ -1,4 +1,11 @@
 ActiveAdmin.register Dealing do
+
+  controller do
+    def scoped_collection
+      Dealing.includes({book: :seller}, {book: :buyer})
+    end
+  end
+
   index do
     selectable_column
     column :book_id
