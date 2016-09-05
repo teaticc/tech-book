@@ -25,7 +25,6 @@ class Users::PasswordsController < Devise::PasswordsController
   # PUT /resource/password
   def update
     self.resource = resource_class.reset_password_by_token(resource_params)
-    binding.pry
     yield resource if block_given?
 
     if resource.errors.empty?
