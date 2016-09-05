@@ -1,0 +1,6 @@
+%h2= "あなたが出品中の#{@book.title}の注文が確定しました"
+.clearfix.mb-20
+  .col-xs-8.col-md-4.pl-0
+    = image_tag @book.image
+.confirmation-content
+  %p お支払いを確認次第、再度ご連絡を差し上げますので発送の準備をお願いいたします。

@@ -1,0 +1,14 @@
+<%= @book.title %>のご注文を承りました
+お届け先詳細
+宛名:
+<%= @address.family_name + " " + @address.first_name + " 様" %>
+書籍名:
+<%= @book.title %>
+お届け先郵便番号:
+<%= @address.post_number %>
+お届け先住所:
+<%= @address.street_address %>
+お支払金額合計:
+<%= ((@book.price + @book.postage) * 1.08).ceil %>円（クレジット決済）
+
+出品者の発送を確認後、ご連絡を差し上げます
