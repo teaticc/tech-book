@@ -13,4 +13,7 @@ ActiveAdmin.register User do
   filter :nickname
   filter :email, label: "メールアドレス"
   filter :sign_in_count, label: "ログイン回数"
+
+  sidebar :admin_menu, priority: 0, partial: "admin/menu"
+
 end

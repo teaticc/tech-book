@@ -24,7 +24,7 @@ ActiveAdmin.register_page "Dashboard" do
       render partial: "admin/booksGrid", locals: { books: Book.order(created_at: :desc).includes(:buyer).limit(12) }
     end
   end # content
-  sidebar "メニュー" do
+  sidebar "管理メニュー" do
     render "admin/menu"
   end
 end

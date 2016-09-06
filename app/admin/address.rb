@@ -1,7 +1,7 @@
 ActiveAdmin.register Address do
   controller do
     def scoped_collection
-      Address.includes(:addressable, {addressable: :book})
+      Address.includes(:addressable)
     end
   end
 
@@ -17,7 +17,7 @@ ActiveAdmin.register Address do
     column "住所タイプ" do |address|
       if address.addressable_type == "User"
          link_to "ユーザー: #{address.addressable.nickname}", admin_user_path(address.addressable)
-      else
+      elsif address.addressable_type == "Dealing"
          link_to "取引: #{address.addressable.book.title}", admin_dealing_path(address.addressable)
       end
     end
@@ -30,4 +30,7 @@ ActiveAdmin.register Address do
   filter :post_number
   filter :phone_number
   filter :addressable_type, label: "住所タイプ"
+
+  sidebar :admin_menu, priority: 0, partial: "admin/menu"
+
 end

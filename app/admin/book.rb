@@ -84,4 +84,6 @@ ActiveAdmin.register Book do
   filter :postage
   filter :buyer_nickname, as: :string, label: "購入者"
   filter :seller_nickname, as: :string, label: "出品者"
+
+  sidebar :admin_menu, priority: 0, partial: "admin/menu"
 end

@@ -44,4 +44,7 @@ ActiveAdmin.register Dealing do
   filter :book_buyer_nickname, as: :string, label: "購入者"
   filter :book_seller_nickname, as: :string, label: "出品者"
   filter :created_at, label: "購入日"
+
+  sidebar :admin_menu, priority: 0, partial: "admin/menu"
+
 end
