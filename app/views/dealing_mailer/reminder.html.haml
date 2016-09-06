@@ -1,0 +1,14 @@
+%h2 先日ご注文頂いた#{@book.title}のお支払い期限が迫っています
+.clearfix.mb-20
+  .col-xs-8.col-md-4.pl-0
+    = image_tag @book.image
+.confirmation-content
+  %ul.book-sum-list
+    %li
+      %p 先日ご注文頂きました#{@book.title}のお支払いがまだ確認できていません。
+      %p 明日までに<<口座番号>>へ下記金額をお振込みいただくようお願いいたします。
+    %li
+      %span.font600> お支払金額合計:
+      #{((@book.price + @book.postage) * 1.08).ceil}円
+  %p
+    お支払いを確認後、出品者の発送が確認でき次第、再度ご連絡を差し上げます
