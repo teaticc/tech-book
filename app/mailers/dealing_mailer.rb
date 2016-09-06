@@ -15,6 +15,12 @@ class DealingMailer < ApplicationMailer
 
   def tell_order(book)
     @book = book
-    mail to: @book.seller.email , subject: "#{@book.title}の注文が確定しました"
+    mail to: @book.seller.email, subject: "#{@book.title}の注文が確定しました"
+  end
+
+  def reminder(dealing)
+    @dealing = dealing
+    @book = dealing.book
+    mail to: @dealing.address.order_email, subject: "#{@book.title}のお支払い期限が迫っています"
   end
 end
