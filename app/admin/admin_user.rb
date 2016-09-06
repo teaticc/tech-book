@@ -19,4 +19,6 @@ ActiveAdmin.register AdminUser do
     f.actions
   end
 
+  sidebar :admin_menu, priority: 0, partial: "admin/menu"
+
 end

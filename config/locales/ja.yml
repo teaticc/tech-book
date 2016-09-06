@@ -315,3 +315,7 @@ ja:
       previous: "&lsaquo;"
       next:     "&rsaquo;"
       truncate: "&hellip;"
+  active_admin:
+    batch_actions:
+      labels:
+        toggle_paid: "支払い切り替え"
