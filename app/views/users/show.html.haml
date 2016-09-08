@@ -34,11 +34,12 @@
               %ul.list-info.no-icon.float-list.pad-left
                 %li= @user.nickname
                 %li= @user.email
-                %li= @user.address.post_number
-                %li= @user.address.family_name
-                %li= @user.address.family_name
-                %li= @user.address.street_address
-                %li= @user.address.phone_number
+                - if @user.address.present?
+                  %li= @user.address.family_name
+                  %li= @user.address.first_name
+                  %li= @user.address.post_number
+                  %li= @user.address.street_address
+                  %li= @user.address.phone_number
           %h5.heading.mt-0 お気に入り書籍
           .package-list-item-wrapper.on-page-result-page.clearfix.flex-display
             = render partial: "books/searchedBook", collection: @user.favorite_books, as: :book
