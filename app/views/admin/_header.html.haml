@@ -1,9 +1,6 @@
 #header.header.admin-header
   %h1#site_title.site_title
     = link_to image_tag("techbook_logo.png", alt: "logo"), root_path, class: "navbar-logo"
-  %ul#tabs.header-item.tabs
-    %li#dashboard
-      = link_to "管理", admin_root_path
   %ul#utility_nav.header-item.tabs
     %li#logout
       = link_to "管理画面からログアウト", destroy_admin_user_session_path

@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'a9e44eea9d092fe0411c7713de4374fe00103f9fc49085b6cbbb967db509cbbf1aff81bd3e2c47c52b65b45079786616a5a66bb101d30ff4746dd3a12ee75843'
+  config.secret_key = ENV["SECRET_KEY_BASE"]
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -249,7 +249,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   if Rails.env.production?
-    config.omniauth :facebook, ENV["FBOOK_TBOOK_ID"], ENV["FBOOK_TBOOK_PASS"], callback_url: "http://tech-book-heroku.herokuapp.com/users/auth/facebook/callback"
+    config.omniauth :facebook, ENV["FBOOK_TBOOK_ID"], ENV["FBOOK_TBOOK_PASS"], callback_url: "http://52.196.72.59/users/auth/facebook/callback"
   else
     config.omniauth :facebook, ENV["FBOOK_TBOOK_ID"], ENV["FBOOK_TBOOK_PASS"], callback_url: "http://localhost:3000/users/auth/facebook/callback"
   end
