@@ -68,3 +68,4 @@ gem "webpay"
 gem "amazon-ecs"
 gem "whenever", require: false
 gem "capistrano"
+gem "capistrano-rbenv"

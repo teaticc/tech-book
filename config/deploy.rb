@@ -2,7 +2,9 @@
 lock '3.6.1'
 
 set :application, 'tech-book'
-set :repo_url, 'git@github.com:teaticc/tech-book'
+set :repo_url, 'git@github.com:teaticc/tech-book.git'
+
+set :rbenv_ruby, "2.3.1"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -30,7 +32,13 @@ set :pty, true
 # append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
 
 # Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_env, {
+  ACCESS_KEY_ID: ENV["ACCESS_KEY_ID"],
+  SECRET_ACCESS_KEY: ENV["SECRET_ACCESS_KEY"],
+  SECRET_KEY_BASE: ENV["SECRET_KEY_BASE"],
+  TECH_BOOK_DATABASE_PASSWORD: ENV["TECH_BOOK_DATABASE_PASSWORD"],
+  DB_HOST: ENV["DB_HOST"]
+  }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
