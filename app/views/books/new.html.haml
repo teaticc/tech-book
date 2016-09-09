@@ -32,7 +32,7 @@
                 %h4.sidebar-title 出品中の本
                 .sidebar-module-inner
                   %ul.sidebar-post
-                    - if current_user.seller_books.present?
-                      = render partial: "onSale", collection: current_user.seller_books, as: :book
+                    - if @on_sale_books.present?
+                      = render partial: "onSale", collection: @on_sale_books, as: :book
                     - else
                       %p 現在出品中の本はありません

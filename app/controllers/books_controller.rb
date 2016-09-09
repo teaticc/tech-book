@@ -18,6 +18,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new(title: params[:title], amazon_url: params[:amazon_url])
+    @on_sale_books = current_user.seller_books.where(buyer_id: nil)
     @book.remote_image_url = params[:image] if params[:image].present?
   end
 
