@@ -29,15 +29,16 @@ set :pty, true
 # append :linked_files, 'config/database.yml', 'config/secrets.yml'
 
 # Default value for linked_dirs is []
-# append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads', 'public/assets')
+# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # Default value for default_env is {}
 set :default_env, {
   ACCESS_KEY_ID: ENV["ACCESS_KEY_ID"],
   SECRET_ACCESS_KEY: ENV["SECRET_ACCESS_KEY"],
   SECRET_KEY_BASE: ENV["SECRET_KEY_BASE"],
-  TECH_BOOK_DATABASE_PASSWORD: ENV["TECH_BOOK_DATABASE_PASSWORD"],
-  DB_HOST: ENV["DB_HOST"]
+  TECH_BOOK_DATABASE_PASSWORD: ENV['TECH_BOOK_DATABASE_PASSWORD'],
+  DB_HOST: ENV['DB_HOST']
   }
 
 # Default value for keep_releases is 5
@@ -46,3 +47,14 @@ set :default_env, {
 set :migration_role, :app
 
 set :conditionally_migrate, true
+
+set :log_level, :debug
+
+namespace :deploy do
+  after :publishing, :restart
+
+  desc "Restart application"
+  task :restart do
+    invoke "unicorn:restart"
+  end
+end

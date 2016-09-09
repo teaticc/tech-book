@@ -8,7 +8,7 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 server "52.196.72.59", user: "tbook_developer", roles: %w{web app db}
-set :ssh_options, keys: "~/.ssh/tbook_key_rsa"
+set :ssh_options, keys: "~/.ssh/tbook_key_rsa", forward_agent: true
 
 # role-based syntax
 # ==================
@@ -20,7 +20,7 @@ set :ssh_options, keys: "~/.ssh/tbook_key_rsa"
 
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
-# role :db,  %w{deploy@example.com}
+# role :db,  %w{52.196.72.59}, priary: true
 
 
 
