@@ -11,10 +11,10 @@
           %span= link_to category_tag, books_database_path(category: category_tag), class: "tag-color"
     .content.clearfix
       %h5= link_to book.title, book_path(book), class: "green-bold"
-      .rating-wrapper
-        .raty-wrapper
-          .star-rating-read-only{"data-rating-score" => "4.0"}
-          %span / 7 review
+      / .rating-wrapper
+      /   .raty-wrapper
+      /     .star-rating-read-only{"data-rating-score" => "4.0"}
+      /     %span / 7 review
       .absolute-in-content
         = render "books/favorite", book: book
         .price
