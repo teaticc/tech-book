@@ -2,7 +2,9 @@
   .modal-body.pb-5
     #js-signup-error
     %h3.text-center.heading.mt-10.mb-20 新規登録
-    = link_to "Facebookで登録", user_facebook_omniauth_authorize_path, class: "btn btn-facebook btn-block"
+    = link_to "Facebookで登録/ログイン", user_facebook_omniauth_authorize_path, class: "btn btn-facebook btn-block"
+    = link_to "Googleで登録/ログイン", user_google_oauth2_omniauth_authorize_path, class: "btn btn-facebook btn-block"
+    = link_to "Twitterで登録/ログイン", user_twitter_omniauth_authorize_path, class: "btn btn-facebook btn-block"
     .modal-seperator
       %span or
     .form-group

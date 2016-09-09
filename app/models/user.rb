@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_one :address, as: :addressable
   mount_uploader :avatar, AvatarUploader
 
-  devise :omniauthable, omniauth_providers: [:facebook]
+  devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2, :twitter]
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.nickname = auth.info.name   # assuming the user model has a name
+      user.nickname = auth.info.nickname   # assuming the user model has a name
       # user.image = auth.info.image # assuming the user model has an image
     end
   end
