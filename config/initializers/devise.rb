@@ -255,6 +255,11 @@ Devise.setup do |config|
   end
   config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_PASS"], {}
   config.omniauth :twitter, ENV["TWITTER_API_KEY"], ENV["TWITTER_API_SECRET"], callback_url: "http://localhost:3000/users/auth/twitter/callback"
+  config.omniauth :yahoojp, ENV["YAHOO_API_KEY"], ENV["YAHOO_API_SECRET"], {
+    scope: "openid profile email",
+    callback_url: "http://localhost:3000/users/auth/yahoojp/callback"
+    }
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

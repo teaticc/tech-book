@@ -285,6 +285,7 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    httpauth (0.2.1)
     i18n (0.7.0)
     inflecto (0.0.2)
     inherited_resources (1.6.0)
@@ -356,8 +357,10 @@ GEM
     omniauth-twitter (1.2.1)
       json (~> 1.3)
       omniauth-oauth (~> 1.1)
-    omniauth-yahoo (0.0.8)
-      omniauth-oauth (~> 1.0)
+    omniauth-yahoojp (0.1.2)
+      httpauth
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
     orm_adapter (0.5.0)
     pkg-config (1.1.7)
     polyamorous (1.3.1)
@@ -506,7 +509,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter
-  omniauth-yahoo
+  omniauth-yahoojp
   pry-rails
   puma
   rails (= 4.2.6)
