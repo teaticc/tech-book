@@ -14,6 +14,12 @@
           - if @book.amazon_url.present?
             .text-right.text-left-sm
               = link_to image_tag("amazon.png"), @book.amazon_url, class: "btn amazon-btn"
+          %ul
+            %li
+              %a.twitter-share-button{"data-hashtags" => "TechBook", "data-size" => "large", "data-text" => "TechBook: " + @book.title, :href => "https://twitter.com/share"} Tweet
+            %li
+              .fb-like{"data-action" => "like", "data-href" => "http://52.196.72.59/books/4", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "false", "data-size" => "large"}
+
   / end Page title
   .breadcrumb-wrapper.bg-light-2
     .container
