@@ -11,15 +11,6 @@
         .flex-column.flex-md-4.flex-align-bottom.flex-sm-12.mt-20-sm
           .text-right.text-left-sm
             = link_to "購入ページへ", new_book_dealing_path(@book), class: "anchor btn btn-primary"
-          - if @book.amazon_url.present?
-            .text-right.text-left-sm
-              = link_to image_tag("amazon.png"), @book.amazon_url, class: "btn amazon-btn"
-          %ul
-            %li
-              %a.twitter-share-button{"data-hashtags" => "TechBook", "data-size" => "large", "data-text" => "TechBook: " + @book.title, :href => "https://twitter.com/share"} Tweet
-            %li
-              .fb-like{"data-action" => "like", "data-href" => "http://52.196.72.59/books/4", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "false", "data-size" => "large"}
-
   / end Page title
   .breadcrumb-wrapper.bg-light-2
     .container
@@ -31,47 +22,57 @@
   .content-wrapper
     .container
       .row
-        .col-sm-3.col-xs-12.mb-50-xs
-          .scrollspy-sidebar.sidebar-detail{:role => "complementary"}
+        .col-sm-3.col-xs-12
+          .sidebar-detail{:role => "complementary"}
             = image_tag @book.image, alt: @book.title
             - if @book.buyer.present?
               .absolute-in-image
                 = image_tag "sold3.svg", class: "sold-out"
-        .col-md-9.mt-30-xs{:role => "main"}
+              .text-right.text-left-sm
+            - if @book.amazon_url.present?
+              = link_to image_tag("amazon.png"), @book.amazon_url, class: "btn amazon-btn"
+            %ul.list-inline
+              %li.txt-top
+                %a.twitter-share-button{"data-hashtags" => "TechBook", "data-size" => "large", "data-text" => "TechBook: " + @book.title, :href => "http://twitter.com/share"} Tweet
+              %li.txt-top
+                .fb-like{"data-action" => "like", "data-href" => "http://52.196.72.59/books/4", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "false", "data-size" => "large"}
+        .col-sm-9.col-xs-12.mt-30-xs{:role => "main"}
           .detail-content-wrapper
             #section-0.detail-content
-              .section-title.text-left
-                %h4 概要
-              %h5.heading
-                = @book.title
-                = render "favorite", book: @book
-              %h5.price.mt-0
-                合計金額:
-                %span #{((@book.price + @book.postage) * 1.08).ceil}円
+              .row
+                .col-sm-8.col-xs-12.mb-50-xs
+                  .section-title.text-left
+                    %h4 概要
+                  %h5.heading
+                    = @book.title
+                    = render "favorite", book: @book
+                  %h5.price.mt-0
+                    合計金額:
+                    %span #{((@book.price + @book.postage) * 1.08).ceil}円
+                .col-sm-4.col-xs-12
+                  %ul.list-info.no-icon.bb-dotted
+                    %li
+                      %span.font600 本体価格:
+                      #{@book.price}円
+                    %li
+                      %span.font600 送料:
+                      #{@book.postage}円
+                    %li
+                      %span.font600 出品者:
+                      = @book.seller.nickname if @book.seller.present?
+                    %li
+                      %span.font600 カテゴリ:
+                      - @book.category_list.each do |category_tag|
+                        %span= link_to category_tag, books_database_path(category: category_tag), class: "tag-link"
+                    %li
+                      %span.font600 状態:
+                      = @book.state
             %hr.section-line
             #section-2.detail-content
               .section-title.text-left
                 %h4 詳細
               .detail-item
                 .row
-                  .col-sm-4.col-sm-3
-                    %ul.list-info.no-icon.bb-dotted
-                      %li
-                        %span.font600 出品者:
-                        = @book.seller.nickname if @book.seller.present?
-                      %li
-                        %span.font600 本体価格:
-                        #{@book.price}円
-                      %li
-                        %span.font600 送料:
-                        #{@book.postage}円
-                      %li
-                        %span.font600 カテゴリ:
-                        - @book.category_list.each do |category_tag|
-                          %span= link_to category_tag, books_database_path(category: category_tag), class: "tag-link"
-                      %li
-                        %span.font600 状態:
-                        = @book.state
                   .col-sm-8.col-md-9
                     .itinerary-wrapper
                       .itinerary-item
