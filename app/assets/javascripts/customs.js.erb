@@ -1,3 +1,17 @@
+jQuery(function(){
+    /**
+     * Sticky Header
+     */
+    $(".main-wrapper").waypoint(function(direction) {
+      if (direction === "up") {
+        $(".navbar").removeClass("navbar-sticky")
+      }else{
+        $(".navbar").addClass("navbar-sticky")
+      }
+      return false;
+    }, { offset: -20 });
+})
+
 $(document).on("turbolinks:load", function(){
     
     
@@ -17,19 +31,6 @@ $(document).on("turbolinks:load", function(){
     //   }
     // });
 
-    
-    
-    /**
-     * Sticky Header
-     */
-    $(".container-wrapper").waypoint(function() {
-      $(".navbar").toggleClass("navbar-sticky-function");
-      $(".navbar").toggleClass("navbar-sticky");
-      return false;
-    }, { offset: "-20px" });
-    
-    
-    
     /**
      * Main Menu Slide Down Effect
      */
