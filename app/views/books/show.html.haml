@@ -46,6 +46,8 @@
                   %h5.heading
                     = @book.title
                     = render "favorite", book: @book
+                  %h6.heading
+                    = @book.author
                   %h5.price.mt-0
                     合計金額:
                     %span #{((@book.price + @book.postage) * 1.08).ceil}円

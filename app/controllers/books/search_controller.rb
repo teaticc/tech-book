@@ -21,6 +21,7 @@ class Books::SearchController < ApplicationController
       books.items.each do |item|
         book = {
           title: item.get('ItemAttributes/Title'),
+          author: item.get("ItemAttributes/Author"),
           image: item.get('LargeImage/URL'),
           amazon_url: item.get('DetailPageURL')
         }
@@ -34,7 +35,7 @@ class Books::SearchController < ApplicationController
     if params[:category].present?
       if params[:keyword].present?
         @books = Book.tagged_with(params[:category])
-                     .where("title LIKE %#{params[:keyword]}%", "%#{params[:keyword]}%")
+                     .where("title LIKE ?", "%#{params[:keyword]}%")
                      .includes(:buyer)
                      .page(params[:page])
       else

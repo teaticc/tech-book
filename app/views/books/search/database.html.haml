@@ -39,7 +39,7 @@
           .sorting-wrappper
             .sorting-header
               %p.sorting-lead #{@books.total_count}件の検索結果が見つかりました。
-          .package-list-item-wrapper.on-page-result-page.clearfix.flex-display
+          .package-list-item-wrapper.on-page-result-page.row.flex-display
             = render partial: "books/searchedBook", collection: @books, as: :book
           = render partial: "books/bookPager", locals: { books: @books }
 / end Main Wrapper

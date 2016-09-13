@@ -17,7 +17,7 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new(title: params[:title], amazon_url: params[:amazon_url])
+    @book = Book.new(title: params[:title], author: params[:author], amazon_url: params[:amazon_url])
     @on_sale_books = current_user.seller_books.where(buyer_id: nil)
     @book.remote_image_url = params[:image] if params[:image].present?
   end
@@ -54,7 +54,7 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :price, :postage, :state, :detail, :remote_image_url, :category_list, :amazon_url).merge(seller_id: current_user.id)
+    params.require(:book).permit(:title, :author, :price, :postage, :state, :detail, :remote_image_url, :category_list, :amazon_url).merge(seller_id: current_user.id)
   end
 
   def set_book
