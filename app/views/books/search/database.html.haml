@@ -23,23 +23,41 @@
         .col-sm-4.col-md-3
           %aside.sidebar.with-filter
             .sidebar-search-wrapper.bg-light-2
-              .sidebar-search-header
-                %h4 再検索
-              .sidebar-search-content
-                = form_tag books_database_path, method: :get do
-                  .form-group
-                    = select "", :category, @categories.pluck(:name), { include_blank: "カテゴリを選択" }, { class: "select select2-multi form-control" }
-                  .form-group
-                    = text_field "", :keyword, class: "form-control", placeholder: "キーワード", value: @searcher[:keyword]
-                  .checkbox-block
-                    = check_box_tag :reject_sold, "yes", false, class: "checkbox", id: "reject_sold"
-                    %label{ for: "reject_sold"} 取引済みの本を除外
-                  = submit_tag "書籍を検索", class: "btn btn-primary btn-block"
+              %h4.text-center
+                再検索
+              = form_tag books_database_path, method: :get, id: "search-submit" do
+                %ul.sidebar-search-header.nav-tabs.nav
+                  %li.active
+                    %a{ href: "#normal-search", "data-toggle" => "tab" }
+                      通常検索
+                  %li#search-checker
+                    %a{ href: "#custom-search", "data-toggle" => "tab" }
+                      詳細検索
+                .tab-content.mar-top-10
+                  .sidebar-search-content.active.tab-pane#normal-search
+                    .form-group
+                      = text_field "", :keyword, class: "form-control", placeholder: "キーワード", value: @searcher["keyword"]
+                  #custom-search.tab-pane
+                    .form-group
+                      = text_field "", :title, class: "form-control", placeholder: "タイトル", value: @searcher["title"]
+                    .form-group
+                      = text_field "", :author, class: "form-control", placeholder: "著者", value: @searcher["author"]
+                    .form-group
+                      = number_field_tag :min_price, @searcher["min_price"].to_i, in: 0...1000000, class: "form-control", placeholder: "最低価格"
+                    .form-group
+                      = number_field_tag :max_price, @searcher["max_price"].to_i, in: 0...1000000, class: "form-control", placeholder: "最大価格"
+                .form-group
+                  = select "", :category, @categories.pluck(:name), { include_blank: "カテゴリを選択" }, { class: "select select2-multi form-control" }
+                .checkbox-block
+                  = check_box_tag :reject_sold, "yes", false, class: "checkbox", id: "reject_sold"
+                  %label{ for: "reject_sold"} 取引済みの本を除外
+                = hidden_field_tag :search_type, "normal"
+                = submit_tag "書籍を検索", class: "btn btn-primary btn-block"
         .col-sm-8.col-md-9
           .sorting-wrappper
             .sorting-header
               %p.sorting-lead #{@books.total_count}件の検索結果が見つかりました。
-          .package-list-item-wrapper.on-page-result-page.clearfix.flex-display
+          .package-list-item-wrapper.on-page-result-page.row.flex-display
             = render partial: "books/searchedBook", collection: @books, as: :book
           = render partial: "books/bookPager", locals: { books: @books }
 / end Main Wrapper

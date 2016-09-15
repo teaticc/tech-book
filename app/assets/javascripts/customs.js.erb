@@ -1,3 +1,17 @@
+jQuery(function(){
+    /**
+     * Sticky Header
+     */
+    $(".main-wrapper").waypoint(function(direction) {
+      if (direction === "up") {
+        $(".navbar").removeClass("navbar-sticky")
+      }else{
+        $(".navbar").addClass("navbar-sticky")
+      }
+      return false;
+    }, { offset: -20 });
+})
+
 $(document).on("turbolinks:load", function(){
     
     
@@ -17,19 +31,6 @@ $(document).on("turbolinks:load", function(){
     //   }
     // });
 
-    
-    
-    /**
-     * Sticky Header
-     */
-    $(".container-wrapper").waypoint(function() {
-      $(".navbar").toggleClass("navbar-sticky-function");
-      $(".navbar").toggleClass("navbar-sticky");
-      return false;
-    }, { offset: "-20px" });
-    
-    
-    
     /**
      * Main Menu Slide Down Effect
      */
@@ -460,4 +461,12 @@ $(document).on("turbolinks:load", function(){
     // select2
     $("span.select2.select2-container.select2-container--default:not(:first)").remove()
     $("span.select2.select2-container.select2-container--default").css("width", "100%")
+
+    // check search type before submit
+    $("#search_type").val("normal")
+    $("#search-submit").on("submit", function() {
+      if ($("#search-checker").hasClass("active")) {
+        $("#search_type").val("custom")
+      }
+    })
 });

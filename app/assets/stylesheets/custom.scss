@@ -223,6 +223,10 @@ a.tag-color {
   margin-top: 30px;
 }
 
+.mar-top-10 {
+  margin-top: 10px;
+}
+
 .bootstrap-tagsinput{
   width: 100%;
   margin-bottom: 0;
@@ -275,4 +279,16 @@ a.green-bold {
 
 .txt-top {
   vertical-align: text-top;
+}
+
+@media only screen and (max-width: 991px) {
+    .main-search-wrapper.full-width .column-item.for-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 479px) {
+    .main-search-wrapper.full-width .column-item#long-column-item {
+        width: 100%;
+    }
 }

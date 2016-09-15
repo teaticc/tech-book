@@ -1,9 +1,13 @@
 class Books::SearchController < ApplicationController
-
+  include Search
   def database
-    books_search
-    @searcher = { category: params[:category], keyword: params[:keyword] }
+    @searcher = { category: params[:category] }
     @categories = ActsAsTaggableOn::Tag.all.order(taggings_count: :desc)
+    @books = Book.all.includes(:buyer).page(params[:page])
+    case params[:search_type]
+    when "custom" then custom_search
+    else books_search
+    end
   end
 
   def amazon
@@ -21,34 +25,12 @@ class Books::SearchController < ApplicationController
       books.items.each do |item|
         book = {
           title: item.get('ItemAttributes/Title'),
+          author: item.get("ItemAttributes/Author"),
           image: item.get('LargeImage/URL'),
           amazon_url: item.get('DetailPageURL')
         }
         @books << book
       end
-    end
-  end
-
-  private
-  def books_search
-    if params[:category].present?
-      if params[:keyword].present?
-        @books = Book.tagged_with(params[:category])
-                     .where("title LIKE %#{params[:keyword]}%", "%#{params[:keyword]}%")
-                     .includes(:buyer)
-                     .page(params[:page])
-      else
-        @books = Book.tagged_with(params[:category])
-                     .includes(:buyer)
-                     .page(params[:page])
-      end
-    else
-      @books = Book.where("title LIKE ?", "%#{params[:keyword]}%")
-                   .includes(:buyer)
-                   .page(params[:page])
-    end
-    if params[:reject_sold] == "yes"
-      @books = @books.where(buyer_id: nil)
     end
   end
 end

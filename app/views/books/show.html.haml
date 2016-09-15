@@ -35,7 +35,7 @@
               %li.txt-top
                 %a.twitter-share-button{"data-hashtags" => "TechBook", "data-size" => "large", "data-text" => "TechBook: " + @book.title, :href => "http://twitter.com/share"} Tweet
               %li.txt-top
-                .fb-like{"data-action" => "like", "data-href" => "http://52.196.72.59/books/4", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "false", "data-size" => "large"}
+                .fb-like{"data-action" => "like", "data-href" => "#{request.original_url}", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "false", "data-size" => "large"}
         .col-sm-9.col-xs-12.mt-30-xs{:role => "main"}
           .detail-content-wrapper
             #section-0.detail-content
@@ -46,6 +46,8 @@
                   %h5.heading
                     = @book.title
                     = render "favorite", book: @book
+                  %h6.heading
+                    = @book.author
                   %h5.price.mt-0
                     合計金額:
                     %span #{((@book.price + @book.postage) * 1.08).ceil}円

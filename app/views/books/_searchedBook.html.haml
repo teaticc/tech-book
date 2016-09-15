@@ -1,4 +1,4 @@
-.pl-0.ml-0.flex-display.flex-3
+.pl-0.ml-0.flex-display.col-xs-12.col-sm-6.col-md-4.col-lg-3
   .package-list-item.width100.pos-rel
     = link_to book_path(book) do
       .image
@@ -12,7 +12,7 @@
           %h5
             = book.title
             = render "books/favorite", book: book
-          %p.line18.hidden-text= book.detail
+          %p.line18.hidden-text= book.author
         .col-sm-12.col-md-12.text-left-sm
           .price
             #{book.price}円
