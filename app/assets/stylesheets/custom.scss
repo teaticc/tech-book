@@ -292,3 +292,10 @@ a.green-bold {
         width: 100%;
     }
 }
+
+@media (max-width: 767px) {
+    .navbar-mini > ul > li > a.btn {
+        border: 2px solid #FFF;
+    }
+}
+

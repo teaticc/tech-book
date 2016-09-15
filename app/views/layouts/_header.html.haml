@@ -26,9 +26,9 @@
                   - if user_signed_in?
                     %li.user-action
                       = link_to "出品", new_book_path, class: "btn btn-lg"
-                    %li.dropdown.bt-dropdown-click.hidden-xs
+                    %li.dropdown.bt-dropdown-click
                       %a#currncy-dropdown.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :role => "button"}
-                        %i.ion-android-settings.hidden-xss
+                        %i.ion-android-settings
                         メニュー
                         %span.caret
                       %ul.dropdown-menu{"aria-labelledby" => "language-dropdown"}
