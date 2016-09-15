@@ -250,15 +250,21 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   if Rails.env.production?
     config.omniauth :facebook, ENV["FBOOK_TBOOK_ID"], ENV["FBOOK_TBOOK_PASS"], callback_url: "http://52.196.72.59/users/auth/facebook/callback"
-  else
+    config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_PASS"], callback_url: "http://52.196.72.59/users/auth/google_oauth2/callback"
+    config.omniauth :twitter, ENV["TWITTER_API_KEY"], ENV["TWITTER_API_SECRET"], callback_url: "http://52.196.72.59/users/auth/twitter/callback"
+    config.omniauth :yahoojp, ENV["YAHOO_API_KEY"], ENV["YAHOO_API_SECRET"], {
+      scope: "openid profile email",
+      callback_url: "http://52.196.72.59/users/auth/yahoojp/callback"
+     }
+else
     config.omniauth :facebook, ENV["FBOOK_TBOOK_ID"], ENV["FBOOK_TBOOK_PASS"], callback_url: "http://localhost:3000/users/auth/facebook/callback"
+    config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_PASS"], {}
+    config.omniauth :twitter, ENV["TWITTER_API_KEY"], ENV["TWITTER_API_SECRET"], callback_url: "http://localhost:3000/users/auth/twitter/callback"
+    config.omniauth :yahoojp, ENV["YAHOO_API_KEY"], ENV["YAHOO_API_SECRET"], {
+      scope: "openid profile email",
+      callback_url: "http://localhost:3000/users/auth/yahoojp/callback"
+      }
   end
-  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_PASS"], {}
-  config.omniauth :twitter, ENV["TWITTER_API_KEY"], ENV["TWITTER_API_SECRET"], callback_url: "http://localhost:3000/users/auth/twitter/callback"
-  config.omniauth :yahoojp, ENV["YAHOO_API_KEY"], ENV["YAHOO_API_SECRET"], {
-    scope: "openid profile email",
-    callback_url: "http://localhost:3000/users/auth/yahoojp/callback"
-    }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
