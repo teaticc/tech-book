@@ -7,7 +7,7 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-server "52.196.72.59", user: "tbook_developer", roles: %w{web app db}
+server "tech-book.net", user: "tbook_developer", roles: %w{web app db}
 set :ssh_options, keys: "~/.ssh/tbook_key_rsa", forward_agent: true
 
 # role-based syntax
